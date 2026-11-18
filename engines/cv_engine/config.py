@@ -70,3 +70,31 @@ class CVQualityConfig(BaseModel):
         0.05,
         description="Fraction of pixels in high range (5%) that triggers an overexposure/glare clipping warning"
     )
+
+
+class CVPreprocessingConfig(BaseModel):
+    """Configuration settings for Stage 3 Image Preprocessing Pipeline."""
+    # Resize settings
+    resize_enabled: bool = Field(True, description="Enable aspect-preserving resizing")
+    max_width: int = Field(1920, description="Maximum width constraint in pixels")
+    max_height: int = Field(1920, description="Maximum height constraint in pixels")
+    allow_upscaling: bool = Field(False, description="Whether to upscale images smaller than target bounds")
+
+    # CLAHE contrast enhancement settings
+    clahe_enabled: bool = Field(True, description="Enable Contrast Limited Adaptive Histogram Equalization")
+    clahe_clip_limit: float = Field(2.0, description="CLAHE contrast clipping limit threshold")
+    clahe_tile_grid_size: Tuple[int, int] = Field((8, 8), description="Tile grid dimension (rows, cols)")
+
+    # Denoising settings
+    denoise_enabled: bool = Field(False, description="Enable edge-preserving denoising filter (disabled by default)")
+    denoise_method: str = Field("bilateral", description="Denoising algorithm: 'bilateral' or 'fast_nl_means'")
+    bilateral_d: int = Field(5, description="Diameter of each pixel neighborhood for bilateral filtering")
+    bilateral_sigma_color: float = Field(50.0, description="Filter sigma in color space for bilateral filtering")
+    bilateral_sigma_space: float = Field(50.0, description="Filter sigma in coordinate space for bilateral filtering")
+    fast_nl_h: float = Field(3.0, description="Filter strength for Fast Non-Local Means")
+
+    # Conservative deskewing settings
+    deskew_enabled: bool = Field(False, description="Enable conservative rotational deskewing (disabled by default)")
+    deskew_max_angle: float = Field(15.0, description="Maximum allowable rotation angle in degrees")
+    deskew_min_angle: float = Field(0.5, description="Minimum angle threshold in degrees to trigger rotation")
+    deskew_min_text_lines: int = Field(3, description="Minimum reliable text lines required to compute median skew")

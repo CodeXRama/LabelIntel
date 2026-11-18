@@ -84,6 +84,56 @@ class PreprocessingInfo(BaseModel):
         default_factory=list,
         description="List of applied filter names, e.g. ['aspect_resize', 'clahe', 'denoise', 'deskew']"
     )
+    skipped_operations: List[str] = Field(
+        default_factory=list,
+        description="List of operations evaluated but skipped with reason"
+    )
+    forward_matrix: List[List[float]] = Field(
+        default_factory=lambda: [[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]],
+        description="3x3 homogeneous transformation matrix from raw to processed coordinates"
+    )
+    inverse_matrix: List[List[float]] = Field(
+        default_factory=lambda: [[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]],
+        description="3x3 homogeneous inverse matrix from processed to raw coordinates"
+    )
+
+    def map_to_processed(self, x: float, y: float) -> Tuple[float, float]:
+        """Transform a 2D point from original raw image coordinates to processed image coordinates."""
+        m = self.forward_matrix
+        new_x = m[0][0] * x + m[0][1] * y + m[0][2]
+        new_y = m[1][0] * x + m[1][1] * y + m[1][2]
+        w = m[2][0] * x + m[2][1] * y + m[2][2]
+        if abs(w - 1.0) > 1e-7 and abs(w) > 1e-9:
+            new_x /= w
+            new_y /= w
+        return (round(new_x, 4), round(new_y, 4))
+
+    def map_to_original(self, x: float, y: float) -> Tuple[float, float]:
+        """Transform a 2D point from processed image coordinates back to original raw image coordinates."""
+        inv = self.inverse_matrix
+        orig_x = inv[0][0] * x + inv[0][1] * y + inv[0][2]
+        orig_y = inv[1][0] * x + inv[1][1] * y + inv[1][2]
+        w = inv[2][0] * x + inv[2][1] * y + inv[2][2]
+        if abs(w - 1.0) > 1e-7 and abs(w) > 1e-9:
+            orig_x /= w
+            orig_y /= w
+        return (round(orig_x, 4), round(orig_y, 4))
+
+    def transform_polygon_to_original(self, polygon: List[Point2D]) -> List[Point2D]:
+        """Invert all vertices of a polygon from processed coordinates back to original coordinates."""
+        mapped = []
+        for pt in polygon:
+            ox, oy = self.map_to_original(pt.x, pt.y)
+            mapped.append(Point2D(x=ox, y=oy))
+        return mapped
+
+    def transform_polygon_to_processed(self, polygon: List[Point2D]) -> List[Point2D]:
+        """Map all vertices of a polygon from original coordinates to processed coordinates."""
+        mapped = []
+        for pt in polygon:
+            px, py = self.map_to_processed(pt.x, pt.y)
+            mapped.append(Point2D(x=px, y=py))
+        return mapped
 
 
 class DetectionRegion(BaseModel):

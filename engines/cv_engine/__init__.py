@@ -4,7 +4,7 @@ Provides image validation, quality metrics, preprocessing, detection, OCR,
 and physical character measurement contracts.
 """
 
-from engines.cv_engine.config import CVValidationConfig, CVQualityConfig
+from engines.cv_engine.config import CVValidationConfig, CVQualityConfig, CVPreprocessingConfig
 from engines.cv_engine.schemas import (
     Point2D,
     BoundingBox,
@@ -22,6 +22,13 @@ from engines.cv_engine.schemas import (
 )
 from engines.cv_engine.validators import validate_image_input, detect_format_from_bytes
 from engines.cv_engine.quality import assess_image_quality
+from engines.cv_engine.preprocessors import (
+    aspect_preserving_resize,
+    apply_clahe,
+    apply_denoising,
+    apply_deskew,
+    preprocess_image,
+)
 
 
 def assess_image(
@@ -45,6 +52,7 @@ def assess_image(
 __all__ = [
     "CVValidationConfig",
     "CVQualityConfig",
+    "CVPreprocessingConfig",
     "Point2D",
     "BoundingBox",
     "ImageMetadata",
@@ -62,4 +70,9 @@ __all__ = [
     "detect_format_from_bytes",
     "assess_image_quality",
     "assess_image",
+    "aspect_preserving_resize",
+    "apply_clahe",
+    "apply_denoising",
+    "apply_deskew",
+    "preprocess_image",
 ]
