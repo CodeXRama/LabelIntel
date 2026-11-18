@@ -98,3 +98,7 @@ class CVPreprocessingConfig(BaseModel):
     deskew_max_angle: float = Field(15.0, description="Maximum allowable rotation angle in degrees")
     deskew_min_angle: float = Field(0.5, description="Minimum angle threshold in degrees to trigger rotation")
     deskew_min_text_lines: int = Field(3, description="Minimum reliable text lines required to compute median skew")
+
+
+# Re-export CVOCRConfig for centralized configuration access
+from engines.cv_engine.ocr.config import CVOCRConfig

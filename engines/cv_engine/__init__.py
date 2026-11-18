@@ -29,6 +29,12 @@ from engines.cv_engine.preprocessors import (
     apply_deskew,
     preprocess_image,
 )
+from engines.cv_engine.ocr import (
+    CVOCRConfig,
+    PaddleOCREngine,
+    get_ocr_engine,
+    parse_ocr_results,
+)
 
 
 def assess_image(
@@ -75,4 +81,8 @@ __all__ = [
     "apply_denoising",
     "apply_deskew",
     "preprocess_image",
+    "CVOCRConfig",
+    "PaddleOCREngine",
+    "get_ocr_engine",
+    "parse_ocr_results",
 ]
