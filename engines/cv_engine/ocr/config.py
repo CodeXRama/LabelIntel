@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 class CVOCRConfig(BaseModel):
     """Configuration parameters for PaddleOCR inference engine."""
     lang: str = Field("en", description="Target language code (e.g., 'en', 'ch')")
+    ocr_version: str = Field("PP-OCRv4", description="PaddleOCR model version ('PP-OCRv4' or 'PP-OCRv6')")
     device: str = Field("cpu", description="Execution device: 'cpu' or 'gpu'")
     enable_mkldnn: bool = Field(
         False,
@@ -18,8 +19,8 @@ class CVOCRConfig(BaseModel):
                     "to prevent PIR double-attribute conversion runtime exceptions."
     )
     use_textline_orientation: bool = Field(
-        True,
-        description="Whether to run textline direction classifier (PP-LCNet orientation model)"
+        False,
+        description="Whether to run textline direction classifier (PP-LCNet orientation model). Disabled for high-speed CPU inference."
     )
     use_doc_orientation_classify: bool = Field(
         False,
@@ -28,6 +29,18 @@ class CVOCRConfig(BaseModel):
     use_doc_unwarping: bool = Field(
         False,
         description="Whether to execute document geometric unwarping (UVDoc)"
+    )
+    text_det_limit_side_len: int = Field(
+        960,
+        ge=320,
+        le=4000,
+        description="Max side length for detection image resizing"
+    )
+    text_recognition_batch_size: int = Field(
+        16,
+        ge=1,
+        le=64,
+        description="Batch size for text recognition inference"
     )
     text_det_thresh: float = Field(
         0.3,
@@ -54,7 +67,7 @@ class CVOCRConfig(BaseModel):
         description="Post-parsing confidence filter threshold (defaults to 0.0 to avoid dropping statutory text)"
     )
     cpu_threads: int = Field(
-        4,
+        8,
         ge=1,
         le=32,
         description="Number of CPU computation threads allocated for inference"

@@ -1,7 +1,10 @@
 import axios from "axios";
 import { InspectionData, SampleImage } from "./types";
 
-const API_BASE = "http://127.0.0.1:8001";
+// Same-origin requests work in both the Vite dev server (via its /api proxy)
+// and a production deployment. An explicit URL remains available for a
+// separately hosted API through VITE_API_BASE_URL.
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
 
 export const api = {
   async getHealth() {

@@ -13,7 +13,7 @@ from sqlalchemy.orm import Session
 
 from backend.database import get_db, init_db
 from backend.models import InspectionModel
-from backend.service import process_inspection
+from backend.service import inspection_record_to_response, process_inspection
 
 # Initialize database tables on startup
 init_db()
@@ -89,18 +89,39 @@ async def upload_and_inspect(
 @app.post("/api/inspections/demo")
 def run_demo_sample(
     sample_path: str = Query(..., description="Relative path of sample inside data/samples (e.g. food/food_001.jpg)"),
+    refresh: bool = Query(False, description="Force a fresh OCR run instead of reusing a completed result"),
 ):
     """Runs the inspection pipeline on a pre-existing sample photograph."""
-    target = (Path("data/samples") / sample_path).resolve()
-    if not target.exists() or not target.is_file():
+    samples_dir = Path("data/samples").resolve()
+    target = (samples_dir / sample_path).resolve()
+    if not target.is_relative_to(samples_dir) or not target.exists() or not target.is_file():
         raise HTTPException(status_code=404, detail=f"Sample file not found: {sample_path}")
 
     category = target.parent.name
+    if not refresh:
+        db = next(get_db())
+        try:
+            cached = (
+                db.query(InspectionModel)
+                .filter(
+                    InspectionModel.filename == target.name,
+                    InspectionModel.category == category,
+                    InspectionModel.status == "COMPLETED",
+                )
+                .order_by(InspectionModel.created_at.desc())
+                .first()
+            )
+            if cached and Path(cached.image_path).exists() and cached.annotated_path and Path(cached.annotated_path).exists():
+                return inspection_record_to_response(cached, reused_existing=True)
+        finally:
+            db.close()
+
     content = target.read_bytes()
     result = process_inspection(
         file_bytes=content,
         filename=target.name,
         category_hint=category,
+        force_refresh=refresh,
     )
     return result
 

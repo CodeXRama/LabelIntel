@@ -2,7 +2,7 @@
 LabelIntel — Automated Full Website & End-to-End Pipeline Test
 Verifies:
 1. Frontend dev server (Vite on http://127.0.0.1:5173) serves valid HTML, React entrypoint, and styles.
-2. Backend API server (FastAPI on http://127.0.0.1:8001) responds to health check and samples list.
+2. Backend API server (FastAPI on http://127.0.0.1:8000) responds to health check and samples list.
 3. Full inspection workflow executed with a real packaging image (upload/demo).
 4. Validation, quality assessment, OCR, NLP extraction, evidence fusion, and compliance output.
 5. Rule provenance safety: source_status == 'unverified_reference' and absence of authoritative violation claims.
@@ -16,6 +16,11 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
 
 
 def test_website_e2e():
@@ -81,7 +86,8 @@ def test_website_e2e():
         with urllib.request.urlopen(req, timeout=180) as resp:
             insp = json.loads(resp.read().decode("utf-8"))
             elapsed = time.perf_counter() - t0
-            print(f"  ✓ Pipeline executed successfully in {elapsed:.1f} s!")
+            mode = "reused persisted result" if insp.get("reused_existing") else "fresh OCR run"
+            print(f"  ✓ Pipeline completed in {elapsed:.1f} s ({mode}).")
     except Exception as e:
         print(f"  ✗ Pipeline execution failed: {e}")
         return False

@@ -76,8 +76,8 @@ class CVPreprocessingConfig(BaseModel):
     """Configuration settings for Stage 3 Image Preprocessing Pipeline."""
     # Resize settings
     resize_enabled: bool = Field(True, description="Enable aspect-preserving resizing")
-    max_width: int = Field(1920, description="Maximum width constraint in pixels")
-    max_height: int = Field(1920, description="Maximum height constraint in pixels")
+    max_width: int = Field(960, description="Maximum width constraint in pixels (optimized for responsive CPU OCR)")
+    max_height: int = Field(960, description="Maximum height constraint in pixels (optimized for responsive CPU OCR)")
     allow_upscaling: bool = Field(False, description="Whether to upscale images smaller than target bounds")
 
     # CLAHE contrast enhancement settings

@@ -22,6 +22,9 @@ class InspectionModel(Base):
     height = Column(Integer, nullable=True)
     file_size_bytes = Column(Integer, nullable=True)
 
+    # File identification & hash caching
+    file_hash = Column(String(64), index=True, nullable=True)
+
     # File storage paths
     image_path = Column(String(512), nullable=False)
     annotated_path = Column(String(512), nullable=True)

@@ -49,12 +49,15 @@ class PaddleOCREngine:
 
             # Crucial Windows fix: enable_mkldnn=False avoids PIR double-attribute exceptions
             self._ocr = PaddleOCR(
+                ocr_version=self.config.ocr_version,
                 lang=self.config.lang,
                 device=self.config.device,
                 enable_mkldnn=self.config.enable_mkldnn,
                 use_textline_orientation=self.config.use_textline_orientation,
                 use_doc_orientation_classify=self.config.use_doc_orientation_classify,
                 use_doc_unwarping=self.config.use_doc_unwarping,
+                text_det_limit_side_len=self.config.text_det_limit_side_len,
+                text_recognition_batch_size=self.config.text_recognition_batch_size,
                 text_det_thresh=self.config.text_det_thresh,
                 text_det_box_thresh=self.config.text_det_box_thresh,
                 text_rec_score_thresh=self.config.text_rec_score_thresh,

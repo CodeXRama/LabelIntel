@@ -113,9 +113,9 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
           <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center space-y-3 z-10">
             <Loader2 className="w-8 h-8 animate-spin text-indigo-400" />
             <div className="text-center">
-              <p className="text-sm font-medium text-white">Running CV & Compliance Pipeline...</p>
+              <p className="text-sm font-medium text-white">Preparing inspection results...</p>
               <p className="text-xs text-slate-400">
-                Validation &bull; Quality &bull; Preprocessing &bull; PaddleOCR &bull; Evidence Fusion
+                Saved samples load quickly. New uploads run validation, PaddleOCR, evidence fusion, and compliance checks and may take up to two minutes on CPU.
               </p>
             </div>
           </div>
