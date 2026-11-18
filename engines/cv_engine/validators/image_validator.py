@@ -4,10 +4,12 @@ Validates file existence, format headers, dimensional bounds, aspect ratio,
 and image decodability.
 """
 
+import io
 from pathlib import Path
 from typing import Optional, Tuple, Union
 import cv2
 import numpy as np
+from PIL import Image
 
 from engines.cv_engine.config import CVValidationConfig
 from engines.cv_engine.schemas import ImageMetadata, ValidationResult
@@ -15,6 +17,8 @@ from engines.cv_engine.schemas import ImageMetadata, ValidationResult
 # Canonical Magic Bytes for Supported Formats
 MAGIC_BYTES_JPEG = b"\xff\xd8\xff"
 MAGIC_BYTES_PNG = b"\x89PNG\r\n\x1a\n"
+MAGIC_BYTES_RIFF = b"RIFF"
+MAGIC_BYTES_WEBP = b"WEBP"
 
 
 def detect_format_from_bytes(data: bytes) -> Optional[str]:
@@ -28,6 +32,10 @@ def detect_format_from_bytes(data: bytes) -> Optional[str]:
         return "JPEG"
     if data.startswith(MAGIC_BYTES_PNG):
         return "PNG"
+    if data.startswith(MAGIC_BYTES_RIFF) and len(data) >= 12 and data[8:12] == MAGIC_BYTES_WEBP:
+        return "WEBP"
+    if b"ftypavif" in data[:32] or b"ftypavis" in data[:32]:
+        return "AVIF"
     return None
 
 
@@ -141,10 +149,20 @@ def validate_image_input(
         nparr = np.frombuffer(raw_bytes, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_UNCHANGED)
         if img is None:
-            errors.append("Corrupted image data: OpenCV failed to decode the byte stream into an image matrix.")
-            return ValidationResult(is_valid=False, errors=errors, warnings=warnings), None
+            # Fallback to Pillow for formats not natively compiled into OpenCV Windows (e.g. AVIF)
+            pil_img = Image.open(io.BytesIO(raw_bytes))
+            if pil_img.mode == "RGBA":
+                bgra = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGBA2BGRA)
+                img = bgra
+            else:
+                rgb = np.array(pil_img.convert("RGB"))
+                img = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
     except Exception as e:
-        errors.append(f"Exception encountered during image decoding: {str(e)}")
+        errors.append(f"Corrupted image data or decoding exception: {str(e)}")
+        return ValidationResult(is_valid=False, errors=errors, warnings=warnings), None
+
+    if img is None:
+        errors.append("Corrupted image data: Failed to decode the byte stream into an image matrix.")
         return ValidationResult(is_valid=False, errors=errors, warnings=warnings), None
 
     # 4. Dimensional and Aspect Ratio Validation

@@ -169,6 +169,8 @@ def test_validate_empty_file(tmp_path: Path):
 def test_detect_format_from_bytes():
     assert detect_format_from_bytes(b"\xff\xd8\xff\xe0\x00\x10JFIF") == "JPEG"
     assert detect_format_from_bytes(b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR") == "PNG"
+    assert detect_format_from_bytes(b"RIFF\x20\x00\x00\x00WEBPVP8 ") == "WEBP"
+    assert detect_format_from_bytes(b"\x00\x00\x00\x20ftypavif\x00\x00\x00\x00") == "AVIF"
     assert detect_format_from_bytes(b"GIF89a\x01\x00") is None
     assert detect_format_from_bytes(b"short") is None
 

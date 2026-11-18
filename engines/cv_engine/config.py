@@ -27,7 +27,7 @@ class CVValidationConfig(BaseModel):
         description="Maximum aspect ratio (width / height) permitted (reject extreme 10:1 ribbons)"
     )
     allowed_formats: Tuple[str, ...] = Field(
-        ("JPEG", "PNG"),
+        ("JPEG", "PNG", "WEBP", "AVIF"),
         description="Tuple of permitted image format identifiers"
     )
     max_file_size_bytes: int = Field(
