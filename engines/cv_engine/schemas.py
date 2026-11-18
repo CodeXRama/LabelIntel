@@ -56,6 +56,23 @@ class ImageQualityMetrics(BaseModel):
     quality_warnings: List[str] = Field(default_factory=list, description="Quality alert messages for operator")
 
 
+class ValidationResult(BaseModel):
+    """Result of image format and dimension validation."""
+    is_valid: bool = Field(..., description="True if the image meets all structural and format requirements")
+    metadata: Optional[ImageMetadata] = Field(None, description="Extracted image metadata if valid")
+    errors: List[str] = Field(default_factory=list, description="Validation failure error messages")
+    warnings: List[str] = Field(default_factory=list, description="Non-fatal validation warnings")
+
+
+class ImageAssessmentResult(BaseModel):
+    """Composite result of Stage 1 (Validation) and Stage 2 (Quality Assessment)."""
+    validation: ValidationResult = Field(..., description="Validation outcome and image metadata")
+    quality: Optional[ImageQualityMetrics] = Field(
+        None,
+        description="Quality assessment metrics (None if image validation failed)"
+    )
+
+
 class PreprocessingInfo(BaseModel):
     """Record of preprocessing transformations applied before OCR/detection."""
     original_size: Tuple[int, int] = Field(..., description="(width, height) of raw input")
