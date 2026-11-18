@@ -1,11 +1,15 @@
 # ==============================================================
 # LabelIntel — Root Dependencies
 # ==============================================================
-# For Milestone 1 (CV Engine), install the scoped CV requirements:
-#   pip install -r requirements-cv.txt
-#
-# Backend, NLP, and Reporting dependencies will be introduced
-# in their respective milestones to avoid dependency bloat.
-# ==============================================================
 
+# Core Computer Vision Engine
 -r requirements-cv.txt
+
+# Backend API & Database
+fastapi>=0.115.0
+uvicorn>=0.30.0
+python-multipart>=0.0.12
+sqlalchemy>=2.0.0
+
+# NLP & Machine Learning
+scikit-learn>=1.5.0

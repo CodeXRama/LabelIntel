@@ -91,6 +91,11 @@ reports/*.xlsx
 reports/*.csv
 !reports/.gitkeep
 
+# SQLite Database
+*.db
+*.sqlite
+*.sqlite3
+
 # Paddle / Deep Learning cache
 .paddleocr/
 .paddle/
