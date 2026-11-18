@@ -1,1 +1,1 @@
-﻿"""LabelIntel NLP Engine."""
+"""LabelIntel NLP Engine."""

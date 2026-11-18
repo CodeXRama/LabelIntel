@@ -1,1 +1,1 @@
-﻿"""LabelIntel Test Suite."""
+"""LabelIntel Test Suite."""

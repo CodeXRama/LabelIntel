@@ -1,1 +1,1 @@
-﻿"""LabelIntel Multi-modal Fusion Engine."""
+"""LabelIntel Multi-modal Fusion Engine."""

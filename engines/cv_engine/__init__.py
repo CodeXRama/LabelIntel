@@ -1,1 +1,1 @@
-﻿"""LabelIntel Computer Vision Engine."""
+"""LabelIntel Computer Vision Engine."""

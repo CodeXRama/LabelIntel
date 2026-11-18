@@ -1,1 +1,1 @@
-﻿"""LabelIntel Legal Metrology Compliance Engine."""
+"""LabelIntel Legal Metrology Compliance Engine."""

@@ -1,1 +1,1 @@
-﻿"""LabelIntel Processing Engines Package."""
+"""LabelIntel Processing Engines Package."""

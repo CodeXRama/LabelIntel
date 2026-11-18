@@ -1,1 +1,1 @@
-﻿"""LabelIntel Backend Package."""
+"""LabelIntel Backend Package."""
