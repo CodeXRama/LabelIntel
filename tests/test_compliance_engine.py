@@ -1,6 +1,6 @@
 """
 LabelIntel — Unit Tests for Compliance Engine
-Tests deterministic rule evaluations, cautious classifications, and legal provenance.
+Tests deterministic rule evaluations, cautious classifications, source_status, and legal provenance.
 """
 
 from engines.compliance_engine.engine import get_compliance_engine
@@ -100,3 +100,46 @@ def test_compliance_mrp_without_inclusive_of_taxes_is_flagged():
     report = engine.evaluate_compliance(fusion_res)
     mrp_eval = next(a for a in report.assessments if a.rule.rule_id == "LM-2011-RULE-06-1-C")
     assert mrp_eval.status == ComplianceStatus.FLAGGED_FOR_REVIEW
+
+
+def test_compliance_provenance_safety_and_cautious_wording():
+    """
+    Asserts that:
+    1. Every evaluated rule carries source_status == 'unverified_reference'.
+    2. Overly authoritative or legally conclusive language (e.g. 'statutory violation', 'mandates')
+       is completely avoided in findings and recommendations.
+    3. Cautious heuristic phrasing ('detected', 'not detected', 'verify') is used.
+    4. Explicit non-legal-advice disclaimer is present on every assessment.
+    """
+    engine = get_compliance_engine()
+
+    # Empty declarations to trigger all non-detected branches
+    fusion_res = FusionInspectionResult(
+        source_image="empty_test.jpg",
+        total_declarations=0,
+        declarations=[],
+        unfused_ocr_block_ids=[],
+    )
+
+    report = engine.evaluate_compliance(fusion_res, category_hint="food")
+
+    # 1. Assert source_status on every rule
+    for assessment in report.assessments:
+        assert assessment.rule.source_status == "unverified_reference", (
+            f"Rule {assessment.rule.rule_id} must have source_status='unverified_reference', got '{assessment.rule.source_status}'"
+        )
+        assert "DISCLAIMER" in assessment.cautious_disclaimer
+
+        all_text = " ".join(assessment.findings + assessment.cautions_and_recommendations).lower()
+
+        # 2. Assert absence of unverified authoritative/statutory violation claims
+        assert "statutory violation" not in all_text, (
+            f"Overly authoritative phrase 'statutory violation' found in {assessment.assessment_id}: {all_text}"
+        )
+        assert "mandates" not in all_text, (
+            f"Authoritative term 'mandates' found in {assessment.assessment_id}: {all_text}"
+        )
+
+        # 3. Assert cautious detected/not-detected or verify phrasing
+        has_cautious_phrase = any(term in all_text for term in ["detected", "not detected", "verify", "check", "expect"])
+        assert has_cautious_phrase, f"Assessment {assessment.assessment_id} lacks cautious wording: {all_text}"

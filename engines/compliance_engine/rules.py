@@ -1,7 +1,12 @@
 """
-LabelIntel — Statutory Compliance Rule Implementations
-Deterministic rule checks for Legal Metrology (Packaged Commodities) Rules, 2011
+LabelIntel — Compliance Rule Implementations
+Deterministic heuristic checks based on Legal Metrology (Packaged Commodities) Rules, 2011
 and FSSAI (Labelling and Display) Regulations, 2020.
+
+PROVENANCE SAFETY AND HEURISTIC NOTICE:
+These checks provide automated, visual-semantic heuristic evaluations for packaging triage.
+Statutory references are provided as unverified references (`source_status="unverified_reference"`)
+to standard packaging conventions and are NOT authoritative legal determinations.
 """
 
 from typing import List, Optional
@@ -10,17 +15,18 @@ from engines.compliance_engine.schemas import (
     FieldComplianceAssessment,
     RuleProvenance,
 )
-from engines.fusion.schemas import FusedDeclaration, FusionInspectionResult
+from engines.fusion.schemas import FusedDeclaration
 from engines.nlp_engine.schemas import DeclarationType
 
 
-# Static Statutory Rule Definitions
+# Static Heuristic Rule Definitions with Unverified Reference Status
 RULE_LM_MRP = RuleProvenance(
     rule_id="LM-2011-RULE-06-1-C",
     statute_name="Legal Metrology (Packaged Commodities) Rules, 2011",
     rule_reference="Rule 6(1)(c)",
     title="Retail Sale Price (MRP) Declaration",
-    summary="Retail sale price shall be declared as 'Maximum Retail Price' or 'MRP' inclusive of all taxes.",
+    summary="Retail sale price declaration (MRP) including tax status statement.",
+    source_status="unverified_reference",
 )
 
 RULE_LM_NET_QTY = RuleProvenance(
@@ -28,7 +34,8 @@ RULE_LM_NET_QTY = RuleProvenance(
     statute_name="Legal Metrology (Packaged Commodities) Rules, 2011",
     rule_reference="Rule 6(1)(b) & Rule 11",
     title="Net Quantity in Standard Units",
-    summary="Net quantity shall be declared in terms of standard metric units (g, kg, ml, l) or numerical count.",
+    summary="Net quantity declaration in standard metric units (g, kg, ml, l) or numerical count.",
+    source_status="unverified_reference",
 )
 
 RULE_LM_MANUFACTURER = RuleProvenance(
@@ -36,7 +43,8 @@ RULE_LM_MANUFACTURER = RuleProvenance(
     statute_name="Legal Metrology (Packaged Commodities) Rules, 2011",
     rule_reference="Rule 6(1)(a)",
     title="Manufacturer / Packer Identity & Address",
-    summary="The name and complete physical address of the manufacturer, packer, or importer must be clearly declared.",
+    summary="Name and address declaration of the manufacturer, packer, or importer.",
+    source_status="unverified_reference",
 )
 
 RULE_LM_DATE = RuleProvenance(
@@ -44,7 +52,8 @@ RULE_LM_DATE = RuleProvenance(
     statute_name="Legal Metrology (Packaged Commodities) Rules, 2011",
     rule_reference="Rule 6(1)(d)",
     title="Month and Year of Manufacture / Packing",
-    summary="Month and year in which the commodity is manufactured, packed, or imported must be stated.",
+    summary="Month and year of manufacture, packing, or import declaration.",
+    source_status="unverified_reference",
 )
 
 RULE_LM_CONSUMER_CARE = RuleProvenance(
@@ -52,7 +61,8 @@ RULE_LM_CONSUMER_CARE = RuleProvenance(
     statute_name="Legal Metrology (Packaged Commodities) Rules, 2011",
     rule_reference="Rule 6(1)(f)",
     title="Consumer Care Grievance Redressal Mechanism",
-    summary="Name, address, telephone number, or email address of the consumer care contact must be provided.",
+    summary="Consumer care contact channel (address, telephone, or email).",
+    source_status="unverified_reference",
 )
 
 RULE_FSSAI_LICENSE = RuleProvenance(
@@ -60,12 +70,13 @@ RULE_FSSAI_LICENSE = RuleProvenance(
     statute_name="FSSAI (Labelling and Display) Regulations, 2020",
     rule_reference="Regulation 5(4)",
     title="FSSAI Logo and 14-Digit License / Registration",
-    summary="Every food package shall carry the FSSAI logo and 14-digit license number of the manufacturing / marketing unit.",
+    summary="FSSAI logo and 14-digit registration/license declaration for food items.",
+    source_status="unverified_reference",
 )
 
 
 def evaluate_mrp_rule(declarations: List[FusedDeclaration]) -> FieldComplianceAssessment:
-    """Evaluates compliance with Rule 6(1)(c) — MRP."""
+    """Evaluates presence and clarity of Retail Sale Price (MRP) declaration."""
     mrp_decls = [d for d in declarations if d.declaration_type == DeclarationType.MRP]
 
     if not mrp_decls:
@@ -75,7 +86,7 @@ def evaluate_mrp_rule(declarations: List[FusedDeclaration]) -> FieldComplianceAs
             status=ComplianceStatus.NON_COMPLIANT,
             findings=["No Maximum Retail Price (MRP) declaration detected in visible OCR text."],
             cautions_and_recommendations=[
-                "Statutory violation under Rule 6(1)(c). Ensure MRP is legibly printed with 'inclusive of all taxes'."
+                "MRP declaration not detected under automated heuristic evaluation. Verify whether retail sale price is printed on another panel with 'inclusive of all taxes'."
             ],
         )
 
@@ -89,8 +100,8 @@ def evaluate_mrp_rule(declarations: List[FusedDeclaration]) -> FieldComplianceAs
     status = ComplianceStatus.COMPLIANT
 
     if not is_inclusive:
-        findings.append("Mandatory phrase 'inclusive of all taxes' or 'incl. of all taxes' was not clearly verified.")
-        recommendations.append("Verify packaging explicitly includes the statutory 'incl. of all taxes' text.")
+        findings.append("Phrase 'inclusive of all taxes' or 'incl. of all taxes' was not detected in visible OCR text.")
+        recommendations.append("Verify packaging explicitly includes the expected 'incl. of all taxes' statement.")
         status = ComplianceStatus.FLAGGED_FOR_REVIEW
 
     if decl.combined_confidence < 0.80:
@@ -109,7 +120,7 @@ def evaluate_mrp_rule(declarations: List[FusedDeclaration]) -> FieldComplianceAs
 
 
 def evaluate_net_quantity_rule(declarations: List[FusedDeclaration]) -> FieldComplianceAssessment:
-    """Evaluates compliance with Rule 6(1)(b) — Net Quantity."""
+    """Evaluates presence and metric units of Net Quantity declaration."""
     qty_decls = [d for d in declarations if d.declaration_type == DeclarationType.NET_QUANTITY]
 
     if not qty_decls:
@@ -119,7 +130,7 @@ def evaluate_net_quantity_rule(declarations: List[FusedDeclaration]) -> FieldCom
             status=ComplianceStatus.NON_COMPLIANT,
             findings=["No Net Quantity declaration detected on evaluated packaging surface."],
             cautions_and_recommendations=[
-                "Rule 6(1)(b) mandates clear net quantity declaration in standard SI units (g, kg, ml, l)."
+                "Net quantity was not detected under automated heuristic check. Guidelines typically expect standard metric units (g, kg, ml, l, units)."
             ],
         )
 
@@ -134,7 +145,7 @@ def evaluate_net_quantity_rule(declarations: List[FusedDeclaration]) -> FieldCom
 
     if unit not in ("g", "kg", "ml", "l", "units"):
         findings.append(f"Non-standard or unverified metric unit '{unit}'.")
-        recs.append("Ensure unit strictly conforms to Schedule II standard metric designations.")
+        recs.append("Unit could not be verified against standard metric designations (g, kg, ml, l, units). Check package manually.")
         status = ComplianceStatus.FLAGGED_FOR_REVIEW
 
     return FieldComplianceAssessment(
@@ -148,7 +159,7 @@ def evaluate_net_quantity_rule(declarations: List[FusedDeclaration]) -> FieldCom
 
 
 def evaluate_manufacturer_rule(declarations: List[FusedDeclaration]) -> FieldComplianceAssessment:
-    """Evaluates compliance with Rule 6(1)(a) — Manufacturer."""
+    """Evaluates presence of Manufacturer or Packer declaration."""
     mfg_decls = [d for d in declarations if d.declaration_type in (DeclarationType.MANUFACTURER, DeclarationType.PACKER)]
 
     if not mfg_decls:
@@ -156,9 +167,9 @@ def evaluate_manufacturer_rule(declarations: List[FusedDeclaration]) -> FieldCom
             assessment_id="eval_lm_mfg",
             rule=RULE_LM_MANUFACTURER,
             status=ComplianceStatus.FLAGGED_FOR_REVIEW,
-            findings=["No explicit 'Manufactured by' or 'Packed by' entity found on this panel."],
+            findings=["No explicit 'Manufactured by' or 'Packed by' entity detected on this panel."],
             cautions_and_recommendations=[
-                "Verify whether manufacturer address is declared on another face of the package."
+                "Manufacturer or packer details not detected on this surface. Verify whether manufacturer address is declared on another face of the package."
             ],
         )
 
@@ -174,7 +185,7 @@ def evaluate_manufacturer_rule(declarations: List[FusedDeclaration]) -> FieldCom
 
 
 def evaluate_date_rule(declarations: List[FusedDeclaration]) -> FieldComplianceAssessment:
-    """Evaluates compliance with Rule 6(1)(d) — Manufacturing / Expiry Date."""
+    """Evaluates presence of Manufacturing, Expiry, or Best Before date declaration."""
     date_decls = [
         d for d in declarations
         if d.declaration_type in (DeclarationType.MFG_DATE, DeclarationType.EXPIRY_DATE, DeclarationType.BEST_BEFORE)
@@ -187,7 +198,7 @@ def evaluate_date_rule(declarations: List[FusedDeclaration]) -> FieldComplianceA
             status=ComplianceStatus.FLAGGED_FOR_REVIEW,
             findings=["No manufacturing date, packing date, or best-before period detected on this surface."],
             cautions_and_recommendations=[
-                "Check for ink-jet stamped or embossed date on package bottom, rim, or seal flap."
+                "Date declaration not detected in this view. Check for ink-jet stamped, embossed, or seal flap date codes."
             ],
         )
 
@@ -203,7 +214,7 @@ def evaluate_date_rule(declarations: List[FusedDeclaration]) -> FieldComplianceA
 
 
 def evaluate_consumer_care_rule(declarations: List[FusedDeclaration]) -> FieldComplianceAssessment:
-    """Evaluates compliance with Rule 6(1)(f) — Consumer Care."""
+    """Evaluates presence of Consumer Care grievance contact information."""
     care_decls = [d for d in declarations if d.declaration_type == DeclarationType.CONSUMER_CARE]
 
     if not care_decls:
@@ -213,7 +224,7 @@ def evaluate_consumer_care_rule(declarations: List[FusedDeclaration]) -> FieldCo
             status=ComplianceStatus.FLAGGED_FOR_REVIEW,
             findings=["Consumer care helpline or email was not detected in this image view."],
             cautions_and_recommendations=[
-                "Rule 6(1)(f) mandates consumer care contact. Check alternate faces of the package."
+                "Consumer care contact details not detected under automated heuristic evaluation. Check alternate faces of the package."
             ],
         )
 
@@ -232,7 +243,7 @@ def evaluate_fssai_rule(
     declarations: List[FusedDeclaration],
     category_hint: Optional[str] = None,
 ) -> FieldComplianceAssessment:
-    """Evaluates compliance with FSSAI regulations for food and beverage items."""
+    """Evaluates presence and format of FSSAI license declaration for food/beverage commodities."""
     is_food = category_hint in ("food", "beverages") if category_hint else False
 
     fssai_decls = [d for d in declarations if d.declaration_type == DeclarationType.FSSAI_LICENSE]
@@ -242,7 +253,7 @@ def evaluate_fssai_rule(
             assessment_id="eval_fssai_lic",
             rule=RULE_FSSAI_LICENSE,
             status=ComplianceStatus.NOT_APPLICABLE,
-            findings=["Non-food category commodity; FSSAI license regulation is not applicable."],
+            findings=["Non-food category commodity; FSSAI license check is not applicable."],
             cautions_and_recommendations=[],
         )
 
@@ -251,9 +262,9 @@ def evaluate_fssai_rule(
             assessment_id="eval_fssai_lic",
             rule=RULE_FSSAI_LICENSE,
             status=ComplianceStatus.FLAGGED_FOR_REVIEW,
-            findings=["Food/beverage commodity identified, but 14-digit FSSAI license was not recognized."],
+            findings=["Food/beverage commodity category indicated, but 14-digit FSSAI license was not recognized in visible OCR text."],
             cautions_and_recommendations=[
-                "Verify whether FSSAI logo and 14-digit license are printed on the front or side display panel."
+                "FSSAI license was not detected on this visible panel. Verify whether FSSAI logo and 14-digit registration appear on an alternate display panel."
             ],
         )
 
@@ -267,8 +278,8 @@ def evaluate_fssai_rule(
             rule=RULE_FSSAI_LICENSE,
             status=ComplianceStatus.FLAGGED_FOR_REVIEW,
             evidence_declaration_id=decl.declaration_id,
-            findings=[f"FSSAI reference found ({decl.raw_text}), but format validation was inconclusive."],
-            cautions_and_recommendations=["Inspect package to ensure complete 14-digit registration number."],
+            findings=[f"FSSAI reference found ({decl.raw_text}), but 14-digit format validation was inconclusive."],
+            cautions_and_recommendations=["Inspect package directly to confirm complete 14-digit registration number."],
         )
 
     return FieldComplianceAssessment(

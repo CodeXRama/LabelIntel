@@ -1,6 +1,9 @@
 """
 LabelIntel — Compliance Engine Main Orchestrator
-Aggregates statutory rule evaluations into a consolidated, evidence-backed compliance report.
+Aggregates deterministic heuristic rule evaluations into a consolidated, evidence-backed report.
+
+All evaluated rules include explicit `source_status="unverified_reference"` citations
+and cautious heuristic phrasing. These assessments do not constitute formal legal counsel.
 """
 
 import time

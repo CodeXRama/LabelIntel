@@ -1,5 +1,9 @@
 """
 LabelIntel — Compliance Engine Package
+Deterministic heuristic checks based on Legal Metrology and FSSAI packaging guidelines.
+
+Statutory citations are provided for informational benchmarking only with `source_status="unverified_reference"`,
+and must NOT be interpreted as formal legal advice or authoritative regulatory determinations.
 """
 
 from engines.compliance_engine.schemas import (

@@ -49,6 +49,7 @@ export interface RuleProvenance {
   rule_reference: string;
   title: string;
   summary: string;
+  source_status?: string;
 }
 
 export interface FieldComplianceAssessment {

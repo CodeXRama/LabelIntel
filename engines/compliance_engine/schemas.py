@@ -1,6 +1,12 @@
 """
 LabelIntel — Compliance Engine Schemas
-Data contracts for deterministic regulatory assessments with statutory rule provenance.
+Data contracts for deterministic packaging checks with explicit rule provenance.
+
+NOTE ON REGULATORY CITATIONS AND HEURISTIC NATURE:
+Statutory citations and regulatory references (e.g., Legal Metrology Rules, FSSAI regulations)
+provided in this engine are informational, unverified heuristic benchmarks for quality assurance
+and pre-screening triage. They are explicitly marked with `source_status="unverified_reference"`
+and must NOT be interpreted as authoritative legal advice, statutory findings, or government certifications.
 """
 
 from enum import Enum
@@ -31,6 +37,10 @@ class RuleProvenance(BaseModel):
     rule_reference: str = Field(..., description="Specific rule or section number")
     title: str = Field(..., description="Short descriptive title of the regulation")
     summary: str = Field(..., description="Summary of statutory requirement")
+    source_status: str = Field(
+        "unverified_reference",
+        description="Status of the legal reference (e.g. 'unverified_reference' indicating an automated heuristic benchmark)"
+    )
 
 
 class FieldComplianceAssessment(BaseModel):
