@@ -9,7 +9,7 @@ import json
 import time
 import uuid
 from pathlib import Path
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Callable, Dict, Optional, Tuple
 import cv2
 import numpy as np
 
@@ -69,8 +69,11 @@ def inspection_record_to_response(record: InspectionModel, reused_existing: bool
             "high_confidence_blocks": sum(1 for confidence in confidences if confidence >= 0.85),
             "average_confidence": round(float(np.mean(confidences)), 4) if confidences else 0.0,
         },
+        "ocr_blocks": ocr_blocks,
         "fused_declarations": declarations,
         "compliance_report": compliance,
+        "reused_existing": reused_existing,
+        "ocr_reused": None,
         "image_url": f"/api/inspections/{record.id}/image",
         "annotated_url": f"/api/inspections/{record.id}/annotated",
         "reused_existing": reused_existing,
@@ -108,17 +111,44 @@ def render_annotated_image(
     return output_path
 
 
+def render_ocr_overlay(source_bgr: np.ndarray, ocr_blocks: list, output_path: Path) -> Path:
+    """Render every OCR text region with tight, confidence-coded polygons."""
+    image = source_bgr.copy()
+    for block in ocr_blocks:
+        color = (40, 210, 80) if block.confidence >= 0.85 else (20, 165, 245)
+        points = np.array([[round(p.x), round(p.y)] for p in block.polygon], dtype=np.int32)
+        if len(points) < 3:
+            continue
+        cv2.polylines(image, [points], True, color, 2, cv2.LINE_AA)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    cv2.imwrite(str(output_path), image)
+    return output_path
+
+
 def process_inspection(
     file_bytes: bytes,
     filename: str,
     category_hint: Optional[str] = None,
     force_refresh: bool = False,
+    sample_relative_path: Optional[str] = None,
+    progress_callback: Optional[Callable[[str], None]] = None,
 ) -> Dict[str, Any]:
     """
     Executes the complete LabelIntel pipeline on input image bytes.
     Saves the original and annotated images to disk and records to SQLite.
-    Includes SHA-256 hash caching and pre-computed evaluation reuse for sub-second responses.
+    Uses content-hash caching. Precomputed OCR is only eligible for a trusted bundled
+    sample explicitly selected by the demo endpoint, never for an arbitrary upload.
     """
+    def report_progress(stage: str) -> None:
+        if progress_callback is None:
+            return
+        try:
+            progress_callback(stage)
+        except Exception:
+            # Progress reporting must never interrupt an inspection.
+            pass
+
+    report_progress("checking_cache")
     file_hash = hashlib.sha256(file_bytes).hexdigest()
 
     # Fast cache check: return existing completed audit if file already inspected
@@ -128,14 +158,14 @@ def process_inspection(
             cached = (
                 db.query(InspectionModel)
                 .filter(
-                    (InspectionModel.file_hash == file_hash) |
-                    ((InspectionModel.filename == filename) & (InspectionModel.file_size_bytes == len(file_bytes)))
+                    InspectionModel.file_hash == file_hash
                 )
                 .filter(InspectionModel.status == "COMPLETED")
                 .order_by(InspectionModel.created_at.desc())
                 .first()
             )
             if cached and Path(cached.image_path).exists() and cached.annotated_path and Path(cached.annotated_path).exists():
+                report_progress("complete")
                 return inspection_record_to_response(cached, reused_existing=True)
         finally:
             db.close()
@@ -149,8 +179,10 @@ def process_inspection(
     processed_dir.mkdir(parents=True, exist_ok=True)
 
     # 1. Validation (Stage 1)
+    report_progress("validation")
     val_res, decoded_bgr = validate_image_input(file_bytes, filename=filename)
     if not val_res.is_valid or decoded_bgr is None:
+        report_progress("failed")
         return {
             "id": inspection_id,
             "filename": filename,
@@ -166,45 +198,83 @@ def process_inspection(
     raw_saved_path.write_bytes(file_bytes)
 
     # 2. Quality Assessment (Stage 2)
+    report_progress("quality")
     quality_metrics = assess_image_quality(decoded_bgr)
 
-    # 3. Preprocessing (Stage 3)
-    preprocessed_bgr, prep_info, _, _ = preprocess_image(decoded_bgr, CVPreprocessingConfig())
+    # 3. Preprocessing (Stage 3). RapidOCR uses a smaller fixed inference
+    # frame for predictable CPU latency; original coordinates are restored.
+    ocr_config = CVOCRConfig(device="cpu", enable_mkldnn=False)
+    preprocessing_config = CVPreprocessingConfig(
+        max_width=ocr_config.rapidocr_max_side_len,
+        max_height=ocr_config.rapidocr_max_side_len,
+        clahe_enabled=False,
+    ) if ocr_config.backend == "rapidocr" else CVPreprocessingConfig()
+    report_progress("preprocessing")
+    preprocessed_bgr, prep_info, _, _ = preprocess_image(decoded_bgr, preprocessing_config)
 
     # 4. PaddleOCR (Stage 4) with sample evaluation fast-fallback
     eval_dir = Path("data/processed/ocr_evaluation")
     stem = Path(filename).stem
-    candidate_evals = [
-        eval_dir / f"{stem}_eval.json",
-        eval_dir / f"{stem}__eval.json",
-        eval_dir / f"{filename}_eval.json",
-    ]
     eval_ocr_blocks = None
-    for cand in candidate_evals:
+    if sample_relative_path:
+        # Evaluation snapshots are a demo optimization, not an OCR shortcut for
+        # uploads that happen to share a filename. Bind the snapshot to both the
+        # selected sample path and its byte size before reusing its OCR regions.
+        cand = eval_dir / f"{stem}_eval.json"
         if cand.exists():
             try:
                 data = json.loads(cand.read_text(encoding="utf-8"))
-                if "ocr_blocks" in data and data["ocr_blocks"]:
+                evaluation_path = str(data.get("relative_path", "")).replace("\\", "/")
+                evaluation_size = (data.get("metadata") or {}).get("file_size_bytes")
+                if (
+                    evaluation_path == sample_relative_path.replace("\\", "/")
+                    and data.get("file_name") == filename
+                    and evaluation_size == len(file_bytes)
+                    and data.get("ocr_blocks")
+                ):
                     eval_ocr_blocks = [OCRTextBlock(**b) for b in data["ocr_blocks"]]
-                    break
             except Exception:
                 pass
 
     if eval_ocr_blocks is not None:
+        report_progress("ocr_reused")
         ocr_blocks = eval_ocr_blocks
+        ocr_warnings = ["OCR regions reused from the evaluation snapshot for this exact bundled sample."]
     else:
-        ocr_engine = get_ocr_engine(CVOCRConfig(device="cpu", enable_mkldnn=False))
-        ocr_blocks, _, _ = ocr_engine.predict(
+        report_progress("ocr")
+        ocr_engine = get_ocr_engine(ocr_config)
+        ocr_blocks, ocr_warnings, ocr_errors = ocr_engine.predict(
             preprocessed_bgr,
             source_image_ref=filename,
             preprocessing_info=prep_info,
         )
+        if ocr_errors and ocr_config.backend == "rapidocr":
+            # Preserve the existing PaddleOCR path as a safe compatibility
+            # fallback if ONNX runtime/model loading is unavailable.
+            fallback = get_ocr_engine(CVOCRConfig(backend="paddle", device="cpu", enable_mkldnn=False))
+            ocr_blocks, fallback_warnings, fallback_errors = fallback.predict(
+                preprocessed_bgr,
+                source_image_ref=filename,
+                preprocessing_info=prep_info,
+            )
+            ocr_warnings = ocr_warnings + ["RapidOCR failed; the PaddleOCR compatibility fallback was attempted."] + fallback_warnings
+            if fallback_errors:
+                report_progress("failed")
+                return {
+                    "id": inspection_id,
+                    "filename": filename,
+                    "status": "FAILED",
+                    "processing_errors": ocr_errors + fallback_errors,
+                    "processing_warnings": ocr_warnings,
+                }
 
     # 5. NLP Declarations Extraction
+    report_progress("nlp")
     nlp_engine = get_nlp_engine()
     nlp_result = nlp_engine.extract_declarations(ocr_blocks)
 
     # 6. Evidence Fusion
+    report_progress("fusion")
     fusion_engine = get_fusion_engine()
     fused_result = fusion_engine.fuse(
         ocr_blocks=ocr_blocks,
@@ -213,6 +283,7 @@ def process_inspection(
     )
 
     # 7. Compliance Engine
+    report_progress("compliance")
     compliance_engine = get_compliance_engine()
     compliance_report = compliance_engine.evaluate_compliance(
         fused_result=fused_result,
@@ -220,12 +291,14 @@ def process_inspection(
     )
 
     # 8. Render Annotated Overlay Image
+    report_progress("rendering")
     annotated_path = processed_dir / f"{inspection_id}_annotated.jpg"
-    render_annotated_image(decoded_bgr, fused_result.declarations, annotated_path)
+    render_ocr_overlay(decoded_bgr, ocr_blocks, annotated_path)
 
     total_pipeline_ms = (time.perf_counter() - t0_start) * 1000.0
 
     # 9. SQLite Persistence
+    report_progress("persistence")
     db = SessionLocal()
     try:
         record = InspectionModel(
@@ -249,6 +322,8 @@ def process_inspection(
     finally:
         db.close()
 
+    report_progress("complete")
+
     # Build response payload
     return {
         "id": inspection_id,
@@ -268,6 +343,9 @@ def process_inspection(
             "high_confidence_blocks": sum(1 for b in ocr_blocks if b.confidence >= 0.85),
             "average_confidence": round(float(np.mean([b.confidence for b in ocr_blocks])), 4) if ocr_blocks else 0.0,
         },
+        "processing_warnings": ocr_warnings,
+        "ocr_reused": eval_ocr_blocks is not None,
+        "ocr_blocks": [b.model_dump() for b in ocr_blocks],
         "fused_declarations": [d.model_dump() for d in fused_result.declarations],
         "compliance_report": compliance_report.model_dump(),
         "image_url": f"/api/inspections/{inspection_id}/image",

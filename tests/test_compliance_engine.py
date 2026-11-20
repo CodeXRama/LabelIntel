@@ -59,7 +59,7 @@ def test_compliance_all_mandatory_satisfied():
     assert "DISCLAIMER" in report.legal_disclaimer
 
 
-def test_compliance_missing_mrp_violates_rule():
+def test_compliance_missing_mrp_is_review_not_a_violation_claim():
     engine = get_compliance_engine()
 
     # Net quantity only, no MRP
@@ -75,10 +75,10 @@ def test_compliance_missing_mrp_violates_rule():
     )
 
     report = engine.evaluate_compliance(fusion_res)
-    assert report.non_compliant_count >= 1
+    assert report.non_compliant_count == 0
     mrp_eval = next(a for a in report.assessments if a.rule.rule_id == "LM-2011-RULE-06-1-C")
-    assert mrp_eval.status == ComplianceStatus.NON_COMPLIANT
-    assert report.overall_status == ComplianceStatus.NON_COMPLIANT
+    assert mrp_eval.status == ComplianceStatus.FLAGGED_FOR_REVIEW
+    assert report.overall_status == ComplianceStatus.FLAGGED_FOR_REVIEW
 
 
 def test_compliance_mrp_without_inclusive_of_taxes_is_flagged():
@@ -100,6 +100,23 @@ def test_compliance_mrp_without_inclusive_of_taxes_is_flagged():
     report = engine.evaluate_compliance(fusion_res)
     mrp_eval = next(a for a in report.assessments if a.rule.rule_id == "LM-2011-RULE-06-1-C")
     assert mrp_eval.status == ComplianceStatus.FLAGGED_FOR_REVIEW
+
+
+def test_incomplete_declaration_headings_are_reviewed_not_marked_compliant():
+    engine = get_compliance_engine()
+    decls = [
+        make_dummy_decl("mfg", DeclarationType.MANUFACTURER, "MARKETED BY:", {}),
+        make_dummy_decl("date", DeclarationType.MFG_DATE, "Manufacturing Date:", {}),
+        make_dummy_decl("care", DeclarationType.CONSUMER_CARE, "Consumer Care:", {}),
+    ]
+    report = engine.evaluate_compliance(
+        FusionInspectionResult(source_image="partial.jpg", total_declarations=3, declarations=decls, unfused_ocr_block_ids=[]),
+        category_hint="household",
+    )
+    statuses = {item.assessment_id: item.status for item in report.assessments}
+    assert statuses["eval_lm_mfg"] == ComplianceStatus.FLAGGED_FOR_REVIEW
+    assert statuses["eval_lm_date"] == ComplianceStatus.FLAGGED_FOR_REVIEW
+    assert statuses["eval_lm_care"] == ComplianceStatus.FLAGGED_FOR_REVIEW
 
 
 def test_compliance_provenance_safety_and_cautious_wording():

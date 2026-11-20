@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center space-x-6 text-xs text-slate-400">
           <div className="flex items-center space-x-1.5">
             <Cpu className="w-4 h-4 text-emerald-400" />
-            <span>PaddleOCR PP-OCRv6 (CPU)</span>
+            <span>RapidOCR ONNX (CPU) + Paddle fallback</span>
           </div>
           <div className="flex items-center space-x-1.5">
             <Database className="w-4 h-4 text-indigo-400" />

@@ -4,12 +4,16 @@ Defines runtime parameters, thresholds, and engine settings for PaddleOCR text d
 and recognition on CPU.
 """
 
-from typing import Optional
+from typing import Literal, Optional
 from pydantic import BaseModel, Field
 
 
 class CVOCRConfig(BaseModel):
     """Configuration parameters for PaddleOCR inference engine."""
+    backend: Literal["rapidocr", "paddle"] = Field(
+        "rapidocr",
+        description="OCR runtime. RapidOCR/ONNX is the fast CPU path; PaddleOCR is the compatibility fallback.",
+    )
     lang: str = Field("en", description="Target language code (e.g., 'en', 'ch')")
     ocr_version: str = Field("PP-OCRv4", description="PaddleOCR model version ('PP-OCRv4' or 'PP-OCRv6')")
     device: str = Field("cpu", description="Execution device: 'cpu' or 'gpu'")
@@ -71,4 +75,10 @@ class CVOCRConfig(BaseModel):
         ge=1,
         le=32,
         description="Number of CPU computation threads allocated for inference"
+    )
+    rapidocr_max_side_len: int = Field(
+        960,
+        ge=320,
+        le=2048,
+        description="Maximum side length for the RapidOCR CPU frame.",
     )

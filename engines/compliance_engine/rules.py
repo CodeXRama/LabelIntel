@@ -9,6 +9,7 @@ Statutory references are provided as unverified references (`source_status="unve
 to standard packaging conventions and are NOT authoritative legal determinations.
 """
 
+import re
 from typing import List, Optional
 from engines.compliance_engine.schemas import (
     ComplianceStatus,
@@ -83,8 +84,8 @@ def evaluate_mrp_rule(declarations: List[FusedDeclaration]) -> FieldComplianceAs
         return FieldComplianceAssessment(
             assessment_id="eval_lm_mrp",
             rule=RULE_LM_MRP,
-            status=ComplianceStatus.NON_COMPLIANT,
-            findings=["No Maximum Retail Price (MRP) declaration detected in visible OCR text."],
+            status=ComplianceStatus.FLAGGED_FOR_REVIEW,
+            findings=["MRP was not detected by OCR on this image; this does not establish that the package omits it."],
             cautions_and_recommendations=[
                 "MRP declaration not detected under automated heuristic evaluation. Verify whether retail sale price is printed on another panel with 'inclusive of all taxes'."
             ],
@@ -94,6 +95,16 @@ def evaluate_mrp_rule(declarations: List[FusedDeclaration]) -> FieldComplianceAs
     norm = decl.normalized_data or {}
     amount = norm.get("amount")
     is_inclusive = norm.get("is_inclusive_of_taxes", False)
+
+    if amount is None:
+        return FieldComplianceAssessment(
+            assessment_id="eval_lm_mrp",
+            rule=RULE_LM_MRP,
+            status=ComplianceStatus.FLAGGED_FOR_REVIEW,
+            evidence_declaration_id=decl.declaration_id,
+            findings=[f"MRP-like text was detected ({decl.raw_text}), but a readable price amount was not extracted."],
+            cautions_and_recommendations=["Inspect the printed price and tax statement directly; an OCR label alone is not evidence of a complete declaration."],
+        )
 
     findings = [f"Detected MRP: {decl.raw_text} (Extracted Amount: ₹{amount})."]
     recommendations = []
@@ -127,8 +138,8 @@ def evaluate_net_quantity_rule(declarations: List[FusedDeclaration]) -> FieldCom
         return FieldComplianceAssessment(
             assessment_id="eval_lm_net_qty",
             rule=RULE_LM_NET_QTY,
-            status=ComplianceStatus.NON_COMPLIANT,
-            findings=["No Net Quantity declaration detected on evaluated packaging surface."],
+            status=ComplianceStatus.FLAGGED_FOR_REVIEW,
+            findings=["Net quantity was not detected by OCR on this image; verify the visible package directly."],
             cautions_and_recommendations=[
                 "Net quantity was not detected under automated heuristic check. Guidelines typically expect standard metric units (g, kg, ml, l, units)."
             ],
@@ -174,13 +185,33 @@ def evaluate_manufacturer_rule(declarations: List[FusedDeclaration]) -> FieldCom
         )
 
     decl = mfg_decls[0]
+    entity_text = re.sub(
+        r"^\s*(?:(?:manufactured|marketed|produced|packed|mfg\.?|imported)\s+by)\s*[:\-]?\s*",
+        "",
+        decl.raw_text,
+        flags=re.IGNORECASE,
+    ).strip(" :,-.")
+    if not re.search(r"[A-Za-z]{2,}", entity_text):
+        return FieldComplianceAssessment(
+            assessment_id="eval_lm_mfg",
+            rule=RULE_LM_MANUFACTURER,
+            status=ComplianceStatus.FLAGGED_FOR_REVIEW,
+            evidence_declaration_id=decl.declaration_id,
+            findings=["A manufacturer/packer label was detected, but a readable business name was not extracted."],
+            cautions_and_recommendations=["Verify the printed business name and full address on the package."],
+        )
+
+    has_address_signal = bool(
+        re.search(r"\b\d{6}\b", entity_text)
+        or re.search(r"\b(?:road|street|sector|village|district|floor|plot|phase|nagar)\b", entity_text, re.IGNORECASE)
+    )
     return FieldComplianceAssessment(
         assessment_id="eval_lm_mfg",
         rule=RULE_LM_MANUFACTURER,
-        status=ComplianceStatus.COMPLIANT,
+        status=ComplianceStatus.COMPLIANT if has_address_signal else ComplianceStatus.FLAGGED_FOR_REVIEW,
         evidence_declaration_id=decl.declaration_id,
-        findings=[f"Identified entity: {decl.raw_text}."],
-        cautions_and_recommendations=[],
+        findings=[f"Detected business name text: {entity_text}."],
+        cautions_and_recommendations=[] if has_address_signal else ["A business name was detected, but a complete address could not be confirmed from this OCR evidence."],
     )
 
 
@@ -203,6 +234,16 @@ def evaluate_date_rule(declarations: List[FusedDeclaration]) -> FieldComplianceA
         )
 
     decl = date_decls[0]
+    norm = decl.normalized_data or {}
+    if not (norm.get("iso_date") or norm.get("shelf_life_months")):
+        return FieldComplianceAssessment(
+            assessment_id="eval_lm_date",
+            rule=RULE_LM_DATE,
+            status=ComplianceStatus.FLAGGED_FOR_REVIEW,
+            evidence_declaration_id=decl.declaration_id,
+            findings=[f"A date label was detected ({decl.raw_text}), but no readable date or shelf-life value was extracted."],
+            cautions_and_recommendations=["Check the inkjet, seal, or printed date value directly; a label alone does not confirm the declaration."],
+        )
     return FieldComplianceAssessment(
         assessment_id="eval_lm_date",
         rule=RULE_LM_DATE,
@@ -229,6 +270,16 @@ def evaluate_consumer_care_rule(declarations: List[FusedDeclaration]) -> FieldCo
         )
 
     decl = care_decls[0]
+    norm = decl.normalized_data or {}
+    if not norm.get("value"):
+        return FieldComplianceAssessment(
+            assessment_id="eval_lm_care",
+            rule=RULE_LM_CONSUMER_CARE,
+            status=ComplianceStatus.FLAGGED_FOR_REVIEW,
+            evidence_declaration_id=decl.declaration_id,
+            findings=[f"A consumer-care label was detected ({decl.raw_text}), but no readable contact value was extracted."],
+            cautions_and_recommendations=["Verify that a working contact channel is printed and legible."],
+        )
     return FieldComplianceAssessment(
         assessment_id="eval_lm_care",
         rule=RULE_LM_CONSUMER_CARE,

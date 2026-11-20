@@ -37,6 +37,7 @@ class ComplianceEngine:
     ) -> OverallComplianceReport:
         t0 = time.perf_counter()
         decls: List[FusedDeclaration] = fused_result.declarations
+        weak_ocr = not decls or len(fused_result.unfused_ocr_block_ids) > 0 and len(decls) < 4
 
         assessments: List[FieldComplianceAssessment] = [
             evaluate_mrp_rule(decls),
@@ -46,6 +47,16 @@ class ComplianceEngine:
             evaluate_consumer_care_rule(decls),
             evaluate_fssai_rule(decls, category_hint=category_hint),
         ]
+
+        # A weak extraction makes absence claims unreliable. Downgrade any
+        # missing-field failure to review instead of asserting non-compliance.
+        if weak_ocr:
+            for assessment in assessments:
+                if assessment.status == ComplianceStatus.NON_COMPLIANT:
+                    assessment.status = ComplianceStatus.FLAGGED_FOR_REVIEW
+                    assessment.findings = [
+                        "OCR coverage is incomplete; this image cannot establish that the required declaration is absent."
+                    ] + assessment.findings
 
         # Compute summary counts
         comp_count = sum(1 for a in assessments if a.status == ComplianceStatus.COMPLIANT)

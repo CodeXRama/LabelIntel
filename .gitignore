@@ -86,10 +86,20 @@ data/models/*_infer/
 !data/models/.gitkeep
 data/samples/*
 !data/samples/.gitkeep
+!data/samples/
+!data/samples/**
+data/samples/**/annotated/*
+data/samples/**/ocr/*
 reports/*.pdf
 reports/*.xlsx
 reports/*.csv
 !reports/.gitkeep
+
+# Local reports, conference templates, and generated project notes
+reports/
+!reports/.gitkeep
+IEEE_CONFERENCE_TEMPLATE/
+docs/
 
 # SQLite Database
 *.db

@@ -1,0 +1,36 @@
+﻿record_id,source_image,category,ocr_text,ocr_confidence,x_min,y_min,x_max,y_max,line_index,recorded_ocr_ms
+81v3rTDOW7L._SL1500_.jpg:ocr_block_0001,other\81v3rTDOW7L._SL1500_.jpg,other,WHY GOLD STANDARD 1OO% WHEY PROTEIN™?,0.9924,397.0,219.0,1032.0,243.0,0,163442.77
+81v3rTDOW7L._SL1500_.jpg:ocr_block_0031,other\81v3rTDOW7L._SL1500_.jpg,other,or ANYTIME during the day.,0.9989,638.0,734.0,821.0,750.0,30,163442.77
+81v3rTDOW7L._SL1500_.jpg:ocr_block_0061,other\81v3rTDOW7L._SL1500_.jpg,other,MILK OR OTHER,0.9824,783.0,897.0,857.0,908.0,60,163442.77
+81v3rTDOW7L._SL1500_.jpg:ocr_block_0092,other\81v3rTDOW7L._SL1500_.jpg,other,"PERFORMANCENUTRITION,INC.",0.997,391.0,1147.0,556.0,1157.0,91,163442.77
+81v3rTDOW7L._SL1500_.jpg:ocr_block_0122,other\81v3rTDOW7L._SL1500_.jpg,other,Check Locally,0.9636,968.0,1308.0,1007.0,1317.0,121,163442.77
+cosmetic_001.jpg:ocr_block_0001,cosmetics\cosmetic_001.jpg,cosmetics,MOISTURISING GEL CREAM,0.9999,360.0,162.0,487.0,179.0,0,48638.19
+cosmetic_001.jpg:ocr_block_0013,cosmetics\cosmetic_001.jpg,cosmetics,HELIOS LIFESTYLE LIMITED,0.9939,519.0,305.0,628.0,322.0,12,48638.19
+cosmetic_001.jpg:ocr_block_0024,cosmetics\cosmetic_001.jpg,cosmetics,Store in a cool and dry place. Keep,0.9137,367.0,390.0,503.0,409.0,23,48638.19
+cosmetic_001.jpg:ocr_block_0035,cosmetics\cosmetic_001.jpg,cosmetics,Your daily dose of hydration and radiance.,0.9999,448.0,524.0,625.0,538.0,34,48638.19
+cosmetic_001.jpg:ocr_block_0047,cosmetics\cosmetic_001.jpg,cosmetics,Mode In India,0.9389,383.0,751.0,437.0,772.0,46,48638.19
+food_001.jpg:ocr_block_0001,food\food_001.jpg,food,Gits,0.9998,445.0,27.0,602.0,109.0,0,97008.96
+food_001.jpg:ocr_block_0033,food\food_001.jpg,food,"Tomato, Onion, Yoghurt (Milk), Peas, Sunflower Oil,",0.985,269.0,616.0,895.0,648.0,32,97008.96
+food_001.jpg:ocr_block_0064,food\food_001.jpg,food,adult,0.9997,1225.0,886.0,1262.0,904.0,63,97008.96
+food_001.jpg:ocr_block_0095,food\food_001.jpg,food,"INGREDIENTES: basmati arroz, patata, agua, tomata, cibolla, cuajada,",0.9698,274.0,1073.0,899.0,1099.0,94,97008.96
+food_001.jpg:ocr_block_0127,food\food_001.jpg,food,Email:export@gitsfood.com,1.0,232.0,1426.0,525.0,1448.0,126,97008.96
+food_002.jpg:ocr_block_0001,food\food_002.jpg,food,EASY SEAL TO KEEP THECONTENTS FRESH,0.9722,129.0,243.0,436.0,260.0,0,145365.07
+food_002.jpg:ocr_block_0027,food\food_002.jpg,food,19%,1.0,460.0,676.0,493.0,690.0,26,145365.07
+food_002.jpg:ocr_block_0054,food\food_002.jpg,food,12%,1.0,465.0,845.0,493.0,861.0,53,145365.07
+food_002.jpg:ocr_block_0081,food\food_002.jpg,food,Sugars,0.9347,217.0,1026.0,243.0,1045.0,80,145365.07
+food_002.jpg:ocr_block_0107,food\food_002.jpg,food,PKGMBMaeR-23-0,0.7689,688.0,1266.0,843.0,1312.0,106,145365.07
+household_001.jpg:ocr_block_0001,household\household_001.jpg,household,Directions to use,0.9999,536.0,228.0,715.0,266.0,0,110051.52
+household_001.jpg:ocr_block_0015,household\household_001.jpg,household,"Alkyl Trimethyl Ammonium Chloride, Butylated Hydroxy Toluene,",0.9885,264.0,540.0,683.0,570.0,14,110051.52
+household_001.jpg:ocr_block_0030,household\household_001.jpg,household,"52/UA/2015] S-Unit-II, B-96, Eldeco, SIDCUL",0.9407,285.0,801.0,552.0,831.0,29,110051.52
+household_001.jpg:ocr_block_0045,household\household_001.jpg,household,500ml net,0.9444,553.0,1037.0,644.0,1077.0,44,110051.52
+household_001.jpg:ocr_block_0059,household\household_001.jpg,household,3270193,1.0,325.0,1217.0,391.0,1234.0,58,110051.52
+mango_juice_back.jpg:ocr_block_0001,beverages\mango_juice_back.jpg,beverages,"INGREDIENTS: WATER, MANGO",0.9835,148.0,646.0,278.0,659.0,0,121460.72
+mango_juice_back.jpg:ocr_block_0019,beverages\mango_juice_back.jpg,beverages,6.4%,1.0,460.0,724.0,491.0,740.0,18,121460.72
+mango_juice_back.jpg:ocr_block_0037,beverages\mango_juice_back.jpg,beverages,Ög,0.5259,389.0,784.0,410.0,801.0,36,121460.72
+mango_juice_back.jpg:ocr_block_0056,beverages\mango_juice_back.jpg,beverages,"AFTER OPENING, KEEP REFRIGERATED UNDER HYGIENIC",0.9954,149.0,1009.0,391.0,1023.0,55,121460.72
+mango_juice_back.jpg:ocr_block_0074,beverages\mango_juice_back.jpg,beverages,600 ml,0.9465,252.0,1274.0,356.0,1302.0,73,121460.72
+patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg:ocr_block_0001,other\patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg,other,truemeds,0.9531,255.21,218.75,520.83,267.71,0,49059.99
+patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg:ocr_block_0012,other\patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg,other,Abn Canme Powder),0.7287,184.38,642.71,265.62,690.62,11,49059.99
+patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg:ocr_block_0023,other\patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg,other,uem,0.9985,293.75,823.96,429.17,859.38,22,49059.99
+patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg:ocr_block_0033,other\patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg,other,emeds,0.9962,802.08,1113.54,1002.08,1164.58,32,49059.99
+patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg:ocr_block_0044,other\patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg,other,Uttarakhand),0.8906,368.75,1740.62,511.46,1792.71,43,49059.99

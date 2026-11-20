@@ -25,7 +25,7 @@ if hasattr(sys.stderr, "reconfigure"):
 
 def test_website_e2e():
     frontend_url = "http://127.0.0.1:5173"
-    backend_url = "http://127.0.0.1:8001"
+    backend_url = "http://127.0.0.1:8000"
 
     print("=" * 80)
     print("LabelIntel — Complete Website & End-to-End Integration Verification")

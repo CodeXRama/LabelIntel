@@ -22,7 +22,7 @@ DECLARATION_PATTERNS = [
     ),
     (
         DeclarationType.NET_QUANTITY,
-        re.compile(r"(?:net\s*(?:wt\.?|weight|qty\.?|quantity|vol\.?|volume)|[0-9]+(?:\.[0-9]+)?\s*(?:kg|kilogram|g|gm|grams|ml|ltr|litre|litres|pcs|units)\b)", re.IGNORECASE),
+        re.compile(r"(?:net\s*(?:wt\.?|weight|qty\.?|quantity|vol\.?|volume)|\b[0-9]+\s*[x×]\s*[0-9]+(?:\.[0-9]+)?\s*(?:kg|kilogram|g|gm|grams|ml|ltr|litre|litres)\s*=\s*[0-9]+(?:\.[0-9]+)?\s*(?:kg|kilogram|g|gm|grams|ml|ltr|litre|litres)\b|[0-9]+(?:\.[0-9]+)?\s*(?:kg|kilogram|g|gm|grams|ml|ltr|litre|litres|pcs|units)\b)", re.IGNORECASE),
     ),
     (
         DeclarationType.MFG_DATE,
@@ -77,6 +77,11 @@ def classify_text_declaration(text: str) -> DeclarationType:
     if not text_clean:
         return DeclarationType.OTHER
 
+    # Nutrition panels commonly repeat serving bases as "Per100g"; this is not
+    # the package's declared net quantity even though it contains a mass unit.
+    if re.match(r"^per\s*100\s*(?:g|gm|grams?|ml)\b", text_clean, re.IGNORECASE):
+        return DeclarationType.NUTRITION
+
     for decl_type, pattern in DECLARATION_PATTERNS:
         if pattern.search(text_clean):
             return decl_type
@@ -115,7 +120,7 @@ def extract_entity_from_ocr_block(
             normalized_data = norm_qty.model_dump()
             parsing_notes.append(f"Standardized to base SI unit: {norm_qty.standard_value} {norm_qty.standard_unit}.")
         else:
-            parsing_notes.append("Net quantity keyword detected, but numeric value was ambiguous.")
+            return None
 
     elif decl_type in (DeclarationType.MFG_DATE, DeclarationType.EXPIRY_DATE, DeclarationType.BEST_BEFORE):
         date_ctx = "mfg" if decl_type == DeclarationType.MFG_DATE else ("expiry" if decl_type == DeclarationType.EXPIRY_DATE else "best_before")

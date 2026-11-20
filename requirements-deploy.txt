@@ -1,0 +1,11 @@
+# Smaller CPU deployment set. RapidOCR/ONNX is the production OCR path;
+# PaddleOCR remains available in requirements-cv.txt for local fallback use.
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.12
+sqlalchemy>=2.0.0
+numpy>=1.24.0,<2.0
+opencv-python-headless>=4.10.0.84,<4.12
+pillow>=10.0.0
+pydantic>=2.7.0
+rapidocr-onnxruntime>=1.4.4

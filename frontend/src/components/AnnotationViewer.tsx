@@ -1,168 +1,83 @@
-import React, { useState } from "react";
-import { Eye, Layers, Maximize2, RotateCcw } from "lucide-react";
-import { FusedDeclaration } from "../types";
+import React, { useEffect, useState } from "react";
+import { Eye, Layers, Maximize2, RotateCcw, ScanText } from "lucide-react";
+import { FusedDeclaration, OCRTextBlock } from "../types";
 
 interface AnnotationViewerProps {
   rawImageUrl: string;
   annotatedImageUrl: string;
   declarations: FusedDeclaration[];
+  ocrBlocks: OCRTextBlock[];
   selectedDeclarationId: string | null;
   onSelectDeclaration: (id: string | null) => void;
   width: number;
   height: number;
 }
 
-const TYPE_COLORS: Record<string, string> = {
-  mrp: "#22c55e",             // Green
-  net_quantity: "#38bdf8",    // Sky blue
-  mfg_date: "#f97316",        // Orange
-  expiry_date: "#ef4444",     // Red
-  best_before: "#eab308",     // Yellow
-  manufacturer: "#c084fc",    // Purple
-  packer: "#c084fc",
-  consumer_care: "#06b6d4",   // Cyan
-  fssai_license: "#84cc16",   // Lime
-  ingredients: "#14b8a6",     // Teal
-  nutrition: "#f43f5e",       // Rose
-  caution_warning: "#dc2626", // Dark red
-  other: "#94a3b8",           // Slate
-};
+type ViewMode = "declarations" | "ocr" | "rendered";
 
 export const AnnotationViewer: React.FC<AnnotationViewerProps> = ({
-  rawImageUrl,
-  annotatedImageUrl,
-  declarations,
-  selectedDeclarationId,
-  onSelectDeclaration,
-  width,
-  height,
+  rawImageUrl, annotatedImageUrl, declarations, ocrBlocks, selectedDeclarationId,
+  onSelectDeclaration, width, height,
 }) => {
-  const [viewMode, setViewMode] = useState<"interactive" | "rendered">("interactive");
-  const [zoomLevel, setZoomLevel] = useState<number>(1);
+  const [viewMode, setViewMode] = useState<ViewMode>(declarations.length ? "declarations" : "ocr");
+  const [zoomed, setZoomed] = useState(false);
+  useEffect(() => {
+    if (selectedDeclarationId) setViewMode("declarations");
+  }, [selectedDeclarationId]);
+  const sourceAlt = "Source commodity packaging with image-grounded detection overlays";
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col">
-      {/* Viewer Header Controls */}
-      <div className="px-4 py-3 bg-slate-800/60 border-b border-slate-800 flex items-center justify-between text-xs">
-        <div className="flex items-center space-x-3">
-          <span className="font-semibold text-slate-200">Packaging Visual Evidence</span>
-          <span className="text-slate-500">&bull;</span>
-          <span className="text-slate-400 font-mono">
-            {width} &times; {height} px
-          </span>
-        </div>
-
-        <div className="flex items-center space-x-2">
-          {/* Toggle between Interactive SVG and Burned-in OpenCV */}
-          <div className="bg-slate-900 p-0.5 rounded-lg border border-slate-700/60 flex items-center">
-            <button
-              onClick={() => setViewMode("interactive")}
-              className={`px-2.5 py-1 rounded-md transition-all flex items-center space-x-1.5 ${
-                viewMode === "interactive"
-                  ? "bg-indigo-600 text-white font-medium shadow"
-                  : "text-slate-400 hover:text-slate-200"
-              }`}
-            >
-              <Layers className="w-3.5 h-3.5" />
-              <span>Interactive Polygons</span>
-            </button>
-            <button
-              onClick={() => setViewMode("rendered")}
-              className={`px-2.5 py-1 rounded-md transition-all flex items-center space-x-1.5 ${
-                viewMode === "rendered"
-                  ? "bg-indigo-600 text-white font-medium shadow"
-                  : "text-slate-400 hover:text-slate-200"
-              }`}
-            >
-              <Eye className="w-3.5 h-3.5" />
-              <span>CV Annotated Overlay</span>
-            </button>
-          </div>
-
-          <button
-            onClick={() => setZoomLevel((z) => (z === 1 ? 1.5 : 1))}
-            className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
-            title="Toggle Zoom"
-          >
-            {zoomLevel === 1 ? <Maximize2 className="w-3.5 h-3.5" /> : <RotateCcw className="w-3.5 h-3.5" />}
+    <section className="overflow-hidden rounded-md border border-line bg-surface" aria-label="Image evidence viewer">
+      <div className="flex flex-col gap-3 border-b border-line px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="min-w-0"><h2 className="text-xs font-semibold text-ink">Image evidence</h2><p className="mt-0.5 text-[10px] text-muted">{ocrBlocks.length} OCR regions · {declarations.length} linked declarations · {width} × {height} px</p></div>
+        <div className="flex flex-wrap items-center gap-0.5 rounded-md border border-line bg-subtle p-0.5" role="group" aria-label="Overlay view">
+          <ViewButton active={viewMode === "declarations"} onClick={() => setViewMode("declarations")} icon={<Layers className="h-3.5 w-3.5" />} label="Fields" count={declarations.length} />
+          <ViewButton active={viewMode === "ocr"} onClick={() => setViewMode("ocr")} icon={<ScanText className="h-3.5 w-3.5" />} label="OCR" count={ocrBlocks.length} />
+          <ViewButton active={viewMode === "rendered"} onClick={() => setViewMode("rendered")} icon={<Eye className="h-3.5 w-3.5" />} label="Rendered" />
+          <button type="button" onClick={() => setZoomed((current) => !current)} className="ml-1 inline-flex h-8 w-8 items-center justify-center rounded-md text-muted transition hover:bg-surface hover:text-ink" title={zoomed ? "Fit image" : "Zoom image"} aria-label={zoomed ? "Fit image" : "Zoom image"}>
+            {zoomed ? <RotateCcw className="h-3.5 w-3.5" /> : <Maximize2 className="h-3.5 w-3.5" />}
           </button>
         </div>
       </div>
 
-      {/* Main Visual Display */}
-      <div className="relative overflow-auto max-h-[640px] flex items-center justify-center p-4 bg-slate-950/60">
-        <div
-          className="relative inline-block transition-transform duration-200 origin-top-left"
-          style={{ transform: `scale(${zoomLevel})` }}
-        >
+      <div className="relative flex max-h-[72vh] min-h-64 items-center justify-center overflow-auto bg-[#f5f4f2] p-2 dark:bg-[#111110] sm:p-4">
+        <div className={`relative inline-block max-w-full origin-center transition-transform duration-200 ${zoomed ? "scale-[1.5]" : "scale-100"}`}>
           {viewMode === "rendered" ? (
-            <img
-              src={annotatedImageUrl}
-              alt="Annotated Inspection Overlay"
-              className="max-w-full rounded-lg shadow-2xl block object-contain"
-            />
+            <img src={annotatedImageUrl} alt="Computer-vision annotated package image" className="block max-h-[68vh] max-w-full rounded-lg object-contain shadow-sm" />
           ) : (
-            <div className="relative inline-block">
-              <img
-                src={rawImageUrl}
-                alt="Source Commodity Packaging"
-                className="max-w-full rounded-lg shadow-2xl block object-contain select-none"
-              />
-
-              {/* Interactive SVG Bounding Overlays */}
-              <svg
-                viewBox={`0 0 ${width} ${height}`}
-                className="absolute inset-0 w-full h-full pointer-events-auto"
-                preserveAspectRatio="none"
-              >
-                {declarations.map((decl) => {
-                  const isSelected = selectedDeclarationId === decl.declaration_id;
-                  const color = TYPE_COLORS[decl.declaration_type] || "#94a3b8";
-
-                  // Build SVG polygon points attribute string "x1,y1 x2,y2 ..."
-                  const pointsStr = decl.polygon.map((p) => `${p.x},${p.y}`).join(" ");
-
-                  return (
-                    <g key={decl.declaration_id}>
-                      <polygon
-                        points={pointsStr}
-                        fill={color}
-                        fillOpacity={isSelected ? 0.35 : 0.15}
-                        stroke={color}
-                        strokeWidth={isSelected ? 4 : 2}
-                        strokeDasharray={isSelected ? "none" : "none"}
-                        className="cursor-pointer transition-all hover:fill-opacity-40"
-                        onClick={() =>
-                          onSelectDeclaration(isSelected ? null : decl.declaration_id)
-                        }
-                      >
-                        <title>{`${decl.display_title}: ${decl.raw_text} (${(decl.combined_confidence * 100).toFixed(0)}%)`}</title>
-                      </polygon>
-
-                      {/* Tag pill above polygon */}
-                      {isSelected && (
-                        <foreignObject
-                          x={decl.bounding_box.x_min}
-                          y={Math.max(10, decl.bounding_box.y_min - 32)}
-                          width={Math.max(200, decl.bounding_box.x_max - decl.bounding_box.x_min + 60)}
-                          height={30}
-                        >
-                          <div
-                            style={{ backgroundColor: color }}
-                            className="text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-lg truncate inline-block border border-white/20"
-                          >
-                            {decl.display_title}
-                          </div>
-                        </foreignObject>
-                      )}
-                    </g>
-                  );
+            <div className="relative inline-block max-w-full">
+              <img src={rawImageUrl} alt={sourceAlt} className="block max-h-[68vh] max-w-full select-none rounded-lg object-contain shadow-sm" />
+              <svg viewBox={`0 0 ${width} ${height}`} className="pointer-events-none absolute inset-0 h-full w-full text-[#171717] dark:text-[#f2f2f0]" preserveAspectRatio="none" role="img" aria-label={viewMode === "ocr" ? "All detected OCR text regions" : "Detected package declaration fields"}>
+                {viewMode === "ocr" && ocrBlocks.map((block) => {
+                  const points = block.polygon.map((point) => `${point.x},${point.y}`).join(" ");
+                  return <polygon key={block.block_id} points={points} fill="currentColor" fillOpacity="0.04" stroke="currentColor" strokeOpacity={block.confidence >= 0.85 ? 0.9 : 0.52} strokeWidth={Math.max(width / 1000, 1.5)} vectorEffect="non-scaling-stroke"><title>{`${block.text} (${(block.confidence * 100).toFixed(0)}% confidence)`}</title></polygon>;
+                })}
+                {viewMode === "declarations" && declarations.map((declaration, index) => {
+                  const selected = selectedDeclarationId === declaration.declaration_id;
+                  const points = declaration.polygon.map((point) => `${point.x},${point.y}`).join(" ");
+                  const markerRadius = Math.max(8, Math.min(width, height) * 0.012);
+                  return <g key={declaration.declaration_id} className="pointer-events-auto">
+                    <polygon points={points} fill="currentColor" fillOpacity={selected ? 0.14 : 0.025} stroke="currentColor" strokeWidth={selected ? 3 : 1.5} vectorEffect="non-scaling-stroke" className="cursor-pointer transition-[fill-opacity] hover:fill-opacity-20" tabIndex={0} role="button" aria-label={`${declaration.display_title}: ${declaration.raw_text}`} onClick={() => onSelectDeclaration(selected ? null : declaration.declaration_id)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onSelectDeclaration(selected ? null : declaration.declaration_id); } }}>
+                      <title>{`${declaration.display_title}: ${declaration.raw_text} (${(declaration.combined_confidence * 100).toFixed(0)}% confidence)`}</title>
+                    </polygon>
+                    <circle cx={declaration.bounding_box.x_min} cy={declaration.bounding_box.y_min} r={markerRadius} fill="currentColor" stroke="rgb(var(--surface-rgb))" strokeWidth={1.5} vectorEffect="non-scaling-stroke" pointerEvents="none" />
+                    <text x={declaration.bounding_box.x_min} y={declaration.bounding_box.y_min + markerRadius * 0.34} textAnchor="middle" fontSize={markerRadius * 1.05} fontWeight="700" fill="rgb(var(--surface-rgb))" aria-hidden="true" pointerEvents="none">{index + 1}</text>
+                    {selected && <foreignObject x={Math.max(0, Math.min(declaration.bounding_box.x_min, width - 220))} y={Math.max(0, declaration.bounding_box.y_min - 28)} width={220} height={26} className="pointer-events-none"><div style={{ background: "rgb(var(--ink-rgb))", color: "rgb(var(--surface-rgb))" }} className="truncate rounded-sm px-2 py-1 text-[10px] font-medium">{declaration.display_title}: {declaration.raw_text}</div></foreignObject>}
+                  </g>;
                 })}
               </svg>
             </div>
           )}
         </div>
       </div>
-    </div>
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-line px-4 py-2.5 text-[9px] text-muted" aria-label="Overlay legend">
+        <span>{viewMode === "ocr" ? "Text regions; stronger outlines indicate higher OCR confidence." : viewMode === "declarations" ? "Numbered outlines correspond to the linked declarations." : "Rendered image annotation."}</span>
+        <span className="ml-auto">Select an outline or declaration to inspect its evidence.</span>
+      </div>
+    </section>
   );
 };
+
+function ViewButton({ active, onClick, icon, label, count }: { active: boolean; onClick: () => void; icon: React.ReactNode; label: string; count?: number }) {
+  return <button type="button" onClick={onClick} aria-pressed={active} className={`inline-flex h-7 items-center gap-1.5 rounded-[3px] px-2 text-[10px] font-medium transition-colors ${active ? "bg-[#171717] text-white dark:bg-[#f2f2f0] dark:text-[#171717]" : "text-muted hover:bg-surface hover:text-ink"}`}>{icon}<span>{label}</span>{count !== undefined && <span className="font-mono opacity-70">{count}</span>}</button>;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { FileText, CheckCircle2, ChevronRight, Hash } from "lucide-react";
+import { ChevronDown, FileText, MapPin } from "lucide-react";
 import { FusedDeclaration } from "../types";
 
 interface DeclarationsListProps {
@@ -9,109 +9,39 @@ interface DeclarationsListProps {
 }
 
 const TYPE_BADGE_CLASSES: Record<string, string> = {
-  mrp: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-  net_quantity: "bg-sky-500/10 text-sky-400 border-sky-500/20",
-  mfg_date: "bg-orange-500/10 text-orange-400 border-orange-500/20",
-  expiry_date: "bg-rose-500/10 text-rose-400 border-rose-500/20",
-  best_before: "bg-amber-500/10 text-amber-400 border-amber-500/20",
-  manufacturer: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-  packer: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-  consumer_care: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
-  fssai_license: "bg-lime-500/10 text-lime-400 border-lime-500/20",
-  ingredients: "bg-teal-500/10 text-teal-400 border-teal-500/20",
-  nutrition: "bg-pink-500/10 text-pink-400 border-pink-500/20",
-  caution_warning: "bg-red-500/10 text-red-400 border-red-500/20",
-  other: "bg-slate-500/10 text-slate-400 border-slate-500/20",
+  mrp: "bg-subtle text-ink border-line",
+  net_quantity: "bg-subtle text-ink border-line",
+  mfg_date: "bg-subtle text-ink border-line",
+  expiry_date: "bg-subtle text-ink border-line",
+  best_before: "bg-subtle text-ink border-line",
+  manufacturer: "bg-subtle text-ink border-line",
+  packer: "bg-subtle text-ink border-line",
+  consumer_care: "bg-subtle text-ink border-line",
+  fssai_license: "bg-subtle text-ink border-line",
+  ingredients: "bg-subtle text-ink border-line",
+  nutrition: "bg-subtle text-ink border-line",
+  caution_warning: "bg-subtle text-ink border-line",
+  other: "bg-subtle text-muted border-line",
 };
 
-export const DeclarationsList: React.FC<DeclarationsListProps> = ({
-  declarations,
-  selectedDeclarationId,
-  onSelectDeclaration,
-}) => {
-  return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-4">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <FileText className="w-4 h-4 text-indigo-400" />
-          <h3 className="text-sm font-semibold text-slate-200">
-            Fused Packaging Declarations ({declarations.length})
-          </h3>
-        </div>
-        <span className="text-[11px] text-slate-400">Click to locate on image</span>
-      </div>
-
-      <div className="space-y-2.5 max-h-[500px] overflow-y-auto pr-1">
-        {declarations.length === 0 ? (
-          <p className="text-xs text-slate-500 text-center py-6">
-            No packaging declarations identified.
-          </p>
-        ) : (
-          declarations.map((decl) => {
-            const isSelected = selectedDeclarationId === decl.declaration_id;
-            const badgeClass =
-              TYPE_BADGE_CLASSES[decl.declaration_type] ||
-              "bg-slate-800 text-slate-300 border-slate-700";
-
-            return (
-              <div
-                key={decl.declaration_id}
-                onClick={() =>
-                  onSelectDeclaration(isSelected ? null : decl.declaration_id)
-                }
-                className={`p-3.5 rounded-xl border text-xs cursor-pointer transition-all ${
-                  isSelected
-                    ? "bg-indigo-600/10 border-indigo-500 shadow-md shadow-indigo-500/10"
-                    : "bg-slate-800/40 hover:bg-slate-800/80 border-slate-800 hover:border-slate-700"
-                }`}
-              >
-                <div className="flex items-center justify-between mb-1.5">
-                  <span
-                    className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border uppercase tracking-wider ${badgeClass}`}
-                  >
-                    {decl.display_title}
-                  </span>
-                  <div className="flex items-center space-x-2 text-[10px] text-slate-400">
-                    <span className="font-mono">
-                      {(decl.combined_confidence * 100).toFixed(0)}% conf
-                    </span>
-                    <ChevronRight
-                      className={`w-3.5 h-3.5 transition-transform ${
-                        isSelected ? "rotate-90 text-indigo-400" : "text-slate-600"
-                      }`}
-                    />
-                  </div>
-                </div>
-
-                <p className="text-slate-200 font-medium text-xs break-words">
-                  "{decl.raw_text}"
-                </p>
-
-                {/* Structured Normalized Data if present */}
-                {decl.normalized_data && (
-                  <div className="mt-2 pt-2 border-t border-slate-700/50 flex flex-wrap gap-2 text-[11px]">
-                    {Object.entries(decl.normalized_data).map(([k, v]) => (
-                      <span
-                        key={k}
-                        className="bg-slate-900/80 px-2 py-0.5 rounded text-slate-300 font-mono text-[10px]"
-                      >
-                        <span className="text-slate-500">{k}:</span> {String(v)}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                {isSelected && (
-                  <div className="mt-2 text-[10px] text-indigo-300 font-mono">
-                    Envelope: [x: {decl.bounding_box.x_min}..{decl.bounding_box.x_max}, y:{" "}
-                    {decl.bounding_box.y_min}..{decl.bounding_box.y_max}]
-                  </div>
-                )}
-              </div>
-            );
-          })
-        )}
-      </div>
+export const DeclarationsList: React.FC<DeclarationsListProps> = ({ declarations, selectedDeclarationId, onSelectDeclaration }) => (
+  <section className="rounded-md border border-line bg-surface p-4 sm:p-5">
+    <div className="flex items-center justify-between gap-3 border-b border-line pb-3">
+      <div className="flex items-center gap-2"><FileText aria-hidden="true" className="h-4 w-4 text-muted" /><h2 className="text-xs font-semibold text-ink">Fused declarations <span className="ml-1 font-mono text-muted">{declarations.length}</span></h2></div>
+      <span className="text-[9px] text-muted">Select to locate evidence</span>
     </div>
-  );
-};
+    <div className="mt-3 max-h-[560px] space-y-2 overflow-y-auto pr-1">
+      {declarations.length === 0 ? <p className="py-8 text-center text-xs text-muted">No packaging declarations were linked in this image.</p> : declarations.map((declaration) => {
+        const selected = selectedDeclarationId === declaration.declaration_id;
+        const badge = TYPE_BADGE_CLASSES[declaration.declaration_type] || TYPE_BADGE_CLASSES.other;
+        return <button key={declaration.declaration_id} type="button" aria-expanded={selected} onClick={() => onSelectDeclaration(selected ? null : declaration.declaration_id)} className={`block w-full rounded-sm border p-3 text-left transition focus-visible:outline-ink ${selected ? "border-ink bg-subtle" : "border-line bg-surface hover:bg-subtle"}`}>
+          <span className="flex items-center justify-between gap-3"><span className={`rounded-sm border px-2 py-1 text-[9px] font-semibold uppercase tracking-wide ${badge}`}>{declaration.display_title}</span><span className="flex shrink-0 items-center gap-2 text-[9px] text-muted"><span className="font-mono">{(declaration.combined_confidence * 100).toFixed(0)}%</span><ChevronDown aria-hidden="true" className={`h-3.5 w-3.5 transition-transform ${selected ? "rotate-180 text-ink" : ""}`} /></span></span>
+          <span className="mt-2 block break-words text-xs font-medium leading-5 text-ink">{declaration.raw_text ? `“${declaration.raw_text}”` : "No OCR text attached"}</span>
+          {declaration.normalized_data && Object.keys(declaration.normalized_data).length > 0 && <span className="mt-2 flex flex-wrap gap-1.5 border-t border-line pt-2">{Object.entries(declaration.normalized_data).map(([key, value]) => <span key={key} className="rounded-md bg-subtle px-2 py-1 font-mono text-[9px] text-muted"><span className="text-ink">{key}:</span> {String(value ?? "—")}</span>)}</span>}
+          {selected && <span className="mt-2 flex items-center gap-1.5 border-t border-line pt-2 font-mono text-[9px] text-muted"><MapPin aria-hidden="true" className="h-3 w-3 text-ink" />Region: x {Math.round(declaration.bounding_box.x_min)}–{Math.round(declaration.bounding_box.x_max)}, y {Math.round(declaration.bounding_box.y_min)}–{Math.round(declaration.bounding_box.y_max)}</span>}
+          {selected && declaration.provenance_notes?.length > 0 && <span className="mt-2 block space-y-1 border-t border-line pt-2 text-[10px] leading-4 text-muted">{declaration.provenance_notes.map((note, index) => <span key={index} className="block">{note}</span>)}</span>}
+        </button>;
+      })}
+    </div>
+  </section>
+);

@@ -43,6 +43,14 @@ export interface FusedDeclaration {
   provenance_notes: string[];
 }
 
+export interface OCRTextBlock {
+  block_id: string;
+  text: string;
+  confidence: number;
+  polygon: Point2D[];
+  bounding_box: BoundingBox;
+}
+
 export interface RuleProvenance {
   rule_id: string;
   statute_name: string;
@@ -91,6 +99,10 @@ export interface InspectionData {
     high_confidence_blocks: number;
     average_confidence: number;
   };
+  ocr_blocks?: OCRTextBlock[];
+  processing_warnings?: string[];
+  reused_existing?: boolean;
+  ocr_reused?: boolean | null;
   fused_declarations: FusedDeclaration[];
   compliance_report: OverallComplianceReport;
   image_url: string;
@@ -102,4 +114,59 @@ export interface SampleImage {
   relative_path: string;
   category: string;
   size_bytes: number;
+}
+
+export interface InspectionSummary {
+  id: string;
+  filename: string;
+  category?: string;
+  status: string;
+  created_at?: string | null;
+  width?: number;
+  height?: number;
+  overall_compliance: string;
+  image_url: string;
+  annotated_url: string;
+}
+
+export interface InspectionAnalytics {
+  records_analyzed: number;
+  overall_counts: {
+    compliant: number;
+    flagged_for_review: number;
+    non_compliant: number;
+    other: number;
+  };
+  rule_counts: Array<{
+    rule_id: string;
+    title: string;
+    rule_reference: string;
+    applicable_count: number;
+    pass_count: number;
+    review_count: number;
+    fail_count: number;
+  }>;
+}
+
+export type InspectionStage =
+  | "waiting"
+  | "uploading"
+  | "queued"
+  | "checking_cache"
+  | "validation"
+  | "quality"
+  | "preprocessing"
+  | "ocr"
+  | "ocr_reused"
+  | "nlp"
+  | "fusion"
+  | "compliance"
+  | "rendering"
+  | "persistence"
+  | "complete"
+  | "failed";
+
+export interface InspectionProgress {
+  request_id: string;
+  stage: InspectionStage;
 }

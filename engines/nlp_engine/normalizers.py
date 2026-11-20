@@ -53,6 +53,12 @@ def normalize_mrp(raw_text: str) -> Optional[NormalizedMRP]:
     )
     match = mrp_pattern.search(cleaned)
     if not match:
+        # The printed multipack panel often shows MRP and the tax statement as
+        # separate OCR lines, with the amount printed in an adjacent blank box.
+        # Do not infer the amount; leave it for manual review.
+        if re.search(r"\bm\.?r\.?p\.?\b", cleaned, re.IGNORECASE):
+            return None
+    if not match:
         # Fallback: find any currency sign followed by digits
         curr_match = re.search(r"(?:₹|rs\.?)\s*([0-9]+(?:\.[0-9]{1,2})?)", cleaned, re.IGNORECASE)
         if curr_match:
@@ -96,6 +102,21 @@ def normalize_net_quantity(raw_text: str) -> Optional[NormalizedNetQuantity]:
     """
     cleaned = raw_text.replace(",", " ").strip()
 
+    # Multipack declaration such as "5N x 100g = 500g"; report total net
+    # quantity, not the per-unit quantity.
+    multipack = re.search(
+        r"\b(\d+)\s*n?\s*[x×]\s*([0-9]+(?:\.[0-9]+)?)\s*(kg|g|gm|gms|grams?|ml|l|ltr|litres?)\s*=\s*([0-9]+(?:\.[0-9]+)?)\s*(kg|g|gm|gms|grams?|ml|l|ltr|litres?)\b",
+        cleaned,
+        re.IGNORECASE,
+    )
+    if multipack:
+        total, total_unit = float(multipack.group(4)), multipack.group(5).lower()
+        if total_unit in ("kg",):
+            return NormalizedNetQuantity(value=total, unit="kg", standard_value=total * 1000, standard_unit="g", raw_text=raw_text.strip())
+        if total_unit in ("l", "ltr", "litre", "litres"):
+            return NormalizedNetQuantity(value=total, unit="l", standard_value=total * 1000, standard_unit="ml", raw_text=raw_text.strip())
+        return NormalizedNetQuantity(value=total, unit="g", standard_value=total, standard_unit="g", raw_text=raw_text.strip())
+
     # Pattern matching value and unit
     # Units: kg, g, gm, gms, grams, ml, l, ltr, litre, litres, n, pcs, units
     qty_pattern = re.compile(
@@ -104,6 +125,8 @@ def normalize_net_quantity(raw_text: str) -> Optional[NormalizedNetQuantity]:
         r"(kg|kilograms?|g|gms?|grams?|ml|millilitres?|l|ltrs?|litres?|n|units?|pcs|pieces?)\b",
         re.IGNORECASE
     )
+    # A pack composition is not the net-quantity statement when the total is
+    # explicitly printed; the multipack branch above returns the total.
     match = qty_pattern.search(cleaned)
     if not match:
         return None

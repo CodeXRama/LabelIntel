@@ -13,6 +13,7 @@ from engines.nlp_engine.normalizers import (
     normalize_mrp,
     normalize_net_quantity,
 )
+from engines.nlp_engine.extractors import classify_text_declaration
 from engines.nlp_engine.schemas import DeclarationType
 
 
@@ -72,6 +73,11 @@ def test_normalize_net_quantity():
     assert q4.unit == "ml"
     assert q4.standard_value == 250.0
     assert q4.standard_unit == "ml"
+
+
+def test_per_100g_nutrition_basis_is_not_classified_as_package_quantity():
+    assert classify_text_declaration("Per100g") == DeclarationType.NUTRITION
+    assert classify_text_declaration("Per 100 g") == DeclarationType.NUTRITION
 
 
 def test_normalize_date():
