@@ -34,7 +34,7 @@ export const api = {
       : `${API_BASE}/api/inspections/upload`;
     const res = await axios.post(url, formData, {
       headers: { "Content-Type": "multipart/form-data", "X-Inspection-Progress-ID": progressId },
-      timeout: 60000,
+      timeout: 30000,
       onUploadProgress: (event) => {
         if (event.total) onUploadProgress(Math.min(100, Math.round((event.loaded / event.total) * 100)));
       },
@@ -46,7 +46,7 @@ export const api = {
     const res = await axios.post(
       `${API_BASE}/api/inspections/demo?sample_path=${encodeURIComponent(samplePath)}&progress_id=${encodeURIComponent(progressId)}`,
       undefined,
-      { timeout: 60000 },
+      { timeout: 30000 },
     );
     return res.data;
   },

@@ -77,8 +77,30 @@ class CVOCRConfig(BaseModel):
         description="Number of CPU computation threads allocated for inference"
     )
     rapidocr_max_side_len: int = Field(
-        960,
+        768,
         ge=320,
         le=2048,
         description="Maximum side length for the RapidOCR CPU frame.",
+    )
+    rapidocr_use_cls: bool = Field(
+        False,
+        description="Run the per-text-line orientation classifier. Keep disabled for upright package photos to reduce CPU latency.",
+    )
+    rapidocr_intra_op_num_threads: int = Field(
+        4,
+        ge=1,
+        le=16,
+        description="ONNX Runtime intra-op threads for RapidOCR.",
+    )
+    rapidocr_inter_op_num_threads: int = Field(
+        1,
+        ge=1,
+        le=8,
+        description="ONNX Runtime inter-op threads for RapidOCR.",
+    )
+    rapidocr_rec_batch_num: int = Field(
+        6,
+        ge=1,
+        le=64,
+        description="Recognition crop batch size for RapidOCR.",
     )

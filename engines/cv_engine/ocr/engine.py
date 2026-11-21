@@ -39,7 +39,13 @@ class RapidOCREngine:
         try:
             from rapidocr_onnxruntime import RapidOCR
 
-            self._ocr = RapidOCR()
+            self._ocr = RapidOCR(
+                use_cls=self.config.rapidocr_use_cls,
+                max_side_len=self.config.rapidocr_max_side_len,
+                intra_op_num_threads=self.config.rapidocr_intra_op_num_threads,
+                inter_op_num_threads=self.config.rapidocr_inter_op_num_threads,
+                rec_batch_num=self.config.rapidocr_rec_batch_num,
+            )
             self._init_error = None
             return True
         except Exception as exc:
