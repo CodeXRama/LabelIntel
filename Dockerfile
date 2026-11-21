@@ -24,10 +24,9 @@ RUN python -c "from rapidocr_onnxruntime import RapidOCR; RapidOCR()"
 COPY backend/ ./backend/
 COPY engines/ ./engines/
 COPY data/samples/ ./data/samples/
-# Evaluation snapshots are generated local artifacts and are intentionally not
-# committed. Create the runtime directory so the service can still run live OCR
-# for bundled samples and uploaded images.
-RUN mkdir -p data/processed/ocr_evaluation
+# These verified snapshots make bundled demo samples open immediately without
+# running CPU OCR on every Render request. Uploaded images still run live OCR.
+COPY data/processed/ocr_evaluation/ ./data/processed/ocr_evaluation/
 COPY --from=frontend-build /web/dist/ ./frontend/dist/
 EXPOSE 8000
 CMD ["sh", "-c", "uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000}"]

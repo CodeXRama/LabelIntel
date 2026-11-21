@@ -1,0 +1,1599 @@
+{
+  "file_name": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+  "relative_path": "other\\patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+  "category": "other",
+  "metadata": {
+    "filename": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+    "source_path": "D:\\Projects\\LabelIntel\\data\\samples\\other\\patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+    "file_size_bytes": 292995,
+    "image_format": "AVIF",
+    "width": 1200,
+    "height": 2000,
+    "channels": 3,
+    "aspect_ratio": 0.6
+  },
+  "quality": {
+    "blur_laplacian_variance": 764.67,
+    "is_blurry": false,
+    "brightness_mean": 149.5,
+    "contrast_std": 70.34,
+    "clipping_low_pct": 0.0139,
+    "clipping_high_pct": 0.2115,
+    "is_under_exposed": false,
+    "is_over_exposed": false,
+    "quality_warnings": [
+      "Significant highlight clipping: 21.1% of pixels are saturated near pure white (threshold: 5.0%). Possible flash reflection."
+    ]
+  },
+  "preprocessing": {
+    "original_size": [
+      1200,
+      2000
+    ],
+    "processed_size": [
+      1152,
+      1920
+    ],
+    "scale_factor_x": 0.96,
+    "scale_factor_y": 0.96,
+    "deskew_angle_degrees": 0.0,
+    "applied_operations": [
+      "aspect_preserving_resize (1152x1920, s=0.9600)",
+      "clahe (clip=2.0, grid=(8, 8))"
+    ],
+    "skipped_operations": [
+      "deskew (disabled_in_config)",
+      "denoising (disabled_in_config)"
+    ],
+    "forward_matrix": [
+      [
+        0.96,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.96,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "inverse_matrix": [
+      [
+        1.04166667,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.04166667,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "timings_ms": {
+    "validation_ms": 144.73,
+    "quality_ms": 30.31,
+    "preprocessing_ms": 18.26,
+    "ocr_ms": 49059.99,
+    "total_pipeline_ms": 49253.31
+  },
+  "detection_summary": {
+    "total_blocks": 44,
+    "high_confidence_blocks": 16,
+    "low_confidence_blocks": 28,
+    "average_confidence": 0.7711
+  },
+  "ocr_blocks": [
+    {
+      "block_id": "ocr_block_0001",
+      "text": "truemeds",
+      "confidence": 0.9531,
+      "polygon": [
+        {
+          "x": 255.21,
+          "y": 218.75
+        },
+        {
+          "x": 520.83,
+          "y": 220.83
+        },
+        {
+          "x": 520.83,
+          "y": 267.71
+        },
+        {
+          "x": 255.21,
+          "y": 265.62
+        }
+      ],
+      "bounding_box": {
+        "x_min": 255.21,
+        "y_min": 218.75,
+        "x_max": 520.83,
+        "y_max": 267.71,
+        "width": 265.62,
+        "height": 48.95999999999998
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 0
+    },
+    {
+      "block_id": "ocr_block_0002",
+      "text": "truemeds",
+      "confidence": 0.9973,
+      "polygon": [
+        {
+          "x": 690.62,
+          "y": 209.38
+        },
+        {
+          "x": 1007.29,
+          "y": 215.62
+        },
+        {
+          "x": 1006.25,
+          "y": 269.79
+        },
+        {
+          "x": 689.58,
+          "y": 263.54
+        }
+      ],
+      "bounding_box": {
+        "x_min": 689.58,
+        "y_min": 209.38,
+        "x_max": 1007.29,
+        "y_max": 269.79,
+        "width": 317.7099999999999,
+        "height": 60.410000000000025
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 1
+    },
+    {
+      "block_id": "ocr_block_0003",
+      "text": "airfoT",
+      "confidence": 0.3203,
+      "polygon": [
+        {
+          "x": 463.54,
+          "y": 409.38
+        },
+        {
+          "x": 823.96,
+          "y": 436.46
+        },
+        {
+          "x": 816.67,
+          "y": 534.38
+        },
+        {
+          "x": 456.25,
+          "y": 507.29
+        }
+      ],
+      "bounding_box": {
+        "x_min": 456.25,
+        "y_min": 409.38,
+        "x_max": 823.96,
+        "y_max": 534.38,
+        "width": 367.71000000000004,
+        "height": 125.0
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 2
+    },
+    {
+      "block_id": "ocr_block_0004",
+      "text": "R",
+      "confidence": 0.9994,
+      "polygon": [
+        {
+          "x": 811.46,
+          "y": 458.33
+        },
+        {
+          "x": 826.04,
+          "y": 458.33
+        },
+        {
+          "x": 826.04,
+          "y": 472.92
+        },
+        {
+          "x": 811.46,
+          "y": 472.92
+        }
+      ],
+      "bounding_box": {
+        "x_min": 811.46,
+        "y_min": 458.33,
+        "x_max": 826.04,
+        "y_max": 472.92,
+        "width": 14.579999999999927,
+        "height": 14.590000000000032
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 3
+    },
+    {
+      "block_id": "ocr_block_0005",
+      "text": "d9c",
+      "confidence": 0.2424,
+      "polygon": [
+        {
+          "x": 388.54,
+          "y": 495.83
+        },
+        {
+          "x": 486.46,
+          "y": 495.83
+        },
+        {
+          "x": 486.46,
+          "y": 533.33
+        },
+        {
+          "x": 388.54,
+          "y": 533.33
+        }
+      ],
+      "bounding_box": {
+        "x_min": 388.54,
+        "y_min": 495.83,
+        "x_max": 486.46,
+        "y_max": 533.33,
+        "width": 97.91999999999996,
+        "height": 37.50000000000006
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 4
+    },
+    {
+      "block_id": "ocr_block_0006",
+      "text": "frueme",
+      "confidence": 0.9472,
+      "polygon": [
+        {
+          "x": 245.83,
+          "y": 513.54
+        },
+        {
+          "x": 459.38,
+          "y": 526.04
+        },
+        {
+          "x": 456.25,
+          "y": 572.92
+        },
+        {
+          "x": 242.71,
+          "y": 560.42
+        }
+      ],
+      "bounding_box": {
+        "x_min": 242.71,
+        "y_min": 513.54,
+        "x_max": 459.38,
+        "y_max": 572.92,
+        "width": 216.67,
+        "height": 59.379999999999995
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 5
+    },
+    {
+      "block_id": "ocr_block_0007",
+      "text": "6ope",
+      "confidence": 0.7359,
+      "polygon": [
+        {
+          "x": 439.58,
+          "y": 522.92
+        },
+        {
+          "x": 832.29,
+          "y": 553.12
+        },
+        {
+          "x": 828.12,
+          "y": 614.58
+        },
+        {
+          "x": 435.42,
+          "y": 584.38
+        }
+      ],
+      "bounding_box": {
+        "x_min": 435.42,
+        "y_min": 522.92,
+        "x_max": 832.29,
+        "y_max": 614.58,
+        "width": 396.86999999999995,
+        "height": 91.66000000000008
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 6
+    },
+    {
+      "block_id": "ocr_block_0008",
+      "text": "uemeds",
+      "confidence": 0.9862,
+      "polygon": [
+        {
+          "x": 779.17,
+          "y": 519.79
+        },
+        {
+          "x": 1004.17,
+          "y": 519.79
+        },
+        {
+          "x": 1004.17,
+          "y": 566.67
+        },
+        {
+          "x": 779.17,
+          "y": 566.67
+        }
+      ],
+      "bounding_box": {
+        "x_min": 779.17,
+        "y_min": 519.79,
+        "x_max": 1004.17,
+        "y_max": 566.67,
+        "width": 225.0,
+        "height": 46.879999999999995
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 7
+    },
+    {
+      "block_id": "ocr_block_0009",
+      "text": "y A Hra",
+      "confidence": 0.3748,
+      "polygon": [
+        {
+          "x": 191.67,
+          "y": 594.79
+        },
+        {
+          "x": 265.62,
+          "y": 610.42
+        },
+        {
+          "x": 259.38,
+          "y": 640.62
+        },
+        {
+          "x": 185.42,
+          "y": 625.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 185.42,
+        "y_min": 594.79,
+        "x_max": 265.62,
+        "y_max": 640.62,
+        "width": 80.20000000000002,
+        "height": 45.83000000000004
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 8
+    },
+    {
+      "block_id": "ocr_block_0010",
+      "text": "UBay,Rasaya,Kada",
+      "confidence": 0.6716,
+      "polygon": [
+        {
+          "x": 333.33,
+          "y": 594.79
+        },
+        {
+          "x": 873.96,
+          "y": 628.12
+        },
+        {
+          "x": 870.83,
+          "y": 681.25
+        },
+        {
+          "x": 330.21,
+          "y": 647.92
+        }
+      ],
+      "bounding_box": {
+        "x_min": 330.21,
+        "y_min": 594.79,
+        "x_max": 873.96,
+        "y_max": 681.25,
+        "width": 543.75,
+        "height": 86.46000000000004
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 9
+    },
+    {
+      "block_id": "ocr_block_0011",
+      "text": "Sume Snen)",
+      "confidence": 0.7205,
+      "polygon": [
+        {
+          "x": 192.71,
+          "y": 619.79
+        },
+        {
+          "x": 265.62,
+          "y": 638.54
+        },
+        {
+          "x": 258.33,
+          "y": 665.62
+        },
+        {
+          "x": 185.42,
+          "y": 646.88
+        }
+      ],
+      "bounding_box": {
+        "x_min": 185.42,
+        "y_min": 619.79,
+        "x_max": 265.62,
+        "y_max": 665.62,
+        "width": 80.20000000000002,
+        "height": 45.83000000000004
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 10
+    },
+    {
+      "block_id": "ocr_block_0012",
+      "text": "Abn Canme Powder)",
+      "confidence": 0.7287,
+      "polygon": [
+        {
+          "x": 191.67,
+          "y": 642.71
+        },
+        {
+          "x": 265.62,
+          "y": 661.46
+        },
+        {
+          "x": 258.33,
+          "y": 690.62
+        },
+        {
+          "x": 184.38,
+          "y": 671.88
+        }
+      ],
+      "bounding_box": {
+        "x_min": 184.38,
+        "y_min": 642.71,
+        "x_max": 265.62,
+        "y_max": 690.62,
+        "width": 81.24000000000001,
+        "height": 47.90999999999997
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 11
+    },
+    {
+      "block_id": "ocr_block_0013",
+      "text": "\uff1a\uff0c\uff0c",
+      "confidence": 0.6136,
+      "polygon": [
+        {
+          "x": 330.21,
+          "y": 657.29
+        },
+        {
+          "x": 912.5,
+          "y": 687.5
+        },
+        {
+          "x": 909.38,
+          "y": 743.75
+        },
+        {
+          "x": 327.08,
+          "y": 713.54
+        }
+      ],
+      "bounding_box": {
+        "x_min": 327.08,
+        "y_min": 657.29,
+        "x_max": 912.5,
+        "y_max": 743.75,
+        "width": 585.4200000000001,
+        "height": 86.46000000000004
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 12
+    },
+    {
+      "block_id": "ocr_block_0014",
+      "text": "muadon Bart,",
+      "confidence": 0.7067,
+      "polygon": [
+        {
+          "x": 192.71,
+          "y": 668.75
+        },
+        {
+          "x": 261.46,
+          "y": 686.46
+        },
+        {
+          "x": 255.21,
+          "y": 713.54
+        },
+        {
+          "x": 185.42,
+          "y": 695.83
+        }
+      ],
+      "bounding_box": {
+        "x_min": 185.42,
+        "y_min": 668.75,
+        "x_max": 261.46,
+        "y_max": 713.54,
+        "width": 76.03999999999999,
+        "height": 44.789999999999964
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 13
+    },
+    {
+      "block_id": "ocr_block_0015",
+      "text": "5 Pati Chaal",
+      "confidence": 0.7831,
+      "polygon": [
+        {
+          "x": 189.58,
+          "y": 690.62
+        },
+        {
+          "x": 260.42,
+          "y": 709.38
+        },
+        {
+          "x": 252.08,
+          "y": 739.58
+        },
+        {
+          "x": 181.25,
+          "y": 720.83
+        }
+      ],
+      "bounding_box": {
+        "x_min": 181.25,
+        "y_min": 690.62,
+        "x_max": 260.42,
+        "y_max": 739.58,
+        "width": 79.17000000000002,
+        "height": 48.960000000000036
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 14
+    },
+    {
+      "block_id": "ocr_block_0016",
+      "text": "Thce Pat Semi",
+      "confidence": 0.765,
+      "polygon": [
+        {
+          "x": 184.38,
+          "y": 714.58
+        },
+        {
+          "x": 254.17,
+          "y": 734.38
+        },
+        {
+          "x": 245.83,
+          "y": 764.58
+        },
+        {
+          "x": 176.04,
+          "y": 744.79
+        }
+      ],
+      "bounding_box": {
+        "x_min": 176.04,
+        "y_min": 714.58,
+        "x_max": 254.17,
+        "y_max": 764.58,
+        "width": 78.13,
+        "height": 50.0
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 15
+    },
+    {
+      "block_id": "ocr_block_0017",
+      "text": "DosageTateasponwiwamkn",
+      "confidence": 0.7173,
+      "polygon": [
+        {
+          "x": 317.71,
+          "y": 727.08
+        },
+        {
+          "x": 971.88,
+          "y": 742.71
+        },
+        {
+          "x": 970.83,
+          "y": 806.25
+        },
+        {
+          "x": 316.67,
+          "y": 790.62
+        }
+      ],
+      "bounding_box": {
+        "x_min": 316.67,
+        "y_min": 727.08,
+        "x_max": 971.88,
+        "y_max": 806.25,
+        "width": 655.21,
+        "height": 79.16999999999996
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 16
+    },
+    {
+      "block_id": "ocr_block_0018",
+      "text": "Desmodun",
+      "confidence": 0.7306,
+      "polygon": [
+        {
+          "x": 176.04,
+          "y": 737.5
+        },
+        {
+          "x": 246.88,
+          "y": 760.42
+        },
+        {
+          "x": 238.54,
+          "y": 787.5
+        },
+        {
+          "x": 167.71,
+          "y": 764.58
+        }
+      ],
+      "bounding_box": {
+        "x_min": 167.71,
+        "y_min": 737.5,
+        "x_max": 246.88,
+        "y_max": 787.5,
+        "width": 79.16999999999999,
+        "height": 50.0
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 17
+    },
+    {
+      "block_id": "ocr_block_0019",
+      "text": "omePader 0.35g.",
+      "confidence": 0.6795,
+      "polygon": [
+        {
+          "x": 167.71,
+          "y": 758.33
+        },
+        {
+          "x": 240.62,
+          "y": 784.38
+        },
+        {
+          "x": 229.17,
+          "y": 815.62
+        },
+        {
+          "x": 156.25,
+          "y": 789.58
+        }
+      ],
+      "bounding_box": {
+        "x_min": 156.25,
+        "y_min": 758.33,
+        "x_max": 240.62,
+        "y_max": 815.62,
+        "width": 84.37,
+        "height": 57.289999999999964
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 18
+    },
+    {
+      "block_id": "ocr_block_0020",
+      "text": "PRat Coarse",
+      "confidence": 0.6354,
+      "polygon": [
+        {
+          "x": 160.42,
+          "y": 782.29
+        },
+        {
+          "x": 233.33,
+          "y": 809.38
+        },
+        {
+          "x": 222.92,
+          "y": 837.5
+        },
+        {
+          "x": 150.0,
+          "y": 809.38
+        }
+      ],
+      "bounding_box": {
+        "x_min": 150.0,
+        "y_min": 782.29,
+        "x_max": 233.33,
+        "y_max": 837.5,
+        "width": 83.33000000000001,
+        "height": 55.210000000000036
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 19
+    },
+    {
+      "block_id": "ocr_block_0021",
+      "text": "S",
+      "confidence": 0.6612,
+      "polygon": [
+        {
+          "x": 148.96,
+          "y": 803.12
+        },
+        {
+          "x": 220.83,
+          "y": 832.29
+        },
+        {
+          "x": 210.42,
+          "y": 857.29
+        },
+        {
+          "x": 138.54,
+          "y": 828.12
+        }
+      ],
+      "bounding_box": {
+        "x_min": 138.54,
+        "y_min": 803.12,
+        "x_max": 220.83,
+        "y_max": 857.29,
+        "width": 82.29000000000002,
+        "height": 54.16999999999996
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 20
+    },
+    {
+      "block_id": "ocr_block_0022",
+      "text": "Chase Powder)",
+      "confidence": 0.8507,
+      "polygon": [
+        {
+          "x": 138.54,
+          "y": 822.92
+        },
+        {
+          "x": 212.5,
+          "y": 854.17
+        },
+        {
+          "x": 201.04,
+          "y": 881.25
+        },
+        {
+          "x": 127.08,
+          "y": 850.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 127.08,
+        "y_min": 822.92,
+        "x_max": 212.5,
+        "y_max": 881.25,
+        "width": 85.42,
+        "height": 58.33000000000004
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 21
+    },
+    {
+      "block_id": "ocr_block_0023",
+      "text": "uem",
+      "confidence": 0.9985,
+      "polygon": [
+        {
+          "x": 294.79,
+          "y": 823.96
+        },
+        {
+          "x": 429.17,
+          "y": 827.08
+        },
+        {
+          "x": 428.12,
+          "y": 859.38
+        },
+        {
+          "x": 293.75,
+          "y": 856.25
+        }
+      ],
+      "bounding_box": {
+        "x_min": 293.75,
+        "y_min": 823.96,
+        "x_max": 429.17,
+        "y_max": 859.38,
+        "width": 135.42000000000002,
+        "height": 35.41999999999996
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 22
+    },
+    {
+      "block_id": "ocr_block_0024",
+      "text": "lin Fout Coarse",
+      "confidence": 0.7448,
+      "polygon": [
+        {
+          "x": 130.21,
+          "y": 845.83
+        },
+        {
+          "x": 203.12,
+          "y": 877.08
+        },
+        {
+          "x": 191.67,
+          "y": 903.12
+        },
+        {
+          "x": 118.75,
+          "y": 871.88
+        }
+      ],
+      "bounding_box": {
+        "x_min": 118.75,
+        "y_min": 845.83,
+        "x_max": 203.12,
+        "y_max": 903.12,
+        "width": 84.37,
+        "height": 57.289999999999964
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 23
+    },
+    {
+      "block_id": "ocr_block_0025",
+      "text": "Cautin:Not To be Consumed By DiabeicPaen.",
+      "confidence": 0.7565,
+      "polygon": [
+        {
+          "x": 287.5,
+          "y": 841.67
+        },
+        {
+          "x": 914.58,
+          "y": 852.08
+        },
+        {
+          "x": 913.54,
+          "y": 905.21
+        },
+        {
+          "x": 286.46,
+          "y": 894.79
+        }
+      ],
+      "bounding_box": {
+        "x_min": 286.46,
+        "y_min": 841.67,
+        "x_max": 914.58,
+        "y_max": 905.21,
+        "width": 628.1200000000001,
+        "height": 63.54000000000008
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 24
+    },
+    {
+      "block_id": "ocr_block_0026",
+      "text": "nde acemosa,",
+      "confidence": 0.6449,
+      "polygon": [
+        {
+          "x": 119.79,
+          "y": 868.75
+        },
+        {
+          "x": 189.58,
+          "y": 904.17
+        },
+        {
+          "x": 178.12,
+          "y": 926.04
+        },
+        {
+          "x": 108.33,
+          "y": 890.62
+        }
+      ],
+      "bounding_box": {
+        "x_min": 108.33,
+        "y_min": 868.75,
+        "x_max": 189.58,
+        "y_max": 926.04,
+        "width": 81.25000000000001,
+        "height": 57.289999999999964
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 25
+    },
+    {
+      "block_id": "ocr_block_0027",
+      "text": "Gly (Tinospora",
+      "confidence": 0.7965,
+      "polygon": [
+        {
+          "x": 116.67,
+          "y": 893.75
+        },
+        {
+          "x": 183.33,
+          "y": 927.08
+        },
+        {
+          "x": 171.88,
+          "y": 950.0
+        },
+        {
+          "x": 105.21,
+          "y": 916.67
+        }
+      ],
+      "bounding_box": {
+        "x_min": 105.21,
+        "y_min": 893.75,
+        "x_max": 183.33,
+        "y_max": 950.0,
+        "width": 78.12000000000002,
+        "height": 56.25
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 26
+    },
+    {
+      "block_id": "ocr_block_0028",
+      "text": "Once Opened, Consume within 90 days.",
+      "confidence": 0.9865,
+      "polygon": [
+        {
+          "x": 267.71,
+          "y": 898.96
+        },
+        {
+          "x": 843.75,
+          "y": 912.5
+        },
+        {
+          "x": 842.71,
+          "y": 971.88
+        },
+        {
+          "x": 266.67,
+          "y": 958.33
+        }
+      ],
+      "bounding_box": {
+        "x_min": 266.67,
+        "y_min": 898.96,
+        "x_max": 843.75,
+        "y_max": 971.88,
+        "width": 577.0799999999999,
+        "height": 72.91999999999996
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 27
+    },
+    {
+      "block_id": "ocr_block_0029",
+      "text": "035g. Bala",
+      "confidence": 0.6634,
+      "polygon": [
+        {
+          "x": 109.38,
+          "y": 916.67
+        },
+        {
+          "x": 176.04,
+          "y": 945.83
+        },
+        {
+          "x": 164.58,
+          "y": 971.88
+        },
+        {
+          "x": 97.92,
+          "y": 942.71
+        }
+      ],
+      "bounding_box": {
+        "x_min": 97.92,
+        "y_min": 916.67,
+        "x_max": 176.04,
+        "y_max": 971.88,
+        "width": 78.11999999999999,
+        "height": 55.210000000000036
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 28
+    },
+    {
+      "block_id": "ocr_block_0030",
+      "text": "Store in a con& dry place.",
+      "confidence": 0.9583,
+      "polygon": [
+        {
+          "x": 269.79,
+          "y": 966.67
+        },
+        {
+          "x": 673.96,
+          "y": 986.46
+        },
+        {
+          "x": 670.83,
+          "y": 1046.88
+        },
+        {
+          "x": 266.67,
+          "y": 1027.08
+        }
+      ],
+      "bounding_box": {
+        "x_min": 266.67,
+        "y_min": 966.67,
+        "x_max": 673.96,
+        "y_max": 1046.88,
+        "width": 407.29,
+        "height": 80.21000000000015
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 29
+    },
+    {
+      "block_id": "ocr_block_0031",
+      "text": "Keep away from direct sunlight",
+      "confidence": 0.9495,
+      "polygon": [
+        {
+          "x": 253.12,
+          "y": 1050.0
+        },
+        {
+          "x": 736.46,
+          "y": 1068.75
+        },
+        {
+          "x": 733.33,
+          "y": 1132.29
+        },
+        {
+          "x": 250.0,
+          "y": 1113.54
+        }
+      ],
+      "bounding_box": {
+        "x_min": 250.0,
+        "y_min": 1050.0,
+        "x_max": 736.46,
+        "y_max": 1132.29,
+        "width": 486.46000000000004,
+        "height": 82.28999999999996
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 30
+    },
+    {
+      "block_id": "ocr_block_0032",
+      "text": "Keev.",
+      "confidence": 0.6009,
+      "polygon": [
+        {
+          "x": 221.88,
+          "y": 1118.75
+        },
+        {
+          "x": 834.38,
+          "y": 1139.58
+        },
+        {
+          "x": 832.29,
+          "y": 1200.0
+        },
+        {
+          "x": 219.79,
+          "y": 1179.17
+        }
+      ],
+      "bounding_box": {
+        "x_min": 219.79,
+        "y_min": 1118.75,
+        "x_max": 834.38,
+        "y_max": 1200.0,
+        "width": 614.59,
+        "height": 81.25
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 31
+    },
+    {
+      "block_id": "ocr_block_0033",
+      "text": "emeds",
+      "confidence": 0.9962,
+      "polygon": [
+        {
+          "x": 802.08,
+          "y": 1113.54
+        },
+        {
+          "x": 1002.08,
+          "y": 1113.54
+        },
+        {
+          "x": 1002.08,
+          "y": 1164.58
+        },
+        {
+          "x": 802.08,
+          "y": 1164.58
+        }
+      ],
+      "bounding_box": {
+        "x_min": 802.08,
+        "y_min": 1113.54,
+        "x_max": 1002.08,
+        "y_max": 1164.58,
+        "width": 200.0,
+        "height": 51.039999999999964
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 32
+    },
+    {
+      "block_id": "ocr_block_0034",
+      "text": "Do ue if package is tampered  damaged",
+      "confidence": 0.6898,
+      "polygon": [
+        {
+          "x": 211.46,
+          "y": 1152.08
+        },
+        {
+          "x": 880.21,
+          "y": 1172.92
+        },
+        {
+          "x": 877.08,
+          "y": 1250.0
+        },
+        {
+          "x": 208.33,
+          "y": 1229.17
+        }
+      ],
+      "bounding_box": {
+        "x_min": 208.33,
+        "y_min": 1152.08,
+        "x_max": 880.21,
+        "y_max": 1250.0,
+        "width": 671.88,
+        "height": 97.92000000000007
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 33
+    },
+    {
+      "block_id": "ocr_block_0035",
+      "text": "For Consumer Care ContacManager-Maren",
+      "confidence": 0.8085,
+      "polygon": [
+        {
+          "x": 198.96,
+          "y": 1207.29
+        },
+        {
+          "x": 981.25,
+          "y": 1216.67
+        },
+        {
+          "x": 980.21,
+          "y": 1313.54
+        },
+        {
+          "x": 197.92,
+          "y": 1304.17
+        }
+      ],
+      "bounding_box": {
+        "x_min": 197.92,
+        "y_min": 1207.29,
+        "x_max": 981.25,
+        "y_max": 1313.54,
+        "width": 783.33,
+        "height": 106.25
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 34
+    },
+    {
+      "block_id": "ocr_block_0036",
+      "text": "]",
+      "confidence": 0.5526,
+      "polygon": [
+        {
+          "x": 194.79,
+          "y": 1251.04
+        },
+        {
+          "x": 985.42,
+          "y": 1259.38
+        },
+        {
+          "x": 984.38,
+          "y": 1363.54
+        },
+        {
+          "x": 193.75,
+          "y": 1355.21
+        }
+      ],
+      "bounding_box": {
+        "x_min": 193.75,
+        "y_min": 1251.04,
+        "x_max": 985.42,
+        "y_max": 1363.54,
+        "width": 791.67,
+        "height": 112.5
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 35
+    },
+    {
+      "block_id": "ocr_block_0037",
+      "text": "]",
+      "confidence": 0.7977,
+      "polygon": [
+        {
+          "x": 194.79,
+          "y": 1295.83
+        },
+        {
+          "x": 986.46,
+          "y": 1309.38
+        },
+        {
+          "x": 984.38,
+          "y": 1413.54
+        },
+        {
+          "x": 192.71,
+          "y": 1400.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 192.71,
+        "y_min": 1295.83,
+        "x_max": 986.46,
+        "y_max": 1413.54,
+        "width": 793.75,
+        "height": 117.71000000000004
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 36
+    },
+    {
+      "block_id": "ocr_block_0038",
+      "text": "Toll Free No.: 18001804109",
+      "confidence": 0.9742,
+      "polygon": [
+        {
+          "x": 207.29,
+          "y": 1392.71
+        },
+        {
+          "x": 657.29,
+          "y": 1432.29
+        },
+        {
+          "x": 651.04,
+          "y": 1498.96
+        },
+        {
+          "x": 201.04,
+          "y": 1459.38
+        }
+      ],
+      "bounding_box": {
+        "x_min": 201.04,
+        "y_min": 1392.71,
+        "x_max": 657.29,
+        "y_max": 1498.96,
+        "width": 456.25,
+        "height": 106.25
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 37
+    },
+    {
+      "block_id": "ocr_block_0039",
+      "text": "Emaiwecare@patanjalios.co.",
+      "confidence": 0.7635,
+      "polygon": [
+        {
+          "x": 208.33,
+          "y": 1435.42
+        },
+        {
+          "x": 760.42,
+          "y": 1481.25
+        },
+        {
+          "x": 754.17,
+          "y": 1556.25
+        },
+        {
+          "x": 202.08,
+          "y": 1510.42
+        }
+      ],
+      "bounding_box": {
+        "x_min": 202.08,
+        "y_min": 1435.42,
+        "x_max": 760.42,
+        "y_max": 1556.25,
+        "width": 558.3399999999999,
+        "height": 120.82999999999993
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 38
+    },
+    {
+      "block_id": "ocr_block_0040",
+      "text": "Vsiusa.patanaid.co",
+      "confidence": 0.6384,
+      "polygon": [
+        {
+          "x": 214.58,
+          "y": 1481.25
+        },
+        {
+          "x": 720.83,
+          "y": 1531.25
+        },
+        {
+          "x": 713.54,
+          "y": 1600.0
+        },
+        {
+          "x": 207.29,
+          "y": 1550.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 207.29,
+        "y_min": 1481.25,
+        "x_max": 720.83,
+        "y_max": 1600.0,
+        "width": 513.5400000000001,
+        "height": 118.75
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 39
+    },
+    {
+      "block_id": "ocr_block_0041",
+      "text": "Manufactured By:",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 227.08,
+          "y": 1550.0
+        },
+        {
+          "x": 463.54,
+          "y": 1586.46
+        },
+        {
+          "x": 455.21,
+          "y": 1638.54
+        },
+        {
+          "x": 219.79,
+          "y": 1602.08
+        }
+      ],
+      "bounding_box": {
+        "x_min": 219.79,
+        "y_min": 1550.0,
+        "x_max": 463.54,
+        "y_max": 1638.54,
+        "width": 243.75000000000003,
+        "height": 88.53999999999996
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 40
+    },
+    {
+      "block_id": "ocr_block_0042",
+      "text": "8904422700789",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 765.62,
+          "y": 1562.5
+        },
+        {
+          "x": 1051.04,
+          "y": 1495.83
+        },
+        {
+          "x": 1064.58,
+          "y": 1551.04
+        },
+        {
+          "x": 779.17,
+          "y": 1617.71
+        }
+      ],
+      "bounding_box": {
+        "x_min": 765.62,
+        "y_min": 1495.83,
+        "x_max": 1064.58,
+        "y_max": 1617.71,
+        "width": 298.9599999999999,
+        "height": 121.88000000000011
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 41
+    },
+    {
+      "block_id": "ocr_block_0043",
+      "text": "Mfg.Lic.No.UK.AY-504/2022",
+      "confidence": 0.8971,
+      "polygon": [
+        {
+          "x": 273.96,
+          "y": 1747.92
+        },
+        {
+          "x": 629.17,
+          "y": 1794.79
+        },
+        {
+          "x": 621.88,
+          "y": 1848.96
+        },
+        {
+          "x": 266.67,
+          "y": 1802.08
+        }
+      ],
+      "bounding_box": {
+        "x_min": 266.67,
+        "y_min": 1747.92,
+        "x_max": 629.17,
+        "y_max": 1848.96,
+        "width": 362.49999999999994,
+        "height": 101.03999999999996
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 42
+    },
+    {
+      "block_id": "ocr_block_0044",
+      "text": "Uttarakhand)",
+      "confidence": 0.8906,
+      "polygon": [
+        {
+          "x": 371.88,
+          "y": 1740.62
+        },
+        {
+          "x": 511.46,
+          "y": 1752.08
+        },
+        {
+          "x": 508.33,
+          "y": 1792.71
+        },
+        {
+          "x": 368.75,
+          "y": 1781.25
+        }
+      ],
+      "bounding_box": {
+        "x_min": 368.75,
+        "y_min": 1740.62,
+        "x_max": 511.46,
+        "y_max": 1792.71,
+        "width": 142.70999999999998,
+        "height": 52.090000000000146
+      },
+      "source_image_ref": "patanjali-special-chyawanprash-1kg_patanjali-special-chyawanprash-1kg--TM-PANG1-000200_3.jpg",
+      "associated_region_id": null,
+      "line_index": 43
+    }
+  ],
+  "warnings": [
+    "Image contains an alpha channel (4-channel BGRA). Converted to 3-channel BGR.",
+    "Significant highlight clipping: 21.1% of pixels are saturated near pure white (threshold: 5.0%). Possible flash reflection."
+  ],
+  "errors": []
+}

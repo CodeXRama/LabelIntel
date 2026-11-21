@@ -127,6 +127,16 @@ export const App: React.FC = () => {
       } : current);
       await new Promise((resolve) => window.setTimeout(resolve, 650));
       return data;
+    } catch (error) {
+      setProcessing((current) => current?.requestId === requestId ? {
+        ...current,
+        stage: "failed",
+        resultNote: error instanceof Error && error.message.toLowerCase().includes("timeout")
+          ? "The inspection took too long on the hosted CPU. Retry the sample or upload a smaller image."
+          : "The inspection could not be completed.",
+      } : current);
+      await new Promise((resolve) => window.setTimeout(resolve, 1200));
+      throw error;
     } finally {
       controller.abort();
       await watcher;

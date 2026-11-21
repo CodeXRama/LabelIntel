@@ -76,6 +76,8 @@ data/uploads/*
 !data/uploads/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
+!data/processed/ocr_evaluation/
+!data/processed/ocr_evaluation/*_eval.json
 data/models/*.pt
 data/models/*.onnx
 data/models/*.bin

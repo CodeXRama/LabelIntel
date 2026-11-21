@@ -1,0 +1,4420 @@
+{
+  "file_name": "food_001.jpg",
+  "relative_path": "food\\food_001.jpg",
+  "category": "food",
+  "metadata": {
+    "filename": "food_001.jpg",
+    "source_path": "D:\\Projects\\LabelIntel\\data\\samples\\food\\food_001.jpg",
+    "file_size_bytes": 260944,
+    "image_format": "WEBP",
+    "width": 1500,
+    "height": 1500,
+    "channels": 3,
+    "aspect_ratio": 1.0
+  },
+  "quality": {
+    "blur_laplacian_variance": 956.8,
+    "is_blurry": false,
+    "brightness_mean": 149.16,
+    "contrast_std": 85.5,
+    "clipping_low_pct": 0.0,
+    "clipping_high_pct": 0.3052,
+    "is_under_exposed": false,
+    "is_over_exposed": false,
+    "quality_warnings": [
+      "Significant highlight clipping: 30.5% of pixels are saturated near pure white (threshold: 5.0%). Possible flash reflection."
+    ]
+  },
+  "preprocessing": {
+    "original_size": [
+      1500,
+      1500
+    ],
+    "processed_size": [
+      1500,
+      1500
+    ],
+    "scale_factor_x": 1.0,
+    "scale_factor_y": 1.0,
+    "deskew_angle_degrees": 0.0,
+    "applied_operations": [
+      "clahe (clip=2.0, grid=(8, 8))"
+    ],
+    "skipped_operations": [
+      "deskew (disabled_in_config)",
+      "aspect_preserving_resize (image already within 1920x1920)",
+      "denoising (disabled_in_config)"
+    ],
+    "forward_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "inverse_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "timings_ms": {
+    "validation_ms": 20.86,
+    "quality_ms": 27.66,
+    "preprocessing_ms": 14.44,
+    "ocr_ms": 97008.96,
+    "total_pipeline_ms": 97071.91
+  },
+  "detection_summary": {
+    "total_blocks": 127,
+    "high_confidence_blocks": 125,
+    "low_confidence_blocks": 2,
+    "average_confidence": 0.9855
+  },
+  "ocr_blocks": [
+    {
+      "block_id": "ocr_block_0001",
+      "text": "Gits",
+      "confidence": 0.9998,
+      "polygon": [
+        {
+          "x": 447.0,
+          "y": 27.0
+        },
+        {
+          "x": 602.0,
+          "y": 29.0
+        },
+        {
+          "x": 600.0,
+          "y": 109.0
+        },
+        {
+          "x": 445.0,
+          "y": 106.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 445.0,
+        "y_min": 27.0,
+        "x_max": 602.0,
+        "y_max": 109.0,
+        "width": 157.0,
+        "height": 82.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 0
+    },
+    {
+      "block_id": "ocr_block_0002",
+      "text": "ReadyMeals",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 844.0,
+          "y": 44.0
+        },
+        {
+          "x": 1116.0,
+          "y": 47.0
+        },
+        {
+          "x": 1115.0,
+          "y": 122.0
+        },
+        {
+          "x": 843.0,
+          "y": 118.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 843.0,
+        "y_min": 44.0,
+        "x_max": 1116.0,
+        "y_max": 122.0,
+        "width": 273.0,
+        "height": 78.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 1
+    },
+    {
+      "block_id": "ocr_block_0003",
+      "text": "VEG BIRYANI",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 642.0,
+          "y": 121.0
+        },
+        {
+          "x": 857.0,
+          "y": 126.0
+        },
+        {
+          "x": 856.0,
+          "y": 164.0
+        },
+        {
+          "x": 641.0,
+          "y": 159.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 641.0,
+        "y_min": 121.0,
+        "x_max": 857.0,
+        "y_max": 164.0,
+        "width": 216.0,
+        "height": 43.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 2
+    },
+    {
+      "block_id": "ocr_block_0004",
+      "text": "The crowning glory of India's rice dishes is the Biryani, an elaborate Mughal dish made from spiced saffron rice",
+      "confidence": 0.9943,
+      "polygon": [
+        {
+          "x": 205.0,
+          "y": 160.0
+        },
+        {
+          "x": 1279.0,
+          "y": 179.0
+        },
+        {
+          "x": 1278.0,
+          "y": 206.0
+        },
+        {
+          "x": 204.0,
+          "y": 187.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 204.0,
+        "y_min": 160.0,
+        "x_max": 1279.0,
+        "y_max": 206.0,
+        "width": 1075.0,
+        "height": 46.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 3
+    },
+    {
+      "block_id": "ocr_block_0005",
+      "text": "cooked with vegetables and finely garnished with fresh peas and potatoes. A layered rice dish, it is a one-dish meal",
+      "confidence": 0.9943,
+      "polygon": [
+        {
+          "x": 205.0,
+          "y": 187.0
+        },
+        {
+          "x": 1279.0,
+          "y": 205.0
+        },
+        {
+          "x": 1278.0,
+          "y": 232.0
+        },
+        {
+          "x": 204.0,
+          "y": 214.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 204.0,
+        "y_min": 187.0,
+        "x_max": 1279.0,
+        "y_max": 232.0,
+        "width": 1075.0,
+        "height": 45.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 4
+    },
+    {
+      "block_id": "ocr_block_0006",
+      "text": "that is nutritious and beautiful to serve. Usually made on special occasions and festivals. Biryani is favourite at",
+      "confidence": 0.978,
+      "polygon": [
+        {
+          "x": 204.0,
+          "y": 213.0
+        },
+        {
+          "x": 1280.0,
+          "y": 231.0
+        },
+        {
+          "x": 1279.0,
+          "y": 257.0
+        },
+        {
+          "x": 203.0,
+          "y": 240.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 203.0,
+        "y_min": 213.0,
+        "x_max": 1280.0,
+        "y_max": 257.0,
+        "width": 1077.0,
+        "height": 44.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 5
+    },
+    {
+      "block_id": "ocr_block_0007",
+      "text": "weddings and celebrations. This vegetarian dish is best served hot, generally accompanied with yogurt-based",
+      "confidence": 0.9958,
+      "polygon": [
+        {
+          "x": 205.0,
+          "y": 239.0
+        },
+        {
+          "x": 1279.0,
+          "y": 255.0
+        },
+        {
+          "x": 1278.0,
+          "y": 282.0
+        },
+        {
+          "x": 204.0,
+          "y": 266.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 204.0,
+        "y_min": 239.0,
+        "x_max": 1279.0,
+        "y_max": 282.0,
+        "width": 1075.0,
+        "height": 43.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 6
+    },
+    {
+      "block_id": "ocr_block_0008",
+      "text": "salad called a \u201cRaita\" or a freshly made vegetable salad or a chutney or \u201cKachumber\" (chopped onion salad).",
+      "confidence": 0.9752,
+      "polygon": [
+        {
+          "x": 205.0,
+          "y": 266.0
+        },
+        {
+          "x": 1233.0,
+          "y": 281.0
+        },
+        {
+          "x": 1232.0,
+          "y": 307.0
+        },
+        {
+          "x": 204.0,
+          "y": 292.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 204.0,
+        "y_min": 266.0,
+        "x_max": 1233.0,
+        "y_max": 307.0,
+        "width": 1029.0,
+        "height": 41.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 7
+    },
+    {
+      "block_id": "ocr_block_0009",
+      "text": "No Preservative \u2022 1oo% Vegetarian \u2022 Contains Milk Solids \u2022 No Artificial Flavours / Colours",
+      "confidence": 0.9709,
+      "polygon": [
+        {
+          "x": 336.0,
+          "y": 307.0
+        },
+        {
+          "x": 1157.0,
+          "y": 318.0
+        },
+        {
+          "x": 1157.0,
+          "y": 342.0
+        },
+        {
+          "x": 336.0,
+          "y": 331.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 336.0,
+        "y_min": 307.0,
+        "x_max": 1157.0,
+        "y_max": 342.0,
+        "width": 821.0,
+        "height": 35.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 8
+    },
+    {
+      "block_id": "ocr_block_0010",
+      "text": "Did you know ? Gits Ready Meals are shelf stable at room",
+      "confidence": 0.9894,
+      "polygon": [
+        {
+          "x": 224.0,
+          "y": 345.0
+        },
+        {
+          "x": 718.0,
+          "y": 350.0
+        },
+        {
+          "x": 718.0,
+          "y": 373.0
+        },
+        {
+          "x": 223.0,
+          "y": 368.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 223.0,
+        "y_min": 345.0,
+        "x_max": 718.0,
+        "y_max": 373.0,
+        "width": 495.0,
+        "height": 28.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 9
+    },
+    {
+      "block_id": "ocr_block_0011",
+      "text": "Heating Instructions",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 908.0,
+          "y": 341.0
+        },
+        {
+          "x": 1130.0,
+          "y": 345.0
+        },
+        {
+          "x": 1130.0,
+          "y": 372.0
+        },
+        {
+          "x": 907.0,
+          "y": 368.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 907.0,
+        "y_min": 341.0,
+        "x_max": 1130.0,
+        "y_max": 372.0,
+        "width": 223.0,
+        "height": 31.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 10
+    },
+    {
+      "block_id": "ocr_block_0012",
+      "text": "temperature for over 18 months!",
+      "confidence": 0.9886,
+      "polygon": [
+        {
+          "x": 223.0,
+          "y": 368.0
+        },
+        {
+          "x": 511.0,
+          "y": 369.0
+        },
+        {
+          "x": 511.0,
+          "y": 390.0
+        },
+        {
+          "x": 223.0,
+          "y": 389.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 223.0,
+        "y_min": 368.0,
+        "x_max": 511.0,
+        "y_max": 390.0,
+        "width": 288.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 11
+    },
+    {
+      "block_id": "ocr_block_0013",
+      "text": "Method 1 (Recommended)",
+      "confidence": 0.9825,
+      "polygon": [
+        {
+          "x": 768.0,
+          "y": 379.0
+        },
+        {
+          "x": 977.0,
+          "y": 381.0
+        },
+        {
+          "x": 977.0,
+          "y": 402.0
+        },
+        {
+          "x": 768.0,
+          "y": 400.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 768.0,
+        "y_min": 379.0,
+        "x_max": 977.0,
+        "y_max": 402.0,
+        "width": 209.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 12
+    },
+    {
+      "block_id": "ocr_block_0014",
+      "text": "Method 2",
+      "confidence": 0.9998,
+      "polygon": [
+        {
+          "x": 1029.0,
+          "y": 383.0
+        },
+        {
+          "x": 1107.0,
+          "y": 383.0
+        },
+        {
+          "x": 1107.0,
+          "y": 404.0
+        },
+        {
+          "x": 1029.0,
+          "y": 404.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1029.0,
+        "y_min": 383.0,
+        "x_max": 1107.0,
+        "y_max": 404.0,
+        "width": 78.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 13
+    },
+    {
+      "block_id": "ocr_block_0015",
+      "text": "Here's how we get it done ! : The products are hot filled in",
+      "confidence": 0.9884,
+      "polygon": [
+        {
+          "x": 224.0,
+          "y": 416.0
+        },
+        {
+          "x": 717.0,
+          "y": 420.0
+        },
+        {
+          "x": 717.0,
+          "y": 440.0
+        },
+        {
+          "x": 223.0,
+          "y": 436.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 223.0,
+        "y_min": 416.0,
+        "x_max": 717.0,
+        "y_max": 440.0,
+        "width": 494.0,
+        "height": 24.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 14
+    },
+    {
+      "block_id": "ocr_block_0016",
+      "text": "laminated 4 layered aluminium foil pouches able to",
+      "confidence": 0.9894,
+      "polygon": [
+        {
+          "x": 223.0,
+          "y": 437.0
+        },
+        {
+          "x": 718.0,
+          "y": 440.0
+        },
+        {
+          "x": 718.0,
+          "y": 460.0
+        },
+        {
+          "x": 223.0,
+          "y": 457.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 223.0,
+        "y_min": 437.0,
+        "x_max": 718.0,
+        "y_max": 460.0,
+        "width": 495.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 15
+    },
+    {
+      "block_id": "ocr_block_0017",
+      "text": "withstand thermal processing temperature in excess of",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 224.0,
+          "y": 457.0
+        },
+        {
+          "x": 718.0,
+          "y": 461.0
+        },
+        {
+          "x": 718.0,
+          "y": 481.0
+        },
+        {
+          "x": 223.0,
+          "y": 477.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 223.0,
+        "y_min": 457.0,
+        "x_max": 718.0,
+        "y_max": 481.0,
+        "width": 495.0,
+        "height": 24.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 16
+    },
+    {
+      "block_id": "ocr_block_0018",
+      "text": "100\u00b0C at the specified pressure required for sterilization.",
+      "confidence": 0.988,
+      "polygon": [
+        {
+          "x": 224.0,
+          "y": 475.0
+        },
+        {
+          "x": 717.0,
+          "y": 479.0
+        },
+        {
+          "x": 717.0,
+          "y": 502.0
+        },
+        {
+          "x": 223.0,
+          "y": 498.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 223.0,
+        "y_min": 475.0,
+        "x_max": 717.0,
+        "y_max": 502.0,
+        "width": 494.0,
+        "height": 27.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 17
+    },
+    {
+      "block_id": "ocr_block_0019",
+      "text": "Immerse the unopened pouch",
+      "confidence": 0.9901,
+      "polygon": [
+        {
+          "x": 771.0,
+          "y": 467.0
+        },
+        {
+          "x": 1012.0,
+          "y": 470.0
+        },
+        {
+          "x": 1012.0,
+          "y": 490.0
+        },
+        {
+          "x": 771.0,
+          "y": 487.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 771.0,
+        "y_min": 467.0,
+        "x_max": 1012.0,
+        "y_max": 490.0,
+        "width": 241.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 18
+    },
+    {
+      "block_id": "ocr_block_0020",
+      "text": "Empty the contents of the",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 1034.0,
+          "y": 469.0
+        },
+        {
+          "x": 1263.0,
+          "y": 473.0
+        },
+        {
+          "x": 1262.0,
+          "y": 493.0
+        },
+        {
+          "x": 1034.0,
+          "y": 489.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1034.0,
+        "y_min": 469.0,
+        "x_max": 1263.0,
+        "y_max": 493.0,
+        "width": 229.0,
+        "height": 24.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 19
+    },
+    {
+      "block_id": "ocr_block_0021",
+      "text": "in boiling water for 3-5 minutes.",
+      "confidence": 0.9861,
+      "polygon": [
+        {
+          "x": 772.0,
+          "y": 485.0
+        },
+        {
+          "x": 1010.0,
+          "y": 487.0
+        },
+        {
+          "x": 1010.0,
+          "y": 505.0
+        },
+        {
+          "x": 772.0,
+          "y": 503.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 772.0,
+        "y_min": 485.0,
+        "x_max": 1010.0,
+        "y_max": 505.0,
+        "width": 238.0,
+        "height": 20.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 20
+    },
+    {
+      "block_id": "ocr_block_0022",
+      "text": "The entire sterilization process is monitored continuously",
+      "confidence": 0.9983,
+      "polygon": [
+        {
+          "x": 222.0,
+          "y": 497.0
+        },
+        {
+          "x": 717.0,
+          "y": 500.0
+        },
+        {
+          "x": 717.0,
+          "y": 521.0
+        },
+        {
+          "x": 222.0,
+          "y": 518.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 222.0,
+        "y_min": 497.0,
+        "x_max": 717.0,
+        "y_max": 521.0,
+        "width": 495.0,
+        "height": 24.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 21
+    },
+    {
+      "block_id": "ocr_block_0023",
+      "text": "pack in a microwavable bowl.",
+      "confidence": 0.9989,
+      "polygon": [
+        {
+          "x": 1035.0,
+          "y": 488.0
+        },
+        {
+          "x": 1260.0,
+          "y": 490.0
+        },
+        {
+          "x": 1260.0,
+          "y": 508.0
+        },
+        {
+          "x": 1035.0,
+          "y": 506.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1035.0,
+        "y_min": 488.0,
+        "x_max": 1260.0,
+        "y_max": 508.0,
+        "width": 225.0,
+        "height": 20.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 22
+    },
+    {
+      "block_id": "ocr_block_0024",
+      "text": "Remove, Cut, Open, Stir and",
+      "confidence": 0.9885,
+      "polygon": [
+        {
+          "x": 771.0,
+          "y": 500.0
+        },
+        {
+          "x": 1011.0,
+          "y": 503.0
+        },
+        {
+          "x": 1011.0,
+          "y": 523.0
+        },
+        {
+          "x": 771.0,
+          "y": 520.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 771.0,
+        "y_min": 500.0,
+        "x_max": 1011.0,
+        "y_max": 523.0,
+        "width": 240.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 23
+    },
+    {
+      "block_id": "ocr_block_0025",
+      "text": "Cover and microwave for 1-2",
+      "confidence": 0.9957,
+      "polygon": [
+        {
+          "x": 1035.0,
+          "y": 505.0
+        },
+        {
+          "x": 1262.0,
+          "y": 507.0
+        },
+        {
+          "x": 1262.0,
+          "y": 524.0
+        },
+        {
+          "x": 1035.0,
+          "y": 522.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1035.0,
+        "y_min": 505.0,
+        "x_max": 1262.0,
+        "y_max": 524.0,
+        "width": 227.0,
+        "height": 19.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 24
+    },
+    {
+      "block_id": "ocr_block_0026",
+      "text": "with state-of-the-art computerized systems which provide",
+      "confidence": 0.9998,
+      "polygon": [
+        {
+          "x": 222.0,
+          "y": 518.0
+        },
+        {
+          "x": 717.0,
+          "y": 521.0
+        },
+        {
+          "x": 717.0,
+          "y": 541.0
+        },
+        {
+          "x": 222.0,
+          "y": 538.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 222.0,
+        "y_min": 518.0,
+        "x_max": 717.0,
+        "y_max": 541.0,
+        "width": 495.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 25
+    },
+    {
+      "block_id": "ocr_block_0027",
+      "text": "Serve.",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 770.0,
+          "y": 517.0
+        },
+        {
+          "x": 825.0,
+          "y": 517.0
+        },
+        {
+          "x": 825.0,
+          "y": 538.0
+        },
+        {
+          "x": 770.0,
+          "y": 538.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 770.0,
+        "y_min": 517.0,
+        "x_max": 825.0,
+        "y_max": 538.0,
+        "width": 55.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 26
+    },
+    {
+      "block_id": "ocr_block_0028",
+      "text": "minutes. Stirand Serve.",
+      "confidence": 0.9799,
+      "polygon": [
+        {
+          "x": 1035.0,
+          "y": 521.0
+        },
+        {
+          "x": 1210.0,
+          "y": 523.0
+        },
+        {
+          "x": 1210.0,
+          "y": 540.0
+        },
+        {
+          "x": 1035.0,
+          "y": 538.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1035.0,
+        "y_min": 521.0,
+        "x_max": 1210.0,
+        "y_max": 540.0,
+        "width": 175.0,
+        "height": 19.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 27
+    },
+    {
+      "block_id": "ocr_block_0029",
+      "text": "data of complete & effective sterilization.",
+      "confidence": 0.9924,
+      "polygon": [
+        {
+          "x": 222.0,
+          "y": 538.0
+        },
+        {
+          "x": 576.0,
+          "y": 540.0
+        },
+        {
+          "x": 575.0,
+          "y": 560.0
+        },
+        {
+          "x": 222.0,
+          "y": 557.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 222.0,
+        "y_min": 538.0,
+        "x_max": 576.0,
+        "y_max": 560.0,
+        "width": 354.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 28
+    },
+    {
+      "block_id": "ocr_block_0030",
+      "text": "Tip : Serve with yogurt (onion-cucumber raita), pickle & papad.",
+      "confidence": 0.9936,
+      "polygon": [
+        {
+          "x": 769.0,
+          "y": 546.0
+        },
+        {
+          "x": 1160.0,
+          "y": 550.0
+        },
+        {
+          "x": 1160.0,
+          "y": 571.0
+        },
+        {
+          "x": 769.0,
+          "y": 567.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 769.0,
+        "y_min": 546.0,
+        "x_max": 1160.0,
+        "y_max": 571.0,
+        "width": 391.0,
+        "height": 25.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 29
+    },
+    {
+      "block_id": "ocr_block_0031",
+      "text": "INGREDIENTS : Basmati rice (24%), Potato, Water,",
+      "confidence": 0.9776,
+      "polygon": [
+        {
+          "x": 269.0,
+          "y": 583.0
+        },
+        {
+          "x": 895.0,
+          "y": 588.0
+        },
+        {
+          "x": 894.0,
+          "y": 615.0
+        },
+        {
+          "x": 269.0,
+          "y": 610.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 269.0,
+        "y_min": 583.0,
+        "x_max": 895.0,
+        "y_max": 615.0,
+        "width": 626.0,
+        "height": 32.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 30
+    },
+    {
+      "block_id": "ocr_block_0032",
+      "text": "For Allergens, see ingredients in bold.",
+      "confidence": 0.9982,
+      "polygon": [
+        {
+          "x": 912.0,
+          "y": 588.0
+        },
+        {
+          "x": 1227.0,
+          "y": 590.0
+        },
+        {
+          "x": 1227.0,
+          "y": 611.0
+        },
+        {
+          "x": 912.0,
+          "y": 609.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 912.0,
+        "y_min": 588.0,
+        "x_max": 1227.0,
+        "y_max": 611.0,
+        "width": 315.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 31
+    },
+    {
+      "block_id": "ocr_block_0033",
+      "text": "Tomato, Onion, Yoghurt (Milk), Peas, Sunflower Oil,",
+      "confidence": 0.985,
+      "polygon": [
+        {
+          "x": 269.0,
+          "y": 616.0
+        },
+        {
+          "x": 895.0,
+          "y": 618.0
+        },
+        {
+          "x": 895.0,
+          "y": 648.0
+        },
+        {
+          "x": 269.0,
+          "y": 646.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 269.0,
+        "y_min": 616.0,
+        "x_max": 895.0,
+        "y_max": 648.0,
+        "width": 626.0,
+        "height": 32.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 32
+    },
+    {
+      "block_id": "ocr_block_0034",
+      "text": "May contain Wheat flour, Almonds.",
+      "confidence": 0.9827,
+      "polygon": [
+        {
+          "x": 912.0,
+          "y": 614.0
+        },
+        {
+          "x": 1272.0,
+          "y": 616.0
+        },
+        {
+          "x": 1272.0,
+          "y": 637.0
+        },
+        {
+          "x": 912.0,
+          "y": 635.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 912.0,
+        "y_min": 614.0,
+        "x_max": 1272.0,
+        "y_max": 637.0,
+        "width": 360.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 33
+    },
+    {
+      "block_id": "ocr_block_0035",
+      "text": "Ghee (Milk), Ginger, Garlic, Red Chillies, Coriander, Mint,",
+      "confidence": 0.9913,
+      "polygon": [
+        {
+          "x": 206.0,
+          "y": 648.0
+        },
+        {
+          "x": 896.0,
+          "y": 650.0
+        },
+        {
+          "x": 896.0,
+          "y": 680.0
+        },
+        {
+          "x": 205.0,
+          "y": 678.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 205.0,
+        "y_min": 648.0,
+        "x_max": 896.0,
+        "y_max": 680.0,
+        "width": 691.0,
+        "height": 32.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 34
+    },
+    {
+      "block_id": "ocr_block_0036",
+      "text": "Pistachios, Cashewnuts, Sesame seeds",
+      "confidence": 0.9996,
+      "polygon": [
+        {
+          "x": 911.0,
+          "y": 639.0
+        },
+        {
+          "x": 1277.0,
+          "y": 642.0
+        },
+        {
+          "x": 1276.0,
+          "y": 665.0
+        },
+        {
+          "x": 911.0,
+          "y": 662.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 911.0,
+        "y_min": 639.0,
+        "x_max": 1277.0,
+        "y_max": 665.0,
+        "width": 366.0,
+        "height": 26.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 35
+    },
+    {
+      "block_id": "ocr_block_0037",
+      "text": "and Mustard.",
+      "confidence": 0.9998,
+      "polygon": [
+        {
+          "x": 913.0,
+          "y": 668.0
+        },
+        {
+          "x": 1027.0,
+          "y": 668.0
+        },
+        {
+          "x": 1027.0,
+          "y": 688.0
+        },
+        {
+          "x": 913.0,
+          "y": 688.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 913.0,
+        "y_min": 668.0,
+        "x_max": 1027.0,
+        "y_max": 688.0,
+        "width": 114.0,
+        "height": 20.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 36
+    },
+    {
+      "block_id": "ocr_block_0038",
+      "text": "Salt, Turmeric, Cinnamon, Cumin, Black pepper, Bay",
+      "confidence": 0.9979,
+      "polygon": [
+        {
+          "x": 206.0,
+          "y": 680.0
+        },
+        {
+          "x": 897.0,
+          "y": 684.0
+        },
+        {
+          "x": 896.0,
+          "y": 714.0
+        },
+        {
+          "x": 205.0,
+          "y": 710.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 205.0,
+        "y_min": 680.0,
+        "x_max": 897.0,
+        "y_max": 714.0,
+        "width": 692.0,
+        "height": 34.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 37
+    },
+    {
+      "block_id": "ocr_block_0039",
+      "text": "leaves, Green Cardamom, Black Cardamom, Caraway",
+      "confidence": 0.9969,
+      "polygon": [
+        {
+          "x": 206.0,
+          "y": 715.0
+        },
+        {
+          "x": 896.0,
+          "y": 718.0
+        },
+        {
+          "x": 896.0,
+          "y": 745.0
+        },
+        {
+          "x": 205.0,
+          "y": 742.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 205.0,
+        "y_min": 715.0,
+        "x_max": 896.0,
+        "y_max": 745.0,
+        "width": 691.0,
+        "height": 30.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 38
+    },
+    {
+      "block_id": "ocr_block_0040",
+      "text": "CAUTION : DO NOT USE",
+      "confidence": 0.9953,
+      "polygon": [
+        {
+          "x": 923.0,
+          "y": 708.0
+        },
+        {
+          "x": 1110.0,
+          "y": 708.0
+        },
+        {
+          "x": 1110.0,
+          "y": 725.0
+        },
+        {
+          "x": 923.0,
+          "y": 725.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 923.0,
+        "y_min": 708.0,
+        "x_max": 1110.0,
+        "y_max": 725.0,
+        "width": 187.0,
+        "height": 17.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 39
+    },
+    {
+      "block_id": "ocr_block_0041",
+      "text": "ISO 9001:2015",
+      "confidence": 0.9837,
+      "polygon": [
+        {
+          "x": 1191.0,
+          "y": 712.0
+        },
+        {
+          "x": 1273.0,
+          "y": 712.0
+        },
+        {
+          "x": 1273.0,
+          "y": 730.0
+        },
+        {
+          "x": 1191.0,
+          "y": 730.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1191.0,
+        "y_min": 712.0,
+        "x_max": 1273.0,
+        "y_max": 730.0,
+        "width": 82.0,
+        "height": 18.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 40
+    },
+    {
+      "block_id": "ocr_block_0042",
+      "text": "THE INNER POUCH IF IT IS",
+      "confidence": 0.9879,
+      "polygon": [
+        {
+          "x": 925.0,
+          "y": 727.0
+        },
+        {
+          "x": 1109.0,
+          "y": 727.0
+        },
+        {
+          "x": 1109.0,
+          "y": 741.0
+        },
+        {
+          "x": 925.0,
+          "y": 741.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 925.0,
+        "y_min": 727.0,
+        "x_max": 1109.0,
+        "y_max": 741.0,
+        "width": 184.0,
+        "height": 14.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 41
+    },
+    {
+      "block_id": "ocr_block_0043",
+      "text": "DNV\u00b7GL",
+      "confidence": 0.9841,
+      "polygon": [
+        {
+          "x": 1129.0,
+          "y": 738.0
+        },
+        {
+          "x": 1194.0,
+          "y": 738.0
+        },
+        {
+          "x": 1194.0,
+          "y": 755.0
+        },
+        {
+          "x": 1129.0,
+          "y": 755.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1129.0,
+        "y_min": 738.0,
+        "x_max": 1194.0,
+        "y_max": 755.0,
+        "width": 65.0,
+        "height": 17.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 42
+    },
+    {
+      "block_id": "ocr_block_0044",
+      "text": "FSSC 22000",
+      "confidence": 0.995,
+      "polygon": [
+        {
+          "x": 1190.0,
+          "y": 729.0
+        },
+        {
+          "x": 1273.0,
+          "y": 729.0
+        },
+        {
+          "x": 1273.0,
+          "y": 746.0
+        },
+        {
+          "x": 1190.0,
+          "y": 746.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1190.0,
+        "y_min": 729.0,
+        "x_max": 1273.0,
+        "y_max": 746.0,
+        "width": 83.0,
+        "height": 17.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 43
+    },
+    {
+      "block_id": "ocr_block_0045",
+      "text": "Seeds, Nutmeg, Mace, Cloves, Star anise, Fennel Seeds,",
+      "confidence": 0.9997,
+      "polygon": [
+        {
+          "x": 207.0,
+          "y": 746.0
+        },
+        {
+          "x": 894.0,
+          "y": 748.0
+        },
+        {
+          "x": 894.0,
+          "y": 779.0
+        },
+        {
+          "x": 206.0,
+          "y": 777.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 206.0,
+        "y_min": 746.0,
+        "x_max": 894.0,
+        "y_max": 779.0,
+        "width": 688.0,
+        "height": 33.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 44
+    },
+    {
+      "block_id": "ocr_block_0046",
+      "text": "LEAKING OR BLOATED.",
+      "confidence": 0.9697,
+      "polygon": [
+        {
+          "x": 924.0,
+          "y": 743.0
+        },
+        {
+          "x": 1068.0,
+          "y": 743.0
+        },
+        {
+          "x": 1068.0,
+          "y": 760.0
+        },
+        {
+          "x": 924.0,
+          "y": 760.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 924.0,
+        "y_min": 743.0,
+        "x_max": 1068.0,
+        "y_max": 760.0,
+        "width": 144.0,
+        "height": 17.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 45
+    },
+    {
+      "block_id": "ocr_block_0047",
+      "text": "CERTIFIED",
+      "confidence": 0.9989,
+      "polygon": [
+        {
+          "x": 1202.0,
+          "y": 745.0
+        },
+        {
+          "x": 1263.0,
+          "y": 745.0
+        },
+        {
+          "x": 1263.0,
+          "y": 755.0
+        },
+        {
+          "x": 1202.0,
+          "y": 755.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1202.0,
+        "y_min": 745.0,
+        "x_max": 1263.0,
+        "y_max": 755.0,
+        "width": 61.0,
+        "height": 10.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 46
+    },
+    {
+      "block_id": "ocr_block_0048",
+      "text": "Rose Water, Saffron & Kewra.",
+      "confidence": 0.9908,
+      "polygon": [
+        {
+          "x": 208.0,
+          "y": 780.0
+        },
+        {
+          "x": 558.0,
+          "y": 781.0
+        },
+        {
+          "x": 557.0,
+          "y": 809.0
+        },
+        {
+          "x": 207.0,
+          "y": 808.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 207.0,
+        "y_min": 780.0,
+        "x_max": 558.0,
+        "y_max": 809.0,
+        "width": 351.0,
+        "height": 29.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 47
+    },
+    {
+      "block_id": "ocr_block_0049",
+      "text": "NUTRITION INFORMATION",
+      "confidence": 0.9873,
+      "polygon": [
+        {
+          "x": 939.0,
+          "y": 781.0
+        },
+        {
+          "x": 1253.0,
+          "y": 781.0
+        },
+        {
+          "x": 1253.0,
+          "y": 805.0
+        },
+        {
+          "x": 939.0,
+          "y": 805.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 939.0,
+        "y_min": 781.0,
+        "x_max": 1253.0,
+        "y_max": 805.0,
+        "width": 314.0,
+        "height": 24.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 48
+    },
+    {
+      "block_id": "ocr_block_0050",
+      "text": "Serving Size : 132.5 g",
+      "confidence": 0.9836,
+      "polygon": [
+        {
+          "x": 1008.0,
+          "y": 808.0
+        },
+        {
+          "x": 1188.0,
+          "y": 808.0
+        },
+        {
+          "x": 1188.0,
+          "y": 829.0
+        },
+        {
+          "x": 1008.0,
+          "y": 829.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1008.0,
+        "y_min": 808.0,
+        "x_max": 1188.0,
+        "y_max": 829.0,
+        "width": 180.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 49
+    },
+    {
+      "block_id": "ocr_block_0051",
+      "text": "INGREDIENT: basmati riz, pomme de terre, eau, tomate, oignon, lait,",
+      "confidence": 0.9916,
+      "polygon": [
+        {
+          "x": 269.0,
+          "y": 820.0
+        },
+        {
+          "x": 895.0,
+          "y": 821.0
+        },
+        {
+          "x": 895.0,
+          "y": 845.0
+        },
+        {
+          "x": 269.0,
+          "y": 844.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 269.0,
+        "y_min": 820.0,
+        "x_max": 895.0,
+        "y_max": 845.0,
+        "width": 626.0,
+        "height": 25.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 50
+    },
+    {
+      "block_id": "ocr_block_0052",
+      "text": "Serving Per Package:2",
+      "confidence": 0.9939,
+      "polygon": [
+        {
+          "x": 1001.0,
+          "y": 828.0
+        },
+        {
+          "x": 1193.0,
+          "y": 828.0
+        },
+        {
+          "x": 1193.0,
+          "y": 849.0
+        },
+        {
+          "x": 1001.0,
+          "y": 849.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1001.0,
+        "y_min": 828.0,
+        "x_max": 1193.0,
+        "y_max": 849.0,
+        "width": 192.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 51
+    },
+    {
+      "block_id": "ocr_block_0053",
+      "text": "caille, petits pois, hulie, tournesal, fantome, gingembre, ail piment",
+      "confidence": 0.992,
+      "polygon": [
+        {
+          "x": 270.0,
+          "y": 846.0
+        },
+        {
+          "x": 896.0,
+          "y": 846.0
+        },
+        {
+          "x": 896.0,
+          "y": 869.0
+        },
+        {
+          "x": 270.0,
+          "y": 869.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 270.0,
+        "y_min": 846.0,
+        "x_max": 896.0,
+        "y_max": 869.0,
+        "width": 626.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 52
+    },
+    {
+      "block_id": "ocr_block_0054",
+      "text": "Per 100 g",
+      "confidence": 0.9439,
+      "polygon": [
+        {
+          "x": 1024.0,
+          "y": 865.0
+        },
+        {
+          "x": 1085.0,
+          "y": 865.0
+        },
+        {
+          "x": 1085.0,
+          "y": 883.0
+        },
+        {
+          "x": 1024.0,
+          "y": 883.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1024.0,
+        "y_min": 865.0,
+        "x_max": 1085.0,
+        "y_max": 883.0,
+        "width": 61.0,
+        "height": 18.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 53
+    },
+    {
+      "block_id": "ocr_block_0055",
+      "text": "Per Serving",
+      "confidence": 0.9918,
+      "polygon": [
+        {
+          "x": 1085.0,
+          "y": 860.0
+        },
+        {
+          "x": 1156.0,
+          "y": 863.0
+        },
+        {
+          "x": 1155.0,
+          "y": 885.0
+        },
+        {
+          "x": 1084.0,
+          "y": 882.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1084.0,
+        "y_min": 860.0,
+        "x_max": 1156.0,
+        "y_max": 885.0,
+        "width": 72.0,
+        "height": 25.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 54
+    },
+    {
+      "block_id": "ocr_block_0056",
+      "text": "%RI",
+      "confidence": 0.9777,
+      "polygon": [
+        {
+          "x": 1165.0,
+          "y": 867.0
+        },
+        {
+          "x": 1200.0,
+          "y": 867.0
+        },
+        {
+          "x": 1200.0,
+          "y": 896.0
+        },
+        {
+          "x": 1165.0,
+          "y": 896.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1165.0,
+        "y_min": 867.0,
+        "x_max": 1200.0,
+        "y_max": 896.0,
+        "width": 35.0,
+        "height": 29.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 55
+    },
+    {
+      "block_id": "ocr_block_0057",
+      "text": "RI* for an",
+      "confidence": 0.9726,
+      "polygon": [
+        {
+          "x": 1212.0,
+          "y": 859.0
+        },
+        {
+          "x": 1273.0,
+          "y": 859.0
+        },
+        {
+          "x": 1273.0,
+          "y": 877.0
+        },
+        {
+          "x": 1212.0,
+          "y": 877.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1212.0,
+        "y_min": 859.0,
+        "x_max": 1273.0,
+        "y_max": 877.0,
+        "width": 61.0,
+        "height": 18.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 56
+    },
+    {
+      "block_id": "ocr_block_0058",
+      "text": "rouge, piments verts, coriander, menthe, sel, kewda, saffron, turmeric,",
+      "confidence": 0.9844,
+      "polygon": [
+        {
+          "x": 206.0,
+          "y": 870.0
+        },
+        {
+          "x": 896.0,
+          "y": 870.0
+        },
+        {
+          "x": 896.0,
+          "y": 893.0
+        },
+        {
+          "x": 206.0,
+          "y": 893.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 206.0,
+        "y_min": 870.0,
+        "x_max": 896.0,
+        "y_max": 893.0,
+        "width": 690.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 57
+    },
+    {
+      "block_id": "ocr_block_0059",
+      "text": "Typical values",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 924.0,
+          "y": 871.0
+        },
+        {
+          "x": 1018.0,
+          "y": 871.0
+        },
+        {
+          "x": 1018.0,
+          "y": 892.0
+        },
+        {
+          "x": 924.0,
+          "y": 892.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 924.0,
+        "y_min": 871.0,
+        "x_max": 1018.0,
+        "y_max": 892.0,
+        "width": 94.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 58
+    },
+    {
+      "block_id": "ocr_block_0060",
+      "text": "contains",
+      "confidence": 0.9991,
+      "polygon": [
+        {
+          "x": 1025.0,
+          "y": 881.0
+        },
+        {
+          "x": 1081.0,
+          "y": 881.0
+        },
+        {
+          "x": 1081.0,
+          "y": 902.0
+        },
+        {
+          "x": 1025.0,
+          "y": 902.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1025.0,
+        "y_min": 881.0,
+        "x_max": 1081.0,
+        "y_max": 902.0,
+        "width": 56.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 59
+    },
+    {
+      "block_id": "ocr_block_0061",
+      "text": "contains",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 1092.0,
+          "y": 881.0
+        },
+        {
+          "x": 1148.0,
+          "y": 881.0
+        },
+        {
+          "x": 1148.0,
+          "y": 902.0
+        },
+        {
+          "x": 1092.0,
+          "y": 902.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1092.0,
+        "y_min": 881.0,
+        "x_max": 1148.0,
+        "y_max": 902.0,
+        "width": 56.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 60
+    },
+    {
+      "block_id": "ocr_block_0062",
+      "text": "average",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 1218.0,
+          "y": 875.0
+        },
+        {
+          "x": 1267.0,
+          "y": 875.0
+        },
+        {
+          "x": 1267.0,
+          "y": 890.0
+        },
+        {
+          "x": 1218.0,
+          "y": 890.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1218.0,
+        "y_min": 875.0,
+        "x_max": 1267.0,
+        "y_max": 890.0,
+        "width": 49.0,
+        "height": 15.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 61
+    },
+    {
+      "block_id": "ocr_block_0063",
+      "text": "cinnamon, cumin, poivre noir, feuilles de leaurier, cardamome verts,",
+      "confidence": 0.993,
+      "polygon": [
+        {
+          "x": 206.0,
+          "y": 894.0
+        },
+        {
+          "x": 894.0,
+          "y": 893.0
+        },
+        {
+          "x": 894.0,
+          "y": 914.0
+        },
+        {
+          "x": 206.0,
+          "y": 915.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 206.0,
+        "y_min": 893.0,
+        "x_max": 894.0,
+        "y_max": 915.0,
+        "width": 688.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 62
+    },
+    {
+      "block_id": "ocr_block_0064",
+      "text": "adult",
+      "confidence": 0.9997,
+      "polygon": [
+        {
+          "x": 1225.0,
+          "y": 886.0
+        },
+        {
+          "x": 1262.0,
+          "y": 886.0
+        },
+        {
+          "x": 1262.0,
+          "y": 904.0
+        },
+        {
+          "x": 1225.0,
+          "y": 904.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1225.0,
+        "y_min": 886.0,
+        "x_max": 1262.0,
+        "y_max": 904.0,
+        "width": 37.0,
+        "height": 18.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 63
+    },
+    {
+      "block_id": "ocr_block_0065",
+      "text": "cardamome noire, alerte, muscade, baton, club, staranis, fenouil en grain.",
+      "confidence": 0.9825,
+      "polygon": [
+        {
+          "x": 206.0,
+          "y": 917.0
+        },
+        {
+          "x": 842.0,
+          "y": 916.0
+        },
+        {
+          "x": 842.0,
+          "y": 938.0
+        },
+        {
+          "x": 206.0,
+          "y": 940.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 206.0,
+        "y_min": 916.0,
+        "x_max": 842.0,
+        "y_max": 940.0,
+        "width": 636.0,
+        "height": 24.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 64
+    },
+    {
+      "block_id": "ocr_block_0066",
+      "text": "Energy",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 922.0,
+          "y": 909.0
+        },
+        {
+          "x": 974.0,
+          "y": 912.0
+        },
+        {
+          "x": 972.0,
+          "y": 938.0
+        },
+        {
+          "x": 920.0,
+          "y": 935.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 920.0,
+        "y_min": 909.0,
+        "x_max": 974.0,
+        "y_max": 938.0,
+        "width": 54.0,
+        "height": 29.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 65
+    },
+    {
+      "block_id": "ocr_block_0067",
+      "text": "661 kJ",
+      "confidence": 0.9883,
+      "polygon": [
+        {
+          "x": 1028.0,
+          "y": 912.0
+        },
+        {
+          "x": 1081.0,
+          "y": 912.0
+        },
+        {
+          "x": 1081.0,
+          "y": 930.0
+        },
+        {
+          "x": 1028.0,
+          "y": 930.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1028.0,
+        "y_min": 912.0,
+        "x_max": 1081.0,
+        "y_max": 930.0,
+        "width": 53.0,
+        "height": 18.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 66
+    },
+    {
+      "block_id": "ocr_block_0068",
+      "text": "874 kJ",
+      "confidence": 0.9899,
+      "polygon": [
+        {
+          "x": 1094.0,
+          "y": 910.0
+        },
+        {
+          "x": 1147.0,
+          "y": 910.0
+        },
+        {
+          "x": 1147.0,
+          "y": 931.0
+        },
+        {
+          "x": 1094.0,
+          "y": 931.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1094.0,
+        "y_min": 910.0,
+        "x_max": 1147.0,
+        "y_max": 931.0,
+        "width": 53.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 67
+    },
+    {
+      "block_id": "ocr_block_0069",
+      "text": "10.40%",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1158.0,
+          "y": 911.0
+        },
+        {
+          "x": 1205.0,
+          "y": 911.0
+        },
+        {
+          "x": 1205.0,
+          "y": 930.0
+        },
+        {
+          "x": 1158.0,
+          "y": 930.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1158.0,
+        "y_min": 911.0,
+        "x_max": 1205.0,
+        "y_max": 930.0,
+        "width": 47.0,
+        "height": 19.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 68
+    },
+    {
+      "block_id": "ocr_block_0070",
+      "text": "8400 kJ",
+      "confidence": 0.9305,
+      "polygon": [
+        {
+          "x": 1217.0,
+          "y": 909.0
+        },
+        {
+          "x": 1269.0,
+          "y": 909.0
+        },
+        {
+          "x": 1269.0,
+          "y": 930.0
+        },
+        {
+          "x": 1217.0,
+          "y": 930.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1217.0,
+        "y_min": 909.0,
+        "x_max": 1269.0,
+        "y_max": 930.0,
+        "width": 52.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 69
+    },
+    {
+      "block_id": "ocr_block_0071",
+      "text": "158 kcal",
+      "confidence": 0.9996,
+      "polygon": [
+        {
+          "x": 1021.0,
+          "y": 931.0
+        },
+        {
+          "x": 1088.0,
+          "y": 931.0
+        },
+        {
+          "x": 1088.0,
+          "y": 948.0
+        },
+        {
+          "x": 1021.0,
+          "y": 948.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1021.0,
+        "y_min": 931.0,
+        "x_max": 1088.0,
+        "y_max": 948.0,
+        "width": 67.0,
+        "height": 17.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 70
+    },
+    {
+      "block_id": "ocr_block_0072",
+      "text": "209 kcal",
+      "confidence": 0.9515,
+      "polygon": [
+        {
+          "x": 1086.0,
+          "y": 931.0
+        },
+        {
+          "x": 1153.0,
+          "y": 931.0
+        },
+        {
+          "x": 1153.0,
+          "y": 948.0
+        },
+        {
+          "x": 1086.0,
+          "y": 948.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1086.0,
+        "y_min": 931.0,
+        "x_max": 1153.0,
+        "y_max": 948.0,
+        "width": 67.0,
+        "height": 17.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 71
+    },
+    {
+      "block_id": "ocr_block_0073",
+      "text": "10.45%",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1159.0,
+          "y": 930.0
+        },
+        {
+          "x": 1205.0,
+          "y": 930.0
+        },
+        {
+          "x": 1205.0,
+          "y": 948.0
+        },
+        {
+          "x": 1159.0,
+          "y": 948.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1159.0,
+        "y_min": 930.0,
+        "x_max": 1205.0,
+        "y_max": 948.0,
+        "width": 46.0,
+        "height": 18.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 72
+    },
+    {
+      "block_id": "ocr_block_0074",
+      "text": "2000 kcal",
+      "confidence": 0.9942,
+      "polygon": [
+        {
+          "x": 1211.0,
+          "y": 928.0
+        },
+        {
+          "x": 1273.0,
+          "y": 928.0
+        },
+        {
+          "x": 1273.0,
+          "y": 948.0
+        },
+        {
+          "x": 1211.0,
+          "y": 948.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1211.0,
+        "y_min": 928.0,
+        "x_max": 1273.0,
+        "y_max": 948.0,
+        "width": 62.0,
+        "height": 20.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 73
+    },
+    {
+      "block_id": "ocr_block_0075",
+      "text": "zUTATEN : basmati reis, kartoffel, wasser, tomate, guark, green peas,",
+      "confidence": 0.9785,
+      "polygon": [
+        {
+          "x": 271.0,
+          "y": 951.0
+        },
+        {
+          "x": 895.0,
+          "y": 951.0
+        },
+        {
+          "x": 895.0,
+          "y": 974.0
+        },
+        {
+          "x": 271.0,
+          "y": 974.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 271.0,
+        "y_min": 951.0,
+        "x_max": 895.0,
+        "y_max": 974.0,
+        "width": 624.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 74
+    },
+    {
+      "block_id": "ocr_block_0076",
+      "text": "Fat, Total",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 923.0,
+          "y": 960.0
+        },
+        {
+          "x": 987.0,
+          "y": 960.0
+        },
+        {
+          "x": 987.0,
+          "y": 982.0
+        },
+        {
+          "x": 923.0,
+          "y": 982.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 923.0,
+        "y_min": 960.0,
+        "x_max": 987.0,
+        "y_max": 982.0,
+        "width": 64.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 75
+    },
+    {
+      "block_id": "ocr_block_0077",
+      "text": "5.8g",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 1032.0,
+          "y": 956.0
+        },
+        {
+          "x": 1078.0,
+          "y": 959.0
+        },
+        {
+          "x": 1076.0,
+          "y": 983.0
+        },
+        {
+          "x": 1031.0,
+          "y": 980.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1031.0,
+        "y_min": 956.0,
+        "x_max": 1078.0,
+        "y_max": 983.0,
+        "width": 47.0,
+        "height": 27.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 76
+    },
+    {
+      "block_id": "ocr_block_0078",
+      "text": "7.7 g",
+      "confidence": 0.908,
+      "polygon": [
+        {
+          "x": 1101.0,
+          "y": 958.0
+        },
+        {
+          "x": 1143.0,
+          "y": 958.0
+        },
+        {
+          "x": 1143.0,
+          "y": 981.0
+        },
+        {
+          "x": 1101.0,
+          "y": 981.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1101.0,
+        "y_min": 958.0,
+        "x_max": 1143.0,
+        "y_max": 981.0,
+        "width": 42.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 77
+    },
+    {
+      "block_id": "ocr_block_0079",
+      "text": "11.0%",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 1160.0,
+          "y": 959.0
+        },
+        {
+          "x": 1203.0,
+          "y": 959.0
+        },
+        {
+          "x": 1203.0,
+          "y": 981.0
+        },
+        {
+          "x": 1160.0,
+          "y": 981.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1160.0,
+        "y_min": 959.0,
+        "x_max": 1203.0,
+        "y_max": 981.0,
+        "width": 43.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 78
+    },
+    {
+      "block_id": "ocr_block_0080",
+      "text": "70g",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1227.0,
+          "y": 959.0
+        },
+        {
+          "x": 1261.0,
+          "y": 959.0
+        },
+        {
+          "x": 1261.0,
+          "y": 983.0
+        },
+        {
+          "x": 1227.0,
+          "y": 983.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1227.0,
+        "y_min": 959.0,
+        "x_max": 1261.0,
+        "y_max": 983.0,
+        "width": 34.0,
+        "height": 24.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 79
+    },
+    {
+      "block_id": "ocr_block_0081",
+      "text": "sonnenblume ol, geist, ingwer, knoblauch, rote, peperoni, grune",
+      "confidence": 0.9891,
+      "polygon": [
+        {
+          "x": 271.0,
+          "y": 973.0
+        },
+        {
+          "x": 896.0,
+          "y": 973.0
+        },
+        {
+          "x": 896.0,
+          "y": 996.0
+        },
+        {
+          "x": 271.0,
+          "y": 996.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 271.0,
+        "y_min": 973.0,
+        "x_max": 896.0,
+        "y_max": 996.0,
+        "width": 625.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 80
+    },
+    {
+      "block_id": "ocr_block_0082",
+      "text": "Of which",
+      "confidence": 0.9996,
+      "polygon": [
+        {
+          "x": 923.0,
+          "y": 985.0
+        },
+        {
+          "x": 984.0,
+          "y": 985.0
+        },
+        {
+          "x": 984.0,
+          "y": 1007.0
+        },
+        {
+          "x": 923.0,
+          "y": 1007.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 923.0,
+        "y_min": 985.0,
+        "x_max": 984.0,
+        "y_max": 1007.0,
+        "width": 61.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 81
+    },
+    {
+      "block_id": "ocr_block_0083",
+      "text": "peperoni, koriander, minez, salz, kewda, safran, kurkum, zimt, keruzkummel,",
+      "confidence": 0.9931,
+      "polygon": [
+        {
+          "x": 207.0,
+          "y": 997.0
+        },
+        {
+          "x": 895.0,
+          "y": 995.0
+        },
+        {
+          "x": 895.0,
+          "y": 1016.0
+        },
+        {
+          "x": 207.0,
+          "y": 1018.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 207.0,
+        "y_min": 995.0,
+        "x_max": 895.0,
+        "y_max": 1018.0,
+        "width": 688.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 82
+    },
+    {
+      "block_id": "ocr_block_0084",
+      "text": "Saturates",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 923.0,
+          "y": 1010.0
+        },
+        {
+          "x": 990.0,
+          "y": 1010.0
+        },
+        {
+          "x": 990.0,
+          "y": 1031.0
+        },
+        {
+          "x": 923.0,
+          "y": 1031.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 923.0,
+        "y_min": 1010.0,
+        "x_max": 990.0,
+        "y_max": 1031.0,
+        "width": 67.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 83
+    },
+    {
+      "block_id": "ocr_block_0085",
+      "text": "2g",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1039.0,
+          "y": 1008.0
+        },
+        {
+          "x": 1072.0,
+          "y": 1011.0
+        },
+        {
+          "x": 1070.0,
+          "y": 1036.0
+        },
+        {
+          "x": 1037.0,
+          "y": 1033.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1037.0,
+        "y_min": 1008.0,
+        "x_max": 1072.0,
+        "y_max": 1036.0,
+        "width": 35.0,
+        "height": 28.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 84
+    },
+    {
+      "block_id": "ocr_block_0086",
+      "text": "2.7 g",
+      "confidence": 0.917,
+      "polygon": [
+        {
+          "x": 1099.0,
+          "y": 1010.0
+        },
+        {
+          "x": 1144.0,
+          "y": 1010.0
+        },
+        {
+          "x": 1144.0,
+          "y": 1033.0
+        },
+        {
+          "x": 1099.0,
+          "y": 1033.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1099.0,
+        "y_min": 1010.0,
+        "x_max": 1144.0,
+        "y_max": 1033.0,
+        "width": 45.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 85
+    },
+    {
+      "block_id": "ocr_block_0087",
+      "text": "13%",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1166.0,
+          "y": 1011.0
+        },
+        {
+          "x": 1199.0,
+          "y": 1011.0
+        },
+        {
+          "x": 1199.0,
+          "y": 1033.0
+        },
+        {
+          "x": 1166.0,
+          "y": 1033.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1166.0,
+        "y_min": 1011.0,
+        "x_max": 1199.0,
+        "y_max": 1033.0,
+        "width": 33.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 86
+    },
+    {
+      "block_id": "ocr_block_0088",
+      "text": "20g",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1227.0,
+          "y": 1007.0
+        },
+        {
+          "x": 1260.0,
+          "y": 1007.0
+        },
+        {
+          "x": 1260.0,
+          "y": 1029.0
+        },
+        {
+          "x": 1227.0,
+          "y": 1029.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1227.0,
+        "y_min": 1007.0,
+        "x_max": 1260.0,
+        "y_max": 1029.0,
+        "width": 33.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 87
+    },
+    {
+      "block_id": "ocr_block_0089",
+      "text": "schwarzer, pfeffer, lorbeer blatter, grune kardamom, schwarzer kardam, alarm,",
+      "confidence": 0.9926,
+      "polygon": [
+        {
+          "x": 206.0,
+          "y": 1019.0
+        },
+        {
+          "x": 896.0,
+          "y": 1016.0
+        },
+        {
+          "x": 896.0,
+          "y": 1039.0
+        },
+        {
+          "x": 207.0,
+          "y": 1042.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 206.0,
+        "y_min": 1016.0,
+        "x_max": 896.0,
+        "y_max": 1042.0,
+        "width": 690.0,
+        "height": 26.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 88
+    },
+    {
+      "block_id": "ocr_block_0090",
+      "text": "muskatinuss,amtsstab,klub,staranis, fenehelsamen.",
+      "confidence": 0.9899,
+      "polygon": [
+        {
+          "x": 207.0,
+          "y": 1041.0
+        },
+        {
+          "x": 684.0,
+          "y": 1040.0
+        },
+        {
+          "x": 684.0,
+          "y": 1061.0
+        },
+        {
+          "x": 207.0,
+          "y": 1062.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 207.0,
+        "y_min": 1040.0,
+        "x_max": 684.0,
+        "y_max": 1062.0,
+        "width": 477.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 89
+    },
+    {
+      "block_id": "ocr_block_0091",
+      "text": "Carbohydrate",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 921.0,
+          "y": 1032.0
+        },
+        {
+          "x": 1014.0,
+          "y": 1034.0
+        },
+        {
+          "x": 1014.0,
+          "y": 1058.0
+        },
+        {
+          "x": 920.0,
+          "y": 1056.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 920.0,
+        "y_min": 1032.0,
+        "x_max": 1014.0,
+        "y_max": 1058.0,
+        "width": 94.0,
+        "height": 26.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 90
+    },
+    {
+      "block_id": "ocr_block_0092",
+      "text": "23g",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1034.0,
+          "y": 1034.0
+        },
+        {
+          "x": 1075.0,
+          "y": 1037.0
+        },
+        {
+          "x": 1073.0,
+          "y": 1061.0
+        },
+        {
+          "x": 1033.0,
+          "y": 1058.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1033.0,
+        "y_min": 1034.0,
+        "x_max": 1075.0,
+        "y_max": 1061.0,
+        "width": 42.0,
+        "height": 27.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 91
+    },
+    {
+      "block_id": "ocr_block_0093",
+      "text": "30.4g",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1095.0,
+          "y": 1034.0
+        },
+        {
+          "x": 1148.0,
+          "y": 1037.0
+        },
+        {
+          "x": 1147.0,
+          "y": 1059.0
+        },
+        {
+          "x": 1094.0,
+          "y": 1057.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1094.0,
+        "y_min": 1034.0,
+        "x_max": 1148.0,
+        "y_max": 1059.0,
+        "width": 54.0,
+        "height": 25.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 92
+    },
+    {
+      "block_id": "ocr_block_0094",
+      "text": "Of which",
+      "confidence": 0.9945,
+      "polygon": [
+        {
+          "x": 922.0,
+          "y": 1057.0
+        },
+        {
+          "x": 986.0,
+          "y": 1057.0
+        },
+        {
+          "x": 986.0,
+          "y": 1082.0
+        },
+        {
+          "x": 922.0,
+          "y": 1082.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 922.0,
+        "y_min": 1057.0,
+        "x_max": 986.0,
+        "y_max": 1082.0,
+        "width": 64.0,
+        "height": 25.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 93
+    },
+    {
+      "block_id": "ocr_block_0095",
+      "text": "INGREDIENTES: basmati arroz, patata, agua, tomata, cibolla, cuajada,",
+      "confidence": 0.9698,
+      "polygon": [
+        {
+          "x": 274.0,
+          "y": 1075.0
+        },
+        {
+          "x": 899.0,
+          "y": 1073.0
+        },
+        {
+          "x": 899.0,
+          "y": 1097.0
+        },
+        {
+          "x": 274.0,
+          "y": 1099.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 274.0,
+        "y_min": 1073.0,
+        "x_max": 899.0,
+        "y_max": 1099.0,
+        "width": 625.0,
+        "height": 26.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 94
+    },
+    {
+      "block_id": "ocr_block_0096",
+      "text": "Sugars",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 922.0,
+          "y": 1082.0
+        },
+        {
+          "x": 975.0,
+          "y": 1082.0
+        },
+        {
+          "x": 975.0,
+          "y": 1108.0
+        },
+        {
+          "x": 922.0,
+          "y": 1108.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 922.0,
+        "y_min": 1082.0,
+        "x_max": 975.0,
+        "y_max": 1108.0,
+        "width": 53.0,
+        "height": 26.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 95
+    },
+    {
+      "block_id": "ocr_block_0097",
+      "text": "0g",
+      "confidence": 0.7287,
+      "polygon": [
+        {
+          "x": 1039.0,
+          "y": 1083.0
+        },
+        {
+          "x": 1073.0,
+          "y": 1086.0
+        },
+        {
+          "x": 1071.0,
+          "y": 1110.0
+        },
+        {
+          "x": 1037.0,
+          "y": 1107.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1037.0,
+        "y_min": 1083.0,
+        "x_max": 1073.0,
+        "y_max": 1110.0,
+        "width": 36.0,
+        "height": 27.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 96
+    },
+    {
+      "block_id": "ocr_block_0098",
+      "text": "0g",
+      "confidence": 0.7811,
+      "polygon": [
+        {
+          "x": 1105.0,
+          "y": 1084.0
+        },
+        {
+          "x": 1139.0,
+          "y": 1084.0
+        },
+        {
+          "x": 1139.0,
+          "y": 1108.0
+        },
+        {
+          "x": 1105.0,
+          "y": 1108.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1105.0,
+        "y_min": 1084.0,
+        "x_max": 1139.0,
+        "y_max": 1108.0,
+        "width": 34.0,
+        "height": 24.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 97
+    },
+    {
+      "block_id": "ocr_block_0099",
+      "text": "0%",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1169.0,
+          "y": 1084.0
+        },
+        {
+          "x": 1195.0,
+          "y": 1084.0
+        },
+        {
+          "x": 1195.0,
+          "y": 1105.0
+        },
+        {
+          "x": 1169.0,
+          "y": 1105.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1169.0,
+        "y_min": 1084.0,
+        "x_max": 1195.0,
+        "y_max": 1105.0,
+        "width": 26.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 98
+    },
+    {
+      "block_id": "ocr_block_0100",
+      "text": "90g",
+      "confidence": 0.9998,
+      "polygon": [
+        {
+          "x": 1225.0,
+          "y": 1083.0
+        },
+        {
+          "x": 1260.0,
+          "y": 1083.0
+        },
+        {
+          "x": 1260.0,
+          "y": 1106.0
+        },
+        {
+          "x": 1225.0,
+          "y": 1106.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1225.0,
+        "y_min": 1083.0,
+        "x_max": 1260.0,
+        "y_max": 1106.0,
+        "width": 35.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 99
+    },
+    {
+      "block_id": "ocr_block_0101",
+      "text": "guisantes verdes, aceite de girasol, fantasma, jengibre, ajo, pimento",
+      "confidence": 0.9942,
+      "polygon": [
+        {
+          "x": 274.0,
+          "y": 1099.0
+        },
+        {
+          "x": 901.0,
+          "y": 1096.0
+        },
+        {
+          "x": 901.0,
+          "y": 1119.0
+        },
+        {
+          "x": 274.0,
+          "y": 1122.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 274.0,
+        "y_min": 1096.0,
+        "x_max": 901.0,
+        "y_max": 1122.0,
+        "width": 627.0,
+        "height": 26.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 100
+    },
+    {
+      "block_id": "ocr_block_0102",
+      "text": "Fibre",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 923.0,
+          "y": 1108.0
+        },
+        {
+          "x": 963.0,
+          "y": 1108.0
+        },
+        {
+          "x": 963.0,
+          "y": 1130.0
+        },
+        {
+          "x": 923.0,
+          "y": 1130.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 923.0,
+        "y_min": 1108.0,
+        "x_max": 963.0,
+        "y_max": 1130.0,
+        "width": 40.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 101
+    },
+    {
+      "block_id": "ocr_block_0103",
+      "text": "0.3 g",
+      "confidence": 0.907,
+      "polygon": [
+        {
+          "x": 1033.0,
+          "y": 1108.0
+        },
+        {
+          "x": 1077.0,
+          "y": 1108.0
+        },
+        {
+          "x": 1077.0,
+          "y": 1131.0
+        },
+        {
+          "x": 1033.0,
+          "y": 1131.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1033.0,
+        "y_min": 1108.0,
+        "x_max": 1077.0,
+        "y_max": 1131.0,
+        "width": 44.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 102
+    },
+    {
+      "block_id": "ocr_block_0104",
+      "text": "0.4g",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1100.0,
+          "y": 1107.0
+        },
+        {
+          "x": 1144.0,
+          "y": 1107.0
+        },
+        {
+          "x": 1144.0,
+          "y": 1130.0
+        },
+        {
+          "x": 1100.0,
+          "y": 1130.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1100.0,
+        "y_min": 1107.0,
+        "x_max": 1144.0,
+        "y_max": 1130.0,
+        "width": 44.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 103
+    },
+    {
+      "block_id": "ocr_block_0105",
+      "text": "rosso, pimenton verde coriandro, mental, sal, kewda, azafran, curcuma, canela,",
+      "confidence": 0.9922,
+      "polygon": [
+        {
+          "x": 206.0,
+          "y": 1122.0
+        },
+        {
+          "x": 899.0,
+          "y": 1117.0
+        },
+        {
+          "x": 900.0,
+          "y": 1140.0
+        },
+        {
+          "x": 207.0,
+          "y": 1145.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 206.0,
+        "y_min": 1117.0,
+        "x_max": 900.0,
+        "y_max": 1145.0,
+        "width": 694.0,
+        "height": 28.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 104
+    },
+    {
+      "block_id": "ocr_block_0106",
+      "text": "Protein",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 923.0,
+          "y": 1132.0
+        },
+        {
+          "x": 975.0,
+          "y": 1132.0
+        },
+        {
+          "x": 975.0,
+          "y": 1154.0
+        },
+        {
+          "x": 923.0,
+          "y": 1154.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 923.0,
+        "y_min": 1132.0,
+        "x_max": 975.0,
+        "y_max": 1154.0,
+        "width": 52.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 105
+    },
+    {
+      "block_id": "ocr_block_0107",
+      "text": "3.3g",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1033.0,
+          "y": 1131.0
+        },
+        {
+          "x": 1078.0,
+          "y": 1133.0
+        },
+        {
+          "x": 1076.0,
+          "y": 1157.0
+        },
+        {
+          "x": 1032.0,
+          "y": 1155.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1032.0,
+        "y_min": 1131.0,
+        "x_max": 1078.0,
+        "y_max": 1157.0,
+        "width": 46.0,
+        "height": 26.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 106
+    },
+    {
+      "block_id": "ocr_block_0108",
+      "text": "4.4g",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1100.0,
+          "y": 1130.0
+        },
+        {
+          "x": 1144.0,
+          "y": 1132.0
+        },
+        {
+          "x": 1143.0,
+          "y": 1156.0
+        },
+        {
+          "x": 1099.0,
+          "y": 1154.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1099.0,
+        "y_min": 1130.0,
+        "x_max": 1144.0,
+        "y_max": 1156.0,
+        "width": 45.0,
+        "height": 26.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 107
+    },
+    {
+      "block_id": "ocr_block_0109",
+      "text": "comino, pimenta negra, hojas de laurel, cardamomo verde, alarma, nuez,",
+      "confidence": 0.9809,
+      "polygon": [
+        {
+          "x": 206.0,
+          "y": 1144.0
+        },
+        {
+          "x": 900.0,
+          "y": 1140.0
+        },
+        {
+          "x": 900.0,
+          "y": 1163.0
+        },
+        {
+          "x": 207.0,
+          "y": 1167.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 206.0,
+        "y_min": 1140.0,
+        "x_max": 900.0,
+        "y_max": 1167.0,
+        "width": 694.0,
+        "height": 27.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 108
+    },
+    {
+      "block_id": "ocr_block_0110",
+      "text": "Salt",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 922.0,
+          "y": 1156.0
+        },
+        {
+          "x": 957.0,
+          "y": 1156.0
+        },
+        {
+          "x": 957.0,
+          "y": 1180.0
+        },
+        {
+          "x": 922.0,
+          "y": 1180.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 922.0,
+        "y_min": 1156.0,
+        "x_max": 957.0,
+        "y_max": 1180.0,
+        "width": 35.0,
+        "height": 24.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 109
+    },
+    {
+      "block_id": "ocr_block_0111",
+      "text": "1.3 g",
+      "confidence": 0.9188,
+      "polygon": [
+        {
+          "x": 1033.0,
+          "y": 1154.0
+        },
+        {
+          "x": 1079.0,
+          "y": 1156.0
+        },
+        {
+          "x": 1077.0,
+          "y": 1180.0
+        },
+        {
+          "x": 1032.0,
+          "y": 1177.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1032.0,
+        "y_min": 1154.0,
+        "x_max": 1079.0,
+        "y_max": 1180.0,
+        "width": 47.0,
+        "height": 26.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 110
+    },
+    {
+      "block_id": "ocr_block_0112",
+      "text": "1.73g",
+      "confidence": 0.9999,
+      "polygon": [
+        {
+          "x": 1096.0,
+          "y": 1154.0
+        },
+        {
+          "x": 1149.0,
+          "y": 1156.0
+        },
+        {
+          "x": 1148.0,
+          "y": 1179.0
+        },
+        {
+          "x": 1095.0,
+          "y": 1177.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1095.0,
+        "y_min": 1154.0,
+        "x_max": 1149.0,
+        "y_max": 1179.0,
+        "width": 54.0,
+        "height": 25.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 111
+    },
+    {
+      "block_id": "ocr_block_0113",
+      "text": "-%",
+      "confidence": 0.9955,
+      "polygon": [
+        {
+          "x": 1173.0,
+          "y": 1155.0
+        },
+        {
+          "x": 1192.0,
+          "y": 1155.0
+        },
+        {
+          "x": 1192.0,
+          "y": 1174.0
+        },
+        {
+          "x": 1173.0,
+          "y": 1174.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1173.0,
+        "y_min": 1155.0,
+        "x_max": 1192.0,
+        "y_max": 1174.0,
+        "width": 19.0,
+        "height": 19.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 112
+    },
+    {
+      "block_id": "ocr_block_0114",
+      "text": "6g",
+      "confidence": 0.9997,
+      "polygon": [
+        {
+          "x": 1230.0,
+          "y": 1154.0
+        },
+        {
+          "x": 1257.0,
+          "y": 1154.0
+        },
+        {
+          "x": 1257.0,
+          "y": 1176.0
+        },
+        {
+          "x": 1230.0,
+          "y": 1176.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1230.0,
+        "y_min": 1154.0,
+        "x_max": 1257.0,
+        "y_max": 1176.0,
+        "width": 27.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 113
+    },
+    {
+      "block_id": "ocr_block_0115",
+      "text": "muscada, baston de mando, club, staranis, grano de hinajo.",
+      "confidence": 0.9782,
+      "polygon": [
+        {
+          "x": 207.0,
+          "y": 1165.0
+        },
+        {
+          "x": 722.0,
+          "y": 1164.0
+        },
+        {
+          "x": 722.0,
+          "y": 1187.0
+        },
+        {
+          "x": 207.0,
+          "y": 1188.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 207.0,
+        "y_min": 1164.0,
+        "x_max": 722.0,
+        "y_max": 1188.0,
+        "width": 515.0,
+        "height": 24.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 114
+    },
+    {
+      "block_id": "ocr_block_0116",
+      "text": "Sodium",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 923.0,
+          "y": 1181.0
+        },
+        {
+          "x": 979.0,
+          "y": 1181.0
+        },
+        {
+          "x": 979.0,
+          "y": 1203.0
+        },
+        {
+          "x": 923.0,
+          "y": 1203.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 923.0,
+        "y_min": 1181.0,
+        "x_max": 979.0,
+        "y_max": 1203.0,
+        "width": 56.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 115
+    },
+    {
+      "block_id": "ocr_block_0117",
+      "text": "512mg",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1027.0,
+          "y": 1180.0
+        },
+        {
+          "x": 1083.0,
+          "y": 1180.0
+        },
+        {
+          "x": 1083.0,
+          "y": 1201.0
+        },
+        {
+          "x": 1027.0,
+          "y": 1201.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1027.0,
+        "y_min": 1180.0,
+        "x_max": 1083.0,
+        "y_max": 1201.0,
+        "width": 56.0,
+        "height": 21.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 116
+    },
+    {
+      "block_id": "ocr_block_0118",
+      "text": "678mg",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1093.0,
+          "y": 1176.0
+        },
+        {
+          "x": 1151.0,
+          "y": 1178.0
+        },
+        {
+          "x": 1150.0,
+          "y": 1201.0
+        },
+        {
+          "x": 1092.0,
+          "y": 1199.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1092.0,
+        "y_min": 1176.0,
+        "x_max": 1151.0,
+        "y_max": 1201.0,
+        "width": 59.0,
+        "height": 25.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 117
+    },
+    {
+      "block_id": "ocr_block_0119",
+      "text": "28%",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1167.0,
+          "y": 1180.0
+        },
+        {
+          "x": 1198.0,
+          "y": 1180.0
+        },
+        {
+          "x": 1198.0,
+          "y": 1199.0
+        },
+        {
+          "x": 1167.0,
+          "y": 1199.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1167.0,
+        "y_min": 1180.0,
+        "x_max": 1198.0,
+        "y_max": 1199.0,
+        "width": 31.0,
+        "height": 19.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 118
+    },
+    {
+      "block_id": "ocr_block_0120",
+      "text": "2400mg",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 1217.0,
+          "y": 1178.0
+        },
+        {
+          "x": 1271.0,
+          "y": 1180.0
+        },
+        {
+          "x": 1270.0,
+          "y": 1201.0
+        },
+        {
+          "x": 1216.0,
+          "y": 1198.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 1216.0,
+        "y_min": 1178.0,
+        "x_max": 1271.0,
+        "y_max": 1201.0,
+        "width": 55.0,
+        "height": 23.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 119
+    },
+    {
+      "block_id": "ocr_block_0121",
+      "text": "* Reference intake of an average adult (8400 kJ/ 2000 kcal)",
+      "confidence": 0.981,
+      "polygon": [
+        {
+          "x": 918.0,
+          "y": 1207.0
+        },
+        {
+          "x": 1257.0,
+          "y": 1202.0
+        },
+        {
+          "x": 1258.0,
+          "y": 1223.0
+        },
+        {
+          "x": 919.0,
+          "y": 1228.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 918.0,
+        "y_min": 1202.0,
+        "x_max": 1258.0,
+        "y_max": 1228.0,
+        "width": 340.0,
+        "height": 26.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 120
+    },
+    {
+      "block_id": "ocr_block_0122",
+      "text": "IMPORTANT: Store in Clean, Cool, Dry place, Free from Moisture, Humidity,",
+      "confidence": 0.9925,
+      "polygon": [
+        {
+          "x": 206.0,
+          "y": 1318.0
+        },
+        {
+          "x": 891.0,
+          "y": 1311.0
+        },
+        {
+          "x": 892.0,
+          "y": 1335.0
+        },
+        {
+          "x": 207.0,
+          "y": 1341.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 206.0,
+        "y_min": 1311.0,
+        "x_max": 892.0,
+        "y_max": 1341.0,
+        "width": 686.0,
+        "height": 30.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 121
+    },
+    {
+      "block_id": "ocr_block_0123",
+      "text": "Insects,Pests, Strong odours, Sunlight & Dust.",
+      "confidence": 0.9617,
+      "polygon": [
+        {
+          "x": 206.0,
+          "y": 1340.0
+        },
+        {
+          "x": 609.0,
+          "y": 1339.0
+        },
+        {
+          "x": 609.0,
+          "y": 1363.0
+        },
+        {
+          "x": 206.0,
+          "y": 1364.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 206.0,
+        "y_min": 1339.0,
+        "x_max": 609.0,
+        "y_max": 1364.0,
+        "width": 403.0,
+        "height": 25.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 122
+    },
+    {
+      "block_id": "ocr_block_0124",
+      "text": "GITS FOOD PRODUCTS PVT. LTD.",
+      "confidence": 0.9869,
+      "polygon": [
+        {
+          "x": 208.0,
+          "y": 1374.0
+        },
+        {
+          "x": 890.0,
+          "y": 1367.0
+        },
+        {
+          "x": 891.0,
+          "y": 1400.0
+        },
+        {
+          "x": 209.0,
+          "y": 1407.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 208.0,
+        "y_min": 1367.0,
+        "x_max": 891.0,
+        "y_max": 1407.0,
+        "width": 683.0,
+        "height": 40.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 123
+    },
+    {
+      "block_id": "ocr_block_0125",
+      "text": "Gits House, 18/3, Hadapsar Industrial Estate, Pune-411 013, India.",
+      "confidence": 0.9955,
+      "polygon": [
+        {
+          "x": 209.0,
+          "y": 1410.0
+        },
+        {
+          "x": 888.0,
+          "y": 1401.0
+        },
+        {
+          "x": 889.0,
+          "y": 1424.0
+        },
+        {
+          "x": 210.0,
+          "y": 1433.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 209.0,
+        "y_min": 1401.0,
+        "x_max": 889.0,
+        "y_max": 1433.0,
+        "width": 680.0,
+        "height": 32.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 124
+    },
+    {
+      "block_id": "ocr_block_0126",
+      "text": "8901155414310",
+      "confidence": 0.9991,
+      "polygon": [
+        {
+          "x": 972.0,
+          "y": 1404.0
+        },
+        {
+          "x": 1213.0,
+          "y": 1399.0
+        },
+        {
+          "x": 1214.0,
+          "y": 1426.0
+        },
+        {
+          "x": 973.0,
+          "y": 1431.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 972.0,
+        "y_min": 1399.0,
+        "x_max": 1214.0,
+        "y_max": 1431.0,
+        "width": 242.0,
+        "height": 32.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 125
+    },
+    {
+      "block_id": "ocr_block_0127",
+      "text": "Email:export@gitsfood.com",
+      "confidence": 1.0,
+      "polygon": [
+        {
+          "x": 232.0,
+          "y": 1428.0
+        },
+        {
+          "x": 525.0,
+          "y": 1426.0
+        },
+        {
+          "x": 525.0,
+          "y": 1446.0
+        },
+        {
+          "x": 232.0,
+          "y": 1448.0
+        }
+      ],
+      "bounding_box": {
+        "x_min": 232.0,
+        "y_min": 1426.0,
+        "x_max": 525.0,
+        "y_max": 1448.0,
+        "width": 293.0,
+        "height": 22.0
+      },
+      "source_image_ref": "food_001.jpg",
+      "associated_region_id": null,
+      "line_index": 126
+    }
+  ],
+  "warnings": [
+    "Significant highlight clipping: 30.5% of pixels are saturated near pure white (threshold: 5.0%). Possible flash reflection."
+  ],
+  "errors": []
+}
