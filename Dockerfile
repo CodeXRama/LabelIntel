@@ -1,7 +1,9 @@
-FROM node:22-alpine AS frontend-build
+# Use glibc-based Node for reproducible Vite/Rollup builds on Render.
+# Alpine's musl native optional dependency can fail during Rollup parsing.
+FROM node:22-bookworm-slim AS frontend-build
 WORKDIR /web
 COPY frontend/package.json frontend/package-lock.json ./
-RUN npm ci
+RUN npm ci --include=optional
 COPY frontend/ ./
 RUN npm run build
 
